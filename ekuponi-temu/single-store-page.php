@@ -125,7 +125,9 @@ if (!function_exists('ekp_process_content')) {
                 break;
             }
 
-            $a = $xp->query('.//a[@href]', $box)->item(0) ?: $xp->query('ancestor::a[@href]', $box)->item(0);
+            // Blok koji je cijeli omotan u link (kao "Big TEMU Savings") = ponuda za sve korisnike
+            $wrap = $xp->query('ancestor::a[@href]', $box)->item(0);
+            $a    = $xp->query('.//a[@href]', $box)->item(0) ?: $wrap;
 
             $key = $code !== '' ? $code : 'deal-' . ($i + 1);
             $box->setAttribute('data-ekp-key', $key);
@@ -136,6 +138,7 @@ if (!function_exists('ekp_process_content')) {
                 'desc'  => $desc,
                 'code'  => $code,
                 'url'   => $a ? $a->getAttribute('href') : '',
+                'all'   => ($code === '' && $wrap !== null),
             ];
 
             $marker = $dom->createComment('EKP_META_' . $i);
@@ -246,7 +249,7 @@ if ($ekp_enabled) {
     /* Link za ponude koje vrijede za sve korisnike (kupon bez koda) */
     $ekp_deal_url = '';
     foreach ($ekp_coupons as $ekp_c) {
-        if ($ekp_c['code'] === '' && $ekp_c['url'] !== '') {
+        if ($ekp_c['all'] && $ekp_c['url'] !== '') {
             $ekp_deal_url = $ekp_c['url'];
             break;
         }
@@ -354,7 +357,7 @@ if ($ekp_enabled) {
                         <?php echo esc_html($t['no_code']); ?>
                     <?php endif; ?>
                 </td>
-                <td data-label="<?php echo esc_attr($t['th_for']); ?>"><?php echo esc_html($ekp_c['code'] !== '' ? $t['for_new'] : $t['for_all']); ?></td>
+                <td data-label="<?php echo esc_attr($t['th_for']); ?>"><?php echo esc_html($ekp_c['all'] ? $t['for_all'] : $t['for_new']); ?></td>
                 <td data-label="<?php echo esc_attr($t['th_valid']); ?>"><?php echo esc_html($ekp_c['valid']); ?></td>
                 <td data-label="<?php echo esc_attr($t['th_status']); ?>">
                     <span class="ekp-cell"><span class="ekp-ok">✓ <?php echo esc_html($t['verified']); ?></span><?php if ($ekp_c['uses'] >= $ekp_min_uses) : ?><br><span class="ekp-small"><?php echo esc_html(ekp_tr($t['used'], ['n' => number_format_i18n($ekp_c['uses'])])); ?></span><?php endif; ?></span>
