@@ -281,22 +281,26 @@ if ($ekp_enabled) {
         }
     }
 
-    /* Temu stranice drugih država (samo one iz hreflang liste) – prvo isti jezik, zatim ostale */
-    $ekp_same_lang = [];
-    $ekp_other_lang = [];
-    foreach ($COUNTRIES as $ekp_k => $ekp_country) {
-        $ekp_url = $ekp_country['paths']['kuponi'] ?? '';
-        if ($ekp_k === $c_lang || !$ekp_url || $ekp_url === ($paths['kuponi'] ?? '') || !in_array($ekp_url, $ekp_hreflang, true)) {
-            continue;
-        }
-        $ekp_label = $ekp_country['labels']['cupones'] . ' Temu – ' . $ekp_country['full_name'];
-        if (($ekp_country['lang_pack'] ?? '') === ($current['lang_pack'] ?? '')) {
-            $ekp_same_lang[$ekp_url] = $ekp_label;
-        } else {
-            $ekp_other_lang[$ekp_url] = $ekp_label;
+    /* Temu stranice drugih država: 'nearby' iz configa (susjedna tržišta), inače samo isti jezik.
+       Prikazuju se samo stranice iz hreflang liste. */
+    $ekp_nearby = $current['nearby'] ?? null;
+    if (!is_array($ekp_nearby)) {
+        $ekp_nearby = [];
+        foreach ($COUNTRIES as $ekp_k => $ekp_country) {
+            if (($ekp_country['lang_pack'] ?? '') === ($current['lang_pack'] ?? '')) {
+                $ekp_nearby[] = $ekp_k;
+            }
         }
     }
-    $ekp_countries_links = $ekp_same_lang + $ekp_other_lang;
+    $ekp_countries_links = [];
+    foreach ($ekp_nearby as $ekp_k) {
+        $ekp_country = $COUNTRIES[$ekp_k] ?? null;
+        $ekp_url     = $ekp_country['paths']['kuponi'] ?? '';
+        if (!$ekp_country || $ekp_k === $c_lang || !$ekp_url || $ekp_url === ($paths['kuponi'] ?? '') || !in_array($ekp_url, $ekp_hreflang, true)) {
+            continue;
+        }
+        $ekp_countries_links[$ekp_url] = 'Temu ' . $ekp_country['labels']['cupones'] . ' – ' . $ekp_country['full_name'];
+    }
 
     /* --- Meta red na svakom kuponu --- */
     $ekp_repl = [];

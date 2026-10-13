@@ -9,6 +9,8 @@
  *  - 'editor'      => (opcionalno) ['name' => 'Ime Prezime', 'role' => 'Urednik'] za "Savjet urednika"
  *  - 'related'     => [['url' => 'https://...', 'label' => 'Tekst linka'], ...] – blok "Korisni linkovi"
  *                     (drugi kuponi, članci na istom jeziku). Prazno = blok se ne prikazuje.
+ *  - 'nearby'      => ključevi država iz $COUNTRIES (susjedna/srodna tržišta) za blok "Temu u drugim državama".
+ *                     Prikazuju se samo stranice iz hreflang liste. Bez 'nearby' = samo države na istom jeziku.
  *  - 'last_verified' => (opcionalno) 'Y-m-d' datum zadnje ručne provjere kodova samo za tu državu
  */
 
@@ -37,6 +39,8 @@ $COUNTRIES = [
         ],
 
         'related' => [],
+
+        'nearby'  => ['en-US', 'es-CO', 'es-PE', 'es-SV', 'es-DO', 'es'],
 
 
         'paths' => [
@@ -70,6 +74,8 @@ $COUNTRIES = [
 
         'related' => [],
 
+        'nearby'  => ['es-CO', 'es-PE', 'es-MX', 'es'],
+
 
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-argentina/',
@@ -100,6 +106,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Tutti i diritti riservati.',
     ], 
     'related' => [],
+    'nearby'  => ['fr-FR', 'de', 'es', 'el-GR'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/buoni-sconto-e-codici-sconto-temu/',
@@ -130,6 +137,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
     'related' => [],
+    'nearby'  => ['pt-PT', 'fr-FR', 'it', 'es-MX'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu/',
@@ -160,6 +168,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Minden jog fenntartva.',
     ], 
     'related' => [],
+    'nearby'  => ['ro-RO', 'cs', 'de', 'pl'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kuponok-es-akciok/',
@@ -190,6 +199,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Tüm hakları saklıdır.',
     ], 
     'related' => [],
+    'nearby'  => ['el-GR', 'ro-RO', 'de', 'uk'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-indirim-kuponlari-indirim-kodlari/',
@@ -220,6 +230,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Všechna práva vyhrazena.',
     ], 
     'related' => [],
+    'nearby'  => ['pl', 'de', 'hu'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kupony-a-slevove-kody/',
@@ -250,6 +261,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Wszelkie prawa zastrzeżone.',
     ], 
     'related' => [],
+    'nearby'  => ['cs', 'de', 'uk', 'hu'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kupony-i-kody-rabatowe/',
@@ -280,6 +292,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Alle Rechte vorbehalten.',
     ], 
     'related' => [],
+    'nearby'  => ['nl-NL', 'cs', 'pl', 'fr-FR'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-gutscheincode/',
@@ -310,6 +323,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Toate drepturile rezervate.',
     ], 
     'related' => [],
+    'nearby'  => ['hu', 'uk', 'el-GR', 'de'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-reducere-si-cupoane/',
@@ -340,6 +354,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Всі права захищені.',
     ], 
     'related' => [],
+    'nearby'  => ['pl', 'ro-RO', 'hu', 'cs'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-%d0%ba%d1%83%d0%bf%d0%be%d0%bd%d0%b8-%d1%82%d0%b0-%d0%bf%d1%80%d0%be%d0%bc%d0%be%d0%ba%d0%be%d0%b4%d0%b8-%d0%b4%d0%be-70/',
@@ -370,6 +385,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Bütün hüquqlar qorunur.',
     ], 
     'related' => [],
+    'nearby'  => ['uk', 'ro-RO', 'de'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-endirim-kodlari-v%c9%99-kuponlari/',
@@ -400,6 +416,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - All rights reserved.',
     ], 
     'related' => [],
+    'nearby'  => ['en-US', 'fr-FR', 'de', 'nl-NL'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-coupon-codes-uk/',
@@ -430,6 +447,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - ყველა უფლება დაცულია.',
     ], 
     'related' => [],
+    'nearby'  => ['uk', 'el-GR', 'ro-RO'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-%e1%83%a4%e1%83%90%e1%83%a1%e1%83%93%e1%83%90%e1%83%99%e1%83%9a%e1%83%94%e1%83%91%e1%83%98%e1%83%a1-%e1%83%99%e1%83%9d%e1%83%93%e1%83%94%e1%83%91%e1%83%98/',
@@ -460,6 +478,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Όλα τα δικαιώματα διατηρούνται.',
     ], 
     'related' => [],
+    'nearby'  => ['ro-RO', 'it', 'de'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/%ce%ba%cf%89%ce%b4%ce%b9%ce%ba%ce%bf%ce%af-%ce%ad%ce%ba%cf%80%cf%84%cf%89%cf%83%ce%b7%cf%82-%ce%ba%ce%bf%cf%85%cf%80%cf%8c%ce%bd%ce%b9%ce%b1-temu/',
@@ -490,6 +509,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Alle rechten voorbehouden.',
     ], 
     'related' => [],
+    'nearby'  => ['de', 'fr-FR', 'en-GB'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kortingscodes-coupons/',
@@ -520,6 +540,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Todos os direitos reservados.',
     ], 
     'related' => [],
+    'nearby'  => ['es', 'fr-FR', 'en-GB'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/codigos-de-desconto-cupoes-temu/',
@@ -550,6 +571,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Alle rechten voorbehouden.',
     ], 
     'related' => [],
+    'nearby'  => ['nl-NL', 'fr-FR', 'de'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kortingscodes-be/',
@@ -580,6 +602,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Všetky práva vyhradené.',
     ], 
     'related' => [],
+    'nearby'  => ['cs', 'hu', 'pl', 'de'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-zlavove-kody-kupony/',
@@ -610,6 +633,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Alla rättigheter förbehållna.',
     ], 
     'related' => [],
+    'nearby'  => ['de', 'nl-NL', 'pl', 'en-GB'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-rabattkoder-kuponger/',
@@ -640,6 +664,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - All rights reserved.',
     ], 
     'related' => [],
+    'nearby'  => ['en-US', 'en-GB'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-discount-codes-coupons-philippines/',
@@ -670,6 +695,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - All rights reserved.',
     ], 
     'related' => [],
+    'nearby'  => ['en-GB', 'en-US'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-discount-codes-coupons-malaysia/',
@@ -700,6 +726,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
     'related' => [],
+    'nearby'  => ['es-PE', 'es-MX', 'es-DO', 'es-SV'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-colombia/',
@@ -730,6 +757,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Todos os direitos reservados.',
     ], 
     'related' => [],
+    'nearby'  => ['pt-PT', 'es-AR', 'es-CO'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupons-e-codigos-desconto-temu-brasil/',
@@ -760,6 +788,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
     'related' => [],
+    'nearby'  => ['es-CO', 'es-AR', 'es-MX'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-peru/',
@@ -790,6 +819,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
     'related' => [],
+    'nearby'  => ['es-MX', 'es-DO', 'es-CO', 'en-US'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-el-salvador/',
@@ -820,6 +850,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
     'related' => [],
+    'nearby'  => ['es-SV', 'es-MX', 'es-CO', 'en-US'],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-republica-dominicana/',
@@ -852,6 +883,8 @@ $COUNTRIES = [
 
         'related' => [],
 
+        'nearby'  => ['uk', 'de'],
+
 
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/temu-chegirma-kodlari-kuponlar-ozbekiston/',
@@ -883,6 +916,8 @@ $COUNTRIES = [
         ], 
 
         'related' => [],
+
+        'nearby'  => ['es', 'it', 'de', 'en-GB'],
 
 
         'paths' => [
@@ -917,6 +952,8 @@ $COUNTRIES = [
 
         'related' => [],
 
+        'nearby'  => ['en-GB', 'es-MX'],
+
 
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/temu-coupon-codes-us/',
@@ -950,6 +987,8 @@ $COUNTRIES = [
         ],
 
         'related' => [],
+
+        'nearby'  => ['hu', 'de', 'it', 'cs'],
 
 
         'paths' => [
