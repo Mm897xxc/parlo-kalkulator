@@ -7,6 +7,8 @@
  *  - 'lang_pack'   => ključ iz $EKP_TEXTS (prijevod SEO sekcija koje template dodaje oko sadržaja stranice)
  *  - 'date_fmt'    => (opcionalno) format datuma, inače se koristi format iz jezičnog paketa
  *  - 'editor'      => (opcionalno) ['name' => 'Ime Prezime', 'role' => 'Urednik'] za "Savjet urednika"
+ *  - 'related'     => [['url' => 'https://...', 'label' => 'Tekst linka'], ...] – blok "Korisni linkovi"
+ *                     (drugi kuponi, članci na istom jeziku). Prazno = blok se ne prikazuje.
  *  - 'last_verified' => (opcionalno) 'Y-m-d' datum zadnje ručne provjere kodova samo za tu državu
  */
 
@@ -34,9 +36,12 @@ $COUNTRIES = [
             'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
         ],
 
+        'related' => [],
+
+
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-mexico/',
-            'vodic'     => 'https://ekuponi.com/temu-cupones-mexico-guia-completa/',
+            'vodic'     => '',
         ]
     ],
     
@@ -63,9 +68,12 @@ $COUNTRIES = [
             'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
         ], 
 
+        'related' => [],
+
+
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-argentina/',
-            'vodic'    => 'https://ekuponi.com/temu-cupones-argentina-guia-completa/',
+            'vodic'    => '',
         ]
     ],
     
@@ -91,9 +99,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Questo è un sito web di affiliazione indipendente. Non siamo affiliati, approvati o ufficialmente connessi con TEMU o con qualsiasi altro negozio menzionato sul nostro sito. Potremmo guadagnare una commissione quando effettui un acquisto tramite i nostri link.',
         'copyright'       => '© 2026 eKuponi.com - Tutti i diritti riservati.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/buoni-sconto-e-codici-sconto-temu/',
-        'vodic'    => 'https://ekuponi.com/temu-buoni-sconto-italia-guida-completa/',
+        'vodic'    => '',
     ]
 ],
 
@@ -119,9 +129,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Este es un sitio web de afiliados independiente. No estamos afiliados, respaldados ni conectados oficialmente con TEMU ni con ningún otro comercio mencionado en nuestro sitio web. Podemos ganar una comisión cuando realices una compra a través de nuestros enlaces.',
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu/',
-        'vodic'    => 'https://ekuponi.com/temu-cupones-espana-guia-completa/',
+        'vodic'    => '',
     ]
 ],
 
@@ -147,9 +159,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Ez egy független partnerprogramos weboldal. Nem vagyunk hivatalosan kapcsolatban, támogatva vagy összekötve a TEMU-val vagy más, weboldalunkon említett üzlettel. Jutalékot kaphatunk, amikor vásárlást hajt végre a linkjeinken keresztül.',
         'copyright'       => '© 2026 eKuponi.com - Minden jog fenntartva.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kuponok-es-akciok/',
-        'vodic'    => 'https://ekuponi.com/temu-kuponok-magyarorszag-teljes-utmutato/',
+        'vodic'    => '',
     ]
 ],
 
@@ -175,9 +189,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Bu bağımsız bir bağlı kuruluş web sitesidir. TEMU veya web sitemizde bahsedilen diğer mağazalarla resmi olarak bağlantılı, onaylanmış veya ilişkili değiliz. Bağlantılarımız üzerinden bir satın alma yaptığınızda komisyon kazanabiliriz.',
         'copyright'       => '© 2026 eKuponi.com - Tüm hakları saklıdır.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-indirim-kuponlari-indirim-kodlari/',
-        'vodic'    => 'https://ekuponi.com/temu-kuponlari-turkiye-tam-rehber/',
+        'vodic'    => '',
     ]
 ],
 
@@ -203,9 +219,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Toto je nezávislá partnerská webová stránka. Nejsme oficiálně spojeni, podporováni ani spojeni s TEMU ani s žádným jiným obchodem uvedeným na našich webových stránkách. Můžeme získat provizi, když provedete nákup prostřednictvím našich odkazů.',
         'copyright'       => '© 2026 eKuponi.com - Všechna práva vyhrazena.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kupony-a-slevove-kody/',
-        'vodic'    => 'https://ekuponi.com/temu-kupony-ceska-republika-uplny-pruvodce/',
+        'vodic'    => '',
     ]
 ],
 
@@ -231,9 +249,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'To jest niezależna witryna partnerska. Nie jesteśmy oficjalnie powiązani, wspierani ani połączeni z TEMU ani z żadnym innym sklepem wymienionym na naszej stronie. Możemy otrzymać prowizję, gdy dokonasz zakupu za pośrednictwem naszych linków.',
         'copyright'       => '© 2026 eKuponi.com - Wszelkie prawa zastrzeżone.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kupony-i-kody-rabatowe/',
-        'vodic'    => 'https://ekuponi.com/temu-kupony-polska-kompletny-przewodnik/',
+        'vodic'    => '',
     ]
 ],
 
@@ -259,9 +279,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Dies ist eine unabhängige Partner-Website. Wir sind nicht offiziell verbunden, unterstützt oder mit TEMU oder einem anderen auf unserer Website erwähnten Geschäft verbunden. Wir können eine Provision verdienen, wenn Sie über unsere Links einen Kauf tätigen.',
         'copyright'       => '© 2026 eKuponi.com - Alle Rechte vorbehalten.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-gutscheincode/',
-        'vodic'    => 'https://ekuponi.com/temu-gutscheine-deutschland-vollstandiger-leitfaden/',
+        'vodic'    => '',
     ]
 ],
 
@@ -287,9 +309,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Acesta este un site web de afiliere independent. Nu suntem afiliați oficial, susținuți sau conectați cu TEMU sau cu orice alt magazin menționat pe site-ul nostru. Putem câștiga un comision atunci când efectuați o achiziție prin linkurile noastre.',
         'copyright'       => '© 2026 eKuponi.com - Toate drepturile rezervate.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-reducere-si-cupoane/',
-        'vodic'    => 'https://ekuponi.com/temu-cupoane-romania-ghid-complet/',
+        'vodic'    => '',
     ]
 ],
 
@@ -315,9 +339,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Це незалежний партнерський веб-сайт. Ми офіційно не пов\'язані, не підтримуємо та не маємо зв\'язків з TEMU або будь-яким іншим магазином, згаданим на нашому сайті. Ми можемо отримати комісію, коли ви здійснюєте покупку за нашими посиланнями.',
         'copyright'       => '© 2026 eKuponi.com - Всі права захищені.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-%d0%ba%d1%83%d0%bf%d0%be%d0%bd%d0%b8-%d1%82%d0%b0-%d0%bf%d1%80%d0%be%d0%bc%d0%be%d0%ba%d0%be%d0%b4%d0%b8-%d0%b4%d0%be-70/',
-        'vodic'    => 'https://ekuponi.com/temu-kuponi-ukraina-povniy-posibnik/',
+        'vodic'    => '',
     ]
 ],
 
@@ -343,9 +369,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Bu müstəqil partnyor veb saytıdır. Biz TEMU və ya saytımızda qeyd olunan digər mağazalarla rəsmi olaraq əlaqəli, dəstəklənmirik və ya bağlı deyilik. Linklərimiz vasitəsilə alış-veriş etdiyinizdə komissiya qazana bilərik.',
         'copyright'       => '© 2026 eKuponi.com - Bütün hüquqlar qorunur.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-endirim-kodlari-v%c9%99-kuponlari/',
-        'vodic'    => 'https://ekuponi.com/temu-kuponlar-azerbaycan-tam-beledci/',
+        'vodic'    => '',
     ]
 ],
 
@@ -371,9 +399,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'This is an independent affiliate website. We are not officially affiliated, endorsed or connected with TEMU or any other store mentioned on our website. We may earn a commission when you make a purchase through our links.',
         'copyright'       => '© 2026 eKuponi.com - All rights reserved.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-coupon-codes-uk/',
-        'vodic'    => 'https://ekuponi.com/temu-coupons-uk-complete-guide/',
+        'vodic'    => '',
     ]
 ],
 
@@ -399,9 +429,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'ეს არის დამოუკიდებელი პარტნიორული ვებსაიტი. ჩვენ ოფიციალურად არ ვართ დაკავშირებული, მხარდაჭერილი ან დაკავშირებული TEMU-სთან ან სხვა მაღაზიასთან, რომელიც ნახსენებია ჩვენს ვებსაიტზე. შეგვიძლია მივიღოთ კომისიონი, როდესაც თქვენ შეძენას განახორციელებთ ჩვენი ბმულების საშუალებით.',
         'copyright'       => '© 2026 eKuponi.com - ყველა უფლება დაცულია.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-%e1%83%a4%e1%83%90%e1%83%a1%e1%83%93%e1%83%90%e1%83%99%e1%83%9a%e1%83%94%e1%83%91%e1%83%98%e1%83%a1-%e1%83%99%e1%83%9d%e1%83%93%e1%83%94%e1%83%91%e1%83%98/',
-        'vodic'    => 'https://ekuponi.com/temu-kuponebi-sakartvelo-sruli-gzamkvlevi/',
+        'vodic'    => '',
     ]
 ],
 
@@ -427,9 +459,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Αυτός είναι ένας ανεξάρτητος ιστότοπος συνεργατών. Δεν είμαστε επίσημα συνδεδεμένοι, εγκεκριμένοι ή συνδεδεμένοι με την TEMU ή οποιοδήποτε άλλο κατάστημα που αναφέρεται στον ιστότοπό μας. Ενδέχεται να κερδίσουμε προμήθεια όταν πραγματοποιείτε μια αγορά μέσω των συνδέσμων μας.',
         'copyright'       => '© 2026 eKuponi.com - Όλα τα δικαιώματα διατηρούνται.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/%ce%ba%cf%89%ce%b4%ce%b9%ce%ba%ce%bf%ce%af-%ce%ad%ce%ba%cf%80%cf%84%cf%89%cf%83%ce%b7%cf%82-%ce%ba%ce%bf%cf%85%cf%80%cf%8c%ce%bd%ce%b9%ce%b1-temu/',
-        'vodic'    => 'https://ekuponi.com/temu-kuponia-ellada-pleres-odegos/',
+        'vodic'    => '',
     ]
 ],
 
@@ -455,9 +489,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Dit is een onafhankelijke affiliate website. We zijn niet officieel gelieerd, onderschreven of verbonden met TEMU of enige andere winkel die op onze website wordt genoemd. We kunnen een commissie verdienen wanneer u een aankoop doet via onze links.',
         'copyright'       => '© 2026 eKuponi.com - Alle rechten voorbehouden.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kortingscodes-coupons/',
-        'vodic'    => 'https://ekuponi.com/temu-kortingscodes-nederland-complete-gids/',
+        'vodic'    => '',
     ]
 ],
 
@@ -483,9 +519,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Este é um site de afiliados independente. Não estamos oficialmente afiliados, endossados ou conectados com a TEMU ou qualquer outra loja mencionada no nosso site. Podemos ganhar uma comissão quando faz uma compra através dos nossos links.',
         'copyright'       => '© 2026 eKuponi.com - Todos os direitos reservados.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/codigos-de-desconto-cupoes-temu/',
-        'vodic'    => 'https://ekuponi.com/temu-cupoes-portugal-guia-completo/',
+        'vodic'    => '',
     ]
 ],
 
@@ -511,9 +549,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Dit is een onafhankelijke affiliate website. We zijn niet officieel aangesloten bij, goedgekeurd door of verbonden met TEMU of andere winkels die op onze site worden vermeld. We kunnen een commissie ontvangen wanneer u een aankoop doet via onze links.',
         'copyright'       => '© 2026 eKuponi.com - Alle rechten voorbehouden.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kortingscodes-be/',
-        'vodic'    => 'https://ekuponi.com/temu-kortingscodes-belgie-complete-gids/',
+        'vodic'    => '',
     ]
 ],
 
@@ -539,9 +579,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Toto je nezávislá partnerská webová stránka. Nie sme oficiálne spojení, schválení ani prepojení s TEMU ani žiadnym iným obchodom uvedeným na našej stránke. Môžeme získať províziu, keď nakúpite prostredníctvom našich odkazov.',
         'copyright'       => '© 2026 eKuponi.com - Všetky práva vyhradené.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-zlavove-kody-kupony/',
-        'vodic'    => 'https://ekuponi.com/temu-zlavove-kody-slovensko-kompletny-przewodnik/',
+        'vodic'    => '',
     ]
 ],
 
@@ -567,9 +609,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Detta är en oberoende affiliate-webbplats. Vi är inte officiellt anslutna till, godkända av eller kopplade till TEMU eller någon annan butik som nämns på vår webbplats. Vi kan få en provision när du gör ett köp via våra länkar.',
         'copyright'       => '© 2026 eKuponi.com - Alla rättigheter förbehållna.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-rabattkoder-kuponger/',
-        'vodic'    => 'https://ekuponi.com/temu-rabattkoder-sverige-komplett-guide/',
+        'vodic'    => '',
     ]
 ],
 
@@ -595,9 +639,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'This is an independent affiliate website. We are not officially affiliated with, approved by, or connected to TEMU or any other store mentioned on our site. We may receive a commission when you make a purchase through our links.',
         'copyright'       => '© 2026 eKuponi.com - All rights reserved.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-discount-codes-coupons-philippines/',
-        'vodic'    => 'https://ekuponi.com/temu-discount-codes-philippines-complete-guide/',
+        'vodic'    => '',
     ]
 ],
 
@@ -623,9 +669,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'This is an independent affiliate website. We are not officially affiliated with, approved by, or connected to TEMU or any other store mentioned on our site. We may receive a commission when you make a purchase through our links.',
         'copyright'       => '© 2026 eKuponi.com - All rights reserved.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-discount-codes-coupons-malaysia/',
-        'vodic'    => 'https://ekuponi.com/temu-discount-codes-malaysia-complete-guide/',
+        'vodic'    => '',
     ]
 ],
 
@@ -651,9 +699,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Este es un sitio web de afiliados independiente. No estamos oficialmente afiliados, aprobados ni conectados con TEMU ni ninguna otra tienda mencionada en nuestro sitio. Podemos recibir una comisión cuando realizas una compra a través de nuestros enlaces.',
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-colombia/',
-        'vodic'    => 'https://ekuponi.com/cupones-temu-colombia-guia-completa/',
+        'vodic'    => '',
     ]
 ],
 
@@ -679,9 +729,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Este é um site de afiliados independente. Não somos oficialmente afiliados, aprovados ou conectados à TEMU ou qualquer outra loja mencionada em nosso site. Podemos receber uma comissão quando você faz uma compra através de nossos links.',
         'copyright'       => '© 2026 eKuponi.com - Todos os direitos reservados.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupons-e-codigos-desconto-temu-brasil/',
-        'vodic'    => 'https://ekuponi.com/cupons-temu-brasil-guia-completo/',
+        'vodic'    => '',
     ]
 ],
 
@@ -707,9 +759,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Este es un sitio web de afiliados independiente. No estamos oficialmente afiliados, aprobados ni conectados con TEMU ni ninguna otra tienda mencionada en nuestro sitio. Podemos recibir una comisión cuando realizas una compra a través de nuestros enlaces.',
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-peru/',
-        'vodic'    => 'https://ekuponi.com/cupones-temu-peru-guia-completa/',
+        'vodic'    => '',
     ]
 ],
 
@@ -735,9 +789,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Este es un sitio web de afiliados independiente. No estamos oficialmente afiliados, aprobados ni conectados con TEMU ni ninguna otra tienda mencionada en nuestro sitio. Podemos recibir una comisión cuando realizas una compra a través de nuestros enlaces.',
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-el-salvador/',
-        'vodic'    => 'https://ekuponi.com/cupones-temu-el-salvador-guia-completa/',
+        'vodic'    => '',
     ]
 ],
 
@@ -763,9 +819,11 @@ $COUNTRIES = [
         'affiliate_text'  => 'Este es un sitio web de afiliados independiente. No estamos oficialmente afiliados, aprobados ni conectados con TEMU ni ninguna otra tienda mencionada en nuestro sitio. Podemos recibir una comisión cuando realizas una compra a través de nuestros enlaces.',
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
+    'related' => [],
+
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-republica-dominicana/',
-        'vodic'    => 'https://ekuponi.com/cupones-temu-republica-dominicana-guia-completa/',
+        'vodic'    => '',
     ]
 ],
     
@@ -792,9 +850,12 @@ $COUNTRIES = [
             'copyright'       => '© 2026 eKuponi.com - Barcha huquqlar himoyalangan.',
         ], 
 
+        'related' => [],
+
+
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/temu-chegirma-kodlari-kuponlar-ozbekiston/',
-            'vodic'    => 'https://ekuponi.com/temu-kuponlari-amaldagi-kodlarni-topish/',
+            'vodic'    => '',
         ]
     ],
     
@@ -821,9 +882,12 @@ $COUNTRIES = [
             'copyright'       => '© 2026 eKuponi.com - Tous droits réservés.',
         ], 
 
+        'related' => [],
+
+
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/code-promo-temu/',
-            'vodic'    => 'https://ekuponi.com/temu-code-promo-france-guide-complet/',
+            'vodic'    => '',
         ]
     ],
 
@@ -851,9 +915,12 @@ $COUNTRIES = [
             'copyright'       => '© 2026 eKuponi.com - All rights reserved.',
         ],
 
+        'related' => [],
+
+
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/temu-coupon-codes-us/',
-            'vodic'     => 'https://ekuponi.com/temu-coupons-us-shopping-guide/',
+            'vodic'     => '',
         ]
     ],
 
@@ -881,6 +948,9 @@ $COUNTRIES = [
             'affiliate_text'  => 'Ovo je neovisna partnerska web stranica. Nismo službeno povezani, odobreni niti podržani od strane TEMU-a ili bilo koje druge trgovine spomenute na našoj stranici. Možemo ostvariti proviziju kada kupite putem naših poveznica.',
             'copyright'       => '© 2026 eKuponi.com - Sva prava pridržana.',
         ],
+
+        'related' => [],
+
 
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/store/temu/',
@@ -981,8 +1051,7 @@ $EKP_TEXTS['en'] = [
     'editor_default' => 'eKuponi editorial team',
     'links_title'    => 'Useful links',
     'link_guide'     => 'Complete guide to Temu coupons – {country}',
-    'link_existing'  => 'Temu offers for existing customers',
-    'link_howto'     => 'How to redeem a Temu code',
+    'other_title'    => 'Temu coupons in other countries',
     'faq_title'      => 'Frequently asked questions about Temu coupons',
     'faq'            => [
         ['Do Temu coupon codes work for existing customers?', 'The codes {codes} are for new app users with no previous Temu orders only. Existing customers can use deals for all users, free gifts from app games, invite rewards, price adjustment and seasonal sales.'],
@@ -1054,8 +1123,7 @@ $EKP_TEXTS['es'] = [
     'editor_default' => 'Equipo editorial de eKuponi',
     'links_title'    => 'Enlaces útiles',
     'link_guide'     => 'Guía completa de cupones de Temu – {country}',
-    'link_existing'  => 'Ofertas de Temu para clientes existentes',
-    'link_howto'     => 'Cómo canjear un código de Temu',
+    'other_title'    => 'Cupones de Temu en otros países',
     'faq_title'      => 'Preguntas frecuentes sobre los cupones de Temu',
     'faq'            => [
         ['¿Los cupones de Temu sirven para clientes existentes?', 'Los códigos {codes} son solo para nuevos usuarios de la app sin pedidos anteriores en Temu. Los clientes existentes pueden aprovechar ofertas para todos los usuarios, regalos de los juegos de la app, recompensas por invitar amigos, ajuste de precio y rebajas de temporada.'],
@@ -1127,8 +1195,7 @@ $EKP_TEXTS['it'] = [
     'editor_default' => 'Redazione eKuponi',
     'links_title'    => 'Link utili',
     'link_guide'     => 'Guida completa ai buoni sconto Temu – {country}',
-    'link_existing'  => 'Offerte Temu per clienti esistenti',
-    'link_howto'     => 'Come usare un codice Temu',
+    'other_title'    => 'Buoni sconto Temu in altri paesi',
     'faq_title'      => 'Domande frequenti sui buoni sconto Temu',
     'faq'            => [
         ['I buoni sconto Temu valgono per i clienti esistenti?', 'I codici {codes} sono solo per i nuovi utenti dell’app senza ordini precedenti su Temu. I clienti esistenti possono usare offerte per tutti gli utenti, regali dai giochi nell’app, premi per gli inviti, adeguamento del prezzo e saldi stagionali.'],
@@ -1200,8 +1267,7 @@ $EKP_TEXTS['hu'] = [
     'editor_default' => 'Az eKuponi szerkesztősége',
     'links_title'    => 'Hasznos linkek',
     'link_guide'     => 'Teljes útmutató a Temu kuponokhoz – {country}',
-    'link_existing'  => 'Temu ajánlatok meglévő vásárlóknak',
-    'link_howto'     => 'Hogyan váltsd be a Temu kódot',
+    'other_title'    => 'Temu kuponok más országokban',
     'faq_title'      => 'Gyakori kérdések a Temu kuponokról',
     'faq'            => [
         ['Működnek a Temu kuponkódok meglévő vásárlóknak?', 'A {codes} kódok csak olyan új alkalmazás-felhasználóknak szólnak, akik még nem rendeltek a Temun. A meglévő vásárlók használhatják a mindenkinek szóló ajánlatokat, a játékok ajándékait, a meghívási jutalmakat, az árkiigazítást és a szezonális akciókat.'],
@@ -1273,8 +1339,7 @@ $EKP_TEXTS['tr'] = [
     'editor_default' => 'eKuponi editör ekibi',
     'links_title'    => 'Faydalı bağlantılar',
     'link_guide'     => 'Temu kuponları için eksiksiz rehber – {country}',
-    'link_existing'  => 'Mevcut müşteriler için Temu fırsatları',
-    'link_howto'     => 'Temu kodu nasıl kullanılır',
+    'other_title'    => 'Diğer ülkelerde Temu kuponları',
     'faq_title'      => 'Temu kuponları hakkında sık sorulan sorular',
     'faq'            => [
         ['Temu kupon kodları mevcut müşteriler için geçerli mi?', '{codes} kodları yalnızca daha önce Temu’da sipariş vermemiş yeni uygulama kullanıcıları içindir. Mevcut müşteriler tüm kullanıcılara açık fırsatlardan, uygulama oyunlarının hediyelerinden, davet ödüllerinden, fiyat ayarlamasından ve sezon indirimlerinden yararlanabilir.'],
@@ -1346,8 +1411,7 @@ $EKP_TEXTS['cs'] = [
     'editor_default' => 'Redakce eKuponi',
     'links_title'    => 'Užitečné odkazy',
     'link_guide'     => 'Kompletní průvodce Temu kupóny – {country}',
-    'link_existing'  => 'Temu slevy pro stávající zákazníky',
-    'link_howto'     => 'Jak uplatnit kód Temu',
+    'other_title'    => 'Temu kupóny v dalších zemích',
     'faq_title'      => 'Časté dotazy k Temu kupónům',
     'faq'            => [
         ['Platí Temu slevový kód i pro stávající zákazníky?', 'Kódy {codes} platí jen pro nové uživatele aplikace, kteří na Temu ještě neobjednávali. Stávající zákazníci mohou využít nabídky pro všechny uživatele, dárky z her v aplikaci, odměny za pozvání přátel, úpravu ceny a sezónní výprodeje.'],
@@ -1419,8 +1483,7 @@ $EKP_TEXTS['pl'] = [
     'editor_default' => 'Redakcja eKuponi',
     'links_title'    => 'Przydatne linki',
     'link_guide'     => 'Kompletny przewodnik po kuponach Temu – {country}',
-    'link_existing'  => 'Oferty Temu dla obecnych klientów',
-    'link_howto'     => 'Jak wykorzystać kod Temu',
+    'other_title'    => 'Kupony Temu w innych krajach',
     'faq_title'      => 'Najczęstsze pytania o kupony Temu',
     'faq'            => [
         ['Czy kody rabatowe Temu działają dla obecnych klientów?', 'Kody {codes} są tylko dla nowych użytkowników aplikacji bez wcześniejszych zamówień na Temu. Obecni klienci mogą korzystać z ofert dla wszystkich użytkowników, prezentów z gier w aplikacji, nagród za zaproszenia, korekty ceny i wyprzedaży sezonowych.'],
@@ -1492,8 +1555,7 @@ $EKP_TEXTS['de'] = [
     'editor_default' => 'eKuponi-Redaktion',
     'links_title'    => 'Nützliche Links',
     'link_guide'     => 'Kompletter Ratgeber zu Temu Gutscheinen – {country}',
-    'link_existing'  => 'Temu Angebote für Bestandskunden',
-    'link_howto'     => 'So löst du einen Temu Code ein',
+    'other_title'    => 'Temu Gutscheine in anderen Ländern',
     'faq_title'      => 'Häufige Fragen zu Temu Gutscheinen',
     'faq'            => [
         ['Gelten Temu Gutscheincodes auch für Bestandskunden?', 'Die Codes {codes} gelten nur für neue App-Nutzer ohne frühere Bestellung bei Temu. Bestandskunden können Angebote für alle Nutzer, Geschenke aus App-Spielen, Prämien für Einladungen, die Preisanpassung und saisonale Sales nutzen.'],
@@ -1565,8 +1627,7 @@ $EKP_TEXTS['ro'] = [
     'editor_default' => 'Echipa editorială eKuponi',
     'links_title'    => 'Linkuri utile',
     'link_guide'     => 'Ghid complet pentru cupoanele Temu – {country}',
-    'link_existing'  => 'Oferte Temu pentru clienții existenți',
-    'link_howto'     => 'Cum folosești un cod Temu',
+    'other_title'    => 'Cupoane Temu în alte țări',
     'faq_title'      => 'Întrebări frecvente despre cupoanele Temu',
     'faq'            => [
         ['Funcționează codurile Temu pentru clienții existenți?', 'Codurile {codes} sunt doar pentru utilizatorii noi ai aplicației, fără comenzi anterioare pe Temu. Clienții existenți pot folosi ofertele pentru toți utilizatorii, cadourile din jocurile aplicației, recompensele pentru invitații, ajustarea prețului și reducerile de sezon.'],
@@ -1638,8 +1699,7 @@ $EKP_TEXTS['uk'] = [
     'editor_default' => 'Редакція eKuponi',
     'links_title'    => 'Корисні посилання',
     'link_guide'     => 'Повний посібник із купонів Temu – {country}',
-    'link_existing'  => 'Пропозиції Temu для постійних клієнтів',
-    'link_howto'     => 'Як використати код Temu',
+    'other_title'    => 'Купони Temu в інших країнах',
     'faq_title'      => 'Поширені запитання про купони Temu',
     'faq'            => [
         ['Чи діють купони Temu для постійних клієнтів?', 'Коди {codes} – лише для нових користувачів застосунку без попередніх замовлень на Temu. Постійні клієнти можуть скористатися пропозиціями для всіх, подарунками з ігор, винагородами за запрошення, коригуванням ціни та сезонними розпродажами.'],
@@ -1711,8 +1771,7 @@ $EKP_TEXTS['az'] = [
     'editor_default' => 'eKuponi redaksiyası',
     'links_title'    => 'Faydalı keçidlər',
     'link_guide'     => 'Temu kuponları üzrə tam bələdçi – {country}',
-    'link_existing'  => 'Mövcud müştərilər üçün Temu təklifləri',
-    'link_howto'     => 'Temu kodunu necə istifadə etmək olar',
+    'other_title'    => 'Digər ölkələrdə Temu kuponları',
     'faq_title'      => 'Temu kuponları haqqında tez-tez verilən suallar',
     'faq'            => [
         ['Temu kupon kodları mövcud müştərilər üçün işləyir?', '{codes} kodları yalnız Temu-da əvvəllər sifariş verməmiş yeni tətbiq istifadəçiləri üçündür. Mövcud müştərilər bütün istifadəçilər üçün təkliflərdən, oyun hədiyyələrindən, dəvət mükafatlarından, qiymət düzəlişindən və mövsümi endirimlərdən yararlana bilər.'],
@@ -1784,8 +1843,7 @@ $EKP_TEXTS['ka'] = [
     'editor_default' => 'eKuponi-ს რედაქცია',
     'links_title'    => 'სასარგებლო ბმულები',
     'link_guide'     => 'Temu-ს კუპონების სრული გზამკვლევი – {country}',
-    'link_existing'  => 'Temu-ს შეთავაზებები არსებული მომხმარებლებისთვის',
-    'link_howto'     => 'როგორ გამოვიყენოთ Temu-ს კოდი',
+    'other_title'    => 'Temu-ს კუპონები სხვა ქვეყნებში',
     'faq_title'      => 'ხშირად დასმული კითხვები Temu-ს კუპონებზე',
     'faq'            => [
         ['მოქმედებს თუ არა Temu-ს კუპონები არსებულ მომხმარებლებზე?', 'კოდები {codes} მხოლოდ აპლიკაციის ახალი მომხმარებლებისთვისაა, რომლებსაც Temu-ზე შეკვეთა ჯერ არ გაუკეთებიათ. არსებულ მომხმარებლებს შეუძლიათ ისარგებლონ ყველასთვის ხელმისაწვდომი შეთავაზებებით, თამაშების საჩუქრებით, მოწვევის ჯილდოებით, ფასის კორექტირებითა და სეზონური ფასდაკლებებით.'],
@@ -1857,8 +1915,7 @@ $EKP_TEXTS['el'] = [
     'editor_default' => 'Η συντακτική ομάδα του eKuponi',
     'links_title'    => 'Χρήσιμοι σύνδεσμοι',
     'link_guide'     => 'Πλήρης οδηγός για κουπόνια Temu – {country}',
-    'link_existing'  => 'Κουπόνια Temu για παλιούς χρήστες',
-    'link_howto'     => 'Πώς να εξαργυρώσετε κωδικό Temu',
+    'other_title'    => 'Κουπόνια Temu σε άλλες χώρες',
     'faq_title'      => 'Συχνές ερωτήσεις για τα κουπόνια Temu',
     'faq'            => [
         ['Ισχύουν τα κουπόνια Temu για παλιούς χρήστες;', 'Οι κωδικοί {codes} ισχύουν μόνο για νέους χρήστες της εφαρμογής χωρίς προηγούμενες παραγγελίες στο Temu. Οι παλιοί χρήστες μπορούν να αξιοποιήσουν προσφορές για όλους, δώρα από τα παιχνίδια της εφαρμογής, ανταμοιβές πρόσκλησης, προσαρμογή τιμής και εποχικές εκπτώσεις.'],
@@ -1930,8 +1987,7 @@ $EKP_TEXTS['nl'] = [
     'editor_default' => 'Redactie eKuponi',
     'links_title'    => 'Handige links',
     'link_guide'     => 'Complete gids voor Temu kortingscodes – {country}',
-    'link_existing'  => 'Temu aanbiedingen voor bestaande klanten',
-    'link_howto'     => 'Zo verzilver je een Temu code',
+    'other_title'    => 'Temu kortingscodes in andere landen',
     'faq_title'      => 'Veelgestelde vragen over Temu kortingscodes',
     'faq'            => [
         ['Werken Temu kortingscodes ook voor bestaande klanten?', 'De codes {codes} gelden alleen voor nieuwe app-gebruikers die nog nooit bij Temu hebben besteld. Bestaande klanten kunnen gebruikmaken van aanbiedingen voor alle gebruikers, cadeaus uit app-spellen, beloningen voor uitnodigingen, prijsaanpassing en seizoensuitverkoop.'],
@@ -2003,8 +2059,7 @@ $EKP_TEXTS['pt'] = [
     'editor_default' => 'Equipa editorial eKuponi',
     'links_title'    => 'Ligações úteis',
     'link_guide'     => 'Guia completo de cupões Temu – {country}',
-    'link_existing'  => 'Cupons Temu para utilizadores existentes',
-    'link_howto'     => 'Como usar um código Temu',
+    'other_title'    => 'Cupões Temu noutros países',
     'faq_title'      => 'Perguntas frequentes sobre cupões Temu',
     'faq'            => [
         ['Os cupons Temu funcionam para utilizadores existentes?', 'Os códigos {codes} são só para novos utilizadores da app sem encomendas anteriores na Temu. Os utilizadores existentes podem aproveitar ofertas para todos, presentes dos jogos da app, recompensas por convites, ajuste de preço e saldos sazonais.'],
@@ -2076,8 +2131,7 @@ $EKP_TEXTS['pt-BR'] = [
     'editor_default' => 'Equipe editorial eKuponi',
     'links_title'    => 'Links úteis',
     'link_guide'     => 'Guia completo de cupons Temu – {country}',
-    'link_existing'  => 'Ofertas Temu para clientes antigos',
-    'link_howto'     => 'Como usar um código Temu',
+    'other_title'    => 'Cupons Temu em outros países',
     'faq_title'      => 'Perguntas frequentes sobre cupons Temu',
     'faq'            => [
         ['Os cupons Temu funcionam para clientes antigos?', 'Os códigos {codes} valem só para novos usuários do app sem pedidos anteriores na Temu. Clientes antigos podem aproveitar ofertas para todos, presentes dos jogos do app, recompensas por convites, ajuste de preço e promoções sazonais.'],
@@ -2149,8 +2203,7 @@ $EKP_TEXTS['sk'] = [
     'editor_default' => 'Redakcia eKuponi',
     'links_title'    => 'Užitočné odkazy',
     'link_guide'     => 'Kompletný sprievodca Temu kupónmi – {country}',
-    'link_existing'  => 'Temu ponuky pre existujúcich zákazníkov',
-    'link_howto'     => 'Ako uplatniť kód Temu',
+    'other_title'    => 'Temu kupóny v ďalších krajinách',
     'faq_title'      => 'Časté otázky o Temu kupónoch',
     'faq'            => [
         ['Platia Temu zľavové kódy aj pre existujúcich zákazníkov?', 'Kódy {codes} platia len pre nových používateľov aplikácie, ktorí na Temu ešte neobjednávali. Existujúci zákazníci môžu využiť ponuky pre všetkých používateľov, darčeky z hier v aplikácii, odmeny za pozvanie priateľov, úpravu ceny a sezónne výpredaje.'],
@@ -2222,8 +2275,7 @@ $EKP_TEXTS['sv'] = [
     'editor_default' => 'eKuponis redaktion',
     'links_title'    => 'Användbara länkar',
     'link_guide'     => 'Komplett guide till Temu-rabattkoder – {country}',
-    'link_existing'  => 'Temu-erbjudanden för befintliga kunder',
-    'link_howto'     => 'Så använder du en Temu-kod',
+    'other_title'    => 'Temu-rabattkoder i andra länder',
     'faq_title'      => 'Vanliga frågor om Temu-rabattkoder',
     'faq'            => [
         ['Fungerar Temu-rabattkoder för befintliga kunder?', 'Koderna {codes} gäller bara nya appanvändare som aldrig har beställt på Temu. Befintliga kunder kan använda erbjudanden för alla, presenter från appspel, belöningar för inbjudningar, prisjustering och säsongsreor.'],
@@ -2295,8 +2347,7 @@ $EKP_TEXTS['uz'] = [
     'editor_default' => 'eKuponi tahririyati',
     'links_title'    => 'Foydali havolalar',
     'link_guide'     => 'Temu kuponlari bo‘yicha to‘liq qo‘llanma – {country}',
-    'link_existing'  => 'Mavjud mijozlar uchun Temu takliflari',
-    'link_howto'     => 'Temu kodidan qanday foydalanish mumkin',
+    'other_title'    => 'Boshqa mamlakatlarda Temu kuponlari',
     'faq_title'      => 'Temu kuponlari haqida ko‘p so‘raladigan savollar',
     'faq'            => [
         ['Temu kupon kodlari mavjud mijozlar uchun ishlaydimi?', '{codes} kodlari faqat Temu’da avval buyurtma bermagan yangi ilova foydalanuvchilari uchun. Mavjud mijozlar barcha uchun takliflar, o‘yin sovg‘alari, taklif mukofotlari, narxni moslashtirish va mavsumiy chegirmalardan foydalanishi mumkin.'],
@@ -2368,8 +2419,7 @@ $EKP_TEXTS['fr'] = [
     'editor_default' => 'La rédaction eKuponi',
     'links_title'    => 'Liens utiles',
     'link_guide'     => 'Guide complet des codes promo Temu – {country}',
-    'link_existing'  => 'Offres Temu pour les clients existants',
-    'link_howto'     => 'Comment utiliser un code Temu',
+    'other_title'    => 'Codes promo Temu dans d’autres pays',
     'faq_title'      => 'Questions fréquentes sur les codes promo Temu',
     'faq'            => [
         ['Les codes promo Temu fonctionnent-ils pour les clients existants ?', 'Les codes {codes} sont réservés aux nouveaux utilisateurs de l’app sans commande précédente sur Temu. Les clients existants peuvent profiter des offres pour tous, des cadeaux des jeux de l’app, des récompenses de parrainage, de l’ajustement de prix et des soldes saisonnières.'],
@@ -2441,8 +2491,7 @@ $EKP_TEXTS['hr'] = [
     'editor_default' => 'Redakcija eKuponi',
     'links_title'    => 'Korisni linkovi',
     'link_guide'     => 'Kompletan vodič za Temu kupone – {country}',
-    'link_existing'  => 'Temu kuponi za stare korisnike',
-    'link_howto'     => 'Kako iskoristiti Temu kod',
+    'other_title'    => 'Temu kuponi u drugim državama',
     'faq_title'      => 'Česta pitanja o Temu kuponima',
     'faq'            => [
         ['Vrijede li Temu kuponi za stare korisnike?', 'Kodovi {codes} vrijede samo za nove korisnike aplikacije bez prethodnih narudžbi na Temuu. Stari korisnici mogu iskoristiti ponude za sve korisnike, poklone iz igara u aplikaciji, nagrade za pozivanje prijatelja, prilagodbu cijene i sezonska sniženja.'],

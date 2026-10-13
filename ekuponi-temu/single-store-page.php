@@ -10,7 +10,7 @@
 *  - "Vrijedi do" i brojač korištenja na svakom kuponu
 *  - uputu korak po korak + savjete o vremenu aktivacije
 *  - sekciju za postojeće (stare) korisnike
-*  - kategorijske popuste, savjet urednika, interne linkove
+*  - kategorijske popuste, savjet urednika, korisne linkove ('related' u configu) i Temu stranice drugih država
 *  - dodatna FAQ pitanja + JSON-LD (FAQPage, HowTo, WebPage)
 */
 
@@ -270,17 +270,33 @@ if ($ekp_enabled) {
     }
     $ekp_faq_all = array_merge($ekp['faq'], $ekp_faq_extra);
 
-    /* Ostale stranice na istom jeziku (interni linkovi) */
-    $ekp_related = [];
-    foreach ($COUNTRIES as $ekp_k => $ekp_country) {
-        if ($ekp_k === $c_lang || ($ekp_country['lang_pack'] ?? '') !== ($current['lang_pack'] ?? '')) {
-            continue;
-        }
-        $ekp_url = $ekp_country['paths']['kuponi'] ?? '';
-        if ($ekp_url && in_array($ekp_url, $ekp_hreflang, true) && $ekp_url !== ($paths['kuponi'] ?? '')) {
-            $ekp_related[$ekp_url] = $ekp_country['labels']['cupones'] . ' Temu – ' . $ekp_country['full_name'];
+    /* Korisni linkovi: ručno upisani u config ('related' po državi) */
+    $ekp_useful = [];
+    if (!empty($paths['vodic'])) {
+        $ekp_useful[$paths['vodic']] = ekp_tr($t['link_guide'], $ekp_vars);
+    }
+    foreach (($current['related'] ?? []) as $ekp_rel) {
+        if (!empty($ekp_rel['url']) && !empty($ekp_rel['label'])) {
+            $ekp_useful[$ekp_rel['url']] = $ekp_rel['label'];
         }
     }
+
+    /* Temu stranice drugih država (samo one iz hreflang liste) – prvo isti jezik, zatim ostale */
+    $ekp_same_lang = [];
+    $ekp_other_lang = [];
+    foreach ($COUNTRIES as $ekp_k => $ekp_country) {
+        $ekp_url = $ekp_country['paths']['kuponi'] ?? '';
+        if ($ekp_k === $c_lang || !$ekp_url || $ekp_url === ($paths['kuponi'] ?? '') || !in_array($ekp_url, $ekp_hreflang, true)) {
+            continue;
+        }
+        $ekp_label = $ekp_country['labels']['cupones'] . ' Temu – ' . $ekp_country['full_name'];
+        if (($ekp_country['lang_pack'] ?? '') === ($current['lang_pack'] ?? '')) {
+            $ekp_same_lang[$ekp_url] = $ekp_label;
+        } else {
+            $ekp_other_lang[$ekp_url] = $ekp_label;
+        }
+    }
+    $ekp_countries_links = $ekp_same_lang + $ekp_other_lang;
 
     /* --- Meta red na svakom kuponu --- */
     $ekp_repl = [];
@@ -414,19 +430,27 @@ if ($ekp_enabled) {
     </div>
 </div>
 
+<?php if ($ekp_useful) : ?>
 <div class="ekp-panel" id="ekp-links">
     <h2><?php echo esc_html($t['links_title']); ?></h2>
     <ul class="ekp-links">
-        <?php if (!empty($paths['vodic'])) : ?>
-            <li><a href="<?php echo esc_url($paths['vodic']); ?>"><?php echo esc_html(ekp_tr($t['link_guide'], $ekp_vars)); ?></a></li>
-        <?php endif; ?>
-        <li><a href="#ekp-existing"><?php echo esc_html($t['link_existing']); ?></a></li>
-        <li><a href="#ekp-howto"><?php echo esc_html($t['link_howto']); ?></a></li>
-        <?php foreach ($ekp_related as $ekp_url => $ekp_label) : ?>
+        <?php foreach ($ekp_useful as $ekp_url => $ekp_label) : ?>
             <li><a href="<?php echo esc_url($ekp_url); ?>"><?php echo esc_html($ekp_label); ?></a></li>
         <?php endforeach; ?>
     </ul>
 </div>
+<?php endif; ?>
+
+<?php if ($ekp_countries_links) : ?>
+<div class="ekp-panel" id="ekp-countries">
+    <h2><?php echo esc_html($t['other_title']); ?></h2>
+    <ul class="ekp-links ekp-links-cols">
+        <?php foreach ($ekp_countries_links as $ekp_url => $ekp_label) : ?>
+            <li><a href="<?php echo esc_url($ekp_url); ?>"><?php echo esc_html($ekp_label); ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>
 <?php
     $ekp_bottom = ob_get_clean();
 
@@ -714,6 +738,7 @@ if ($ekp_enabled) {
         .ekp-links { padding-left: 20px; margin: 0; }
         .ekp-links li { margin-bottom: 6px; }
         .ekp-links a { color: #e65100; }
+        .ekp-links-cols { columns: 2 220px; column-gap: 24px; }
         @media (min-width: 768px) {
             .ekp-panel { margin: 20px auto; width: 70%; }
         }
