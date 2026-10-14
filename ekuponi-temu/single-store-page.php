@@ -6,7 +6,7 @@
 * Sadržaj stranice (kuponi, H1/H2, FAQ) i dalje se uređuje u adminu.
 * Template oko tog sadržaja automatski dodaje SEO sekcije iz config-countries.php ($EKP_TEXTS):
 *  - oznaku provjere + datum zadnje provjere i ime urednika
-*  - tablicu svih kupona (čita se iz .coupon-box blokova na stranici)
+*  - tablicu svih kupona (čita se iz .coupon-box blokova na stranici) i tablicu najvažnijih uvjeta ('facts' u configu)
 *  - "Vrijedi do" i brojač korištenja na svakom kuponu
 *  - uputu korak po korak + savjete o vremenu aktivacije
 *  - sekciju za postojeće (stare) korisnike
@@ -258,6 +258,23 @@ if ($ekp_enabled) {
         $ekp_deal_url = $ekp_coupons[0]['url'];
     }
 
+    /* Najvažniji uvjeti (config 'facts') */
+    $ekp_f       = $current['facts'] ?? [];
+    $ekp_customs = trim($ekp_f['customs'] ?? '') ?: (!empty($ekp_f['eu']) ? ($t['customs_eu'] ?? '') : '');
+    $ekp_facts   = [];
+    foreach ([
+        'f_percent'    => $ekp_f['percent'] ?? '',
+        'f_bundle'     => $ekp_f['bundle'] ?? '',
+        'f_min_order'  => $ekp_f['min_order'] ?? '',
+        'f_activation' => $t['activation_val'] ?? '',
+        'f_validity'   => trim($ekp_f['validity'] ?? '') ?: ($t['validity_val'] ?? ''),
+        'f_customs'    => $ekp_customs,
+    ] as $ekp_label_key => $ekp_value) {
+        if (trim($ekp_value) !== '' && !empty($t[$ekp_label_key])) {
+            $ekp_facts[$t[$ekp_label_key]] = $ekp_value;
+        }
+    }
+
     /* FAQ: pitanja sa stranice + dodatna pitanja iz jezičnog paketa */
     $ekp_faq_extra = [];
     $ekp_faq_seen  = [];
@@ -270,6 +287,9 @@ if ($ekp_enabled) {
             continue;
         }
         $ekp_faq_extra[] = [$ekp_q, ekp_tr($ekp_qa[1], $ekp_vars)];
+    }
+    if ($ekp_customs !== '' && !empty($t['faq_customs_q']) && !isset($ekp_faq_seen[mb_strtolower($t['faq_customs_q'])])) {
+        $ekp_faq_extra[] = [$t['faq_customs_q'], rtrim($ekp_customs, '.') . '.'];
     }
     $ekp_faq_all = array_merge($ekp['faq'], $ekp_faq_extra);
 
@@ -362,6 +382,21 @@ if ($ekp_enabled) {
                 <td data-label="<?php echo esc_attr($t['th_status']); ?>">
                     <span class="ekp-cell"><span class="ekp-ok">✓ <?php echo esc_html($t['verified']); ?></span><?php if ($ekp_c['uses'] >= $ekp_min_uses) : ?><br><span class="ekp-small"><?php echo esc_html(ekp_tr($t['used'], ['n' => number_format_i18n($ekp_c['uses'])])); ?></span><?php endif; ?></span>
                 </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php endif; ?>
+<?php if ($ekp_facts) : ?>
+<div class="ekp-panel" id="ekp-facts">
+    <h2><?php echo esc_html(ekp_tr($t['facts_title'], $ekp_vars)); ?></h2>
+    <table class="ekp-cat-table">
+        <tbody>
+        <?php foreach ($ekp_facts as $ekp_label => $ekp_value) : ?>
+            <tr>
+                <th scope="row"><?php echo esc_html($ekp_label); ?></th>
+                <td><?php echo esc_html($ekp_value); ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>

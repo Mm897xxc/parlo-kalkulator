@@ -11,6 +11,9 @@
  *                     (drugi kuponi, članci na istom jeziku). Prazno = blok se ne prikazuje.
  *  - 'nearby'      => ključevi država iz $COUNTRIES (susjedna/srodna tržišta) za blok "Temu u drugim državama".
  *                     Prikazuju se samo stranice iz hreflang liste. Bez 'nearby' = samo države na istom jeziku.
+ *  - 'facts'       => ključni uvjeti za tablicu "najvažniji uvjeti" + FAQ o carini:
+ *                     'eu' => true (EU carina 3 €), 'percent', 'bundle', 'min_order', 'validity', 'customs' (tekst, nadjačava EU tekst).
+ *                     Prazno polje = red se ne prikazuje. Uvjete prepiši iz sitnog teksta kupona na stranici.
  *  - 'last_verified' => (opcionalno) 'Y-m-d' datum zadnje ručne provjere kodova samo za tu državu
  */
 
@@ -41,6 +44,8 @@ $COUNTRIES = [
         'related' => [],
 
         'nearby'  => ['en-US', 'es-CO', 'es-PE', 'es-SV', 'es-DO', 'es'],
+
+        'facts'   => [],
 
 
         'paths' => [
@@ -76,6 +81,8 @@ $COUNTRIES = [
 
         'nearby'  => ['es-CO', 'es-PE', 'es-MX', 'es'],
 
+        'facts'   => [],
+
 
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-argentina/',
@@ -107,6 +114,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['fr-FR', 'de', 'es', 'el-GR'],
+    'facts'   => ['eu' => true],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/buoni-sconto-e-codici-sconto-temu/',
@@ -138,6 +146,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['pt-PT', 'fr-FR', 'it', 'es-MX'],
+    'facts'   => ['eu' => true],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu/',
@@ -169,6 +178,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['ro-RO', 'cs', 'de', 'pl'],
+    'facts'   => ['eu' => true],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kuponok-es-akciok/',
@@ -200,6 +210,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['el-GR', 'ro-RO', 'de', 'uk'],
+    'facts'   => [],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-indirim-kuponlari-indirim-kodlari/',
@@ -231,6 +242,13 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['pl', 'de', 'hu'],
+    'facts'   => [
+        'eu'         => true,
+        'percent'    => '30 % – při nákupu nad 500 Kč, sleva max. 600 Kč',
+        'bundle'     => '2 500 Kč: 1× 700 Kč (nad 2 400 Kč), 1× 600 Kč (nad 1 200 Kč), 3× 400 Kč (nad 1 800 Kč)',
+        'min_order'  => '220 Kč po slevě (u zboží, které neodesílá prodejce)',
+        'validity'   => '1 den od obdržení, jednorázový',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kupony-a-slevove-kody/',
@@ -262,6 +280,12 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['cs', 'de', 'uk', 'hu'],
+    'facts'   => [
+        'eu'         => true,
+        'bundle'     => '400 zł',
+        // 'percent'  => '30% – od XXX zł, maks. rabat XXX zł',   // upiši iz uvjeta kupona na PL stranici
+        // 'min_order'=> 'XX zł',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kupony-i-kody-rabatowe/',
@@ -293,6 +317,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['nl-NL', 'cs', 'pl', 'fr-FR'],
+    'facts'   => ['eu' => true],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-gutscheincode/',
@@ -324,6 +349,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['hu', 'uk', 'el-GR', 'de'],
+    'facts'   => ['eu' => true],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-reducere-si-cupoane/',
@@ -355,6 +381,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['pl', 'ro-RO', 'hu', 'cs'],
+    'facts'   => [],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-%d0%ba%d1%83%d0%bf%d0%be%d0%bd%d0%b8-%d1%82%d0%b0-%d0%bf%d1%80%d0%be%d0%bc%d0%be%d0%ba%d0%be%d0%b4%d0%b8-%d0%b4%d0%be-70/',
@@ -386,6 +413,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['uk', 'ro-RO', 'de'],
+    'facts'   => [],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-endirim-kodlari-v%c9%99-kuponlari/',
@@ -417,6 +445,11 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['en-US', 'fr-FR', 'de', 'nl-NL'],
+    'facts'   => [
+        'bundle'     => '£100: £10 off £30+, £20 off £50+, £30 off £70+, £40 off £100+ (one per order)',
+        'validity'   => '1 day after you receive the coupon, single use',
+        'customs'    => 'No customs duty on orders up to £135; VAT is included in the price at checkout. Import fees do not count towards coupon thresholds.',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-coupon-codes-uk/',
@@ -448,6 +481,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['uk', 'el-GR', 'ro-RO'],
+    'facts'   => [],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-%e1%83%a4%e1%83%90%e1%83%a1%e1%83%93%e1%83%90%e1%83%99%e1%83%9a%e1%83%94%e1%83%91%e1%83%98%e1%83%a1-%e1%83%99%e1%83%9d%e1%83%93%e1%83%94%e1%83%91%e1%83%98/',
@@ -479,6 +513,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['ro-RO', 'it', 'de'],
+    'facts'   => ['eu' => true],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/%ce%ba%cf%89%ce%b4%ce%b9%ce%ba%ce%bf%ce%af-%ce%ad%ce%ba%cf%80%cf%84%cf%89%cf%83%ce%b7%cf%82-%ce%ba%ce%bf%cf%85%cf%80%cf%8c%ce%bd%ce%b9%ce%b1-temu/',
@@ -510,6 +545,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['de', 'fr-FR', 'en-GB'],
+    'facts'   => ['eu' => true],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kortingscodes-coupons/',
@@ -541,6 +577,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['es', 'fr-FR', 'en-GB'],
+    'facts'   => ['eu' => true],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/codigos-de-desconto-cupoes-temu/',
@@ -572,6 +609,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['nl-NL', 'fr-FR', 'de'],
+    'facts'   => ['eu' => true],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kortingscodes-be/',
@@ -603,6 +641,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['cs', 'hu', 'pl', 'de'],
+    'facts'   => ['eu' => true],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-zlavove-kody-kupony/',
@@ -634,6 +673,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['de', 'nl-NL', 'pl', 'en-GB'],
+    'facts'   => ['eu' => true],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-rabattkoder-kuponger/',
@@ -665,6 +705,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['en-US', 'en-GB'],
+    'facts'   => [],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-discount-codes-coupons-philippines/',
@@ -696,6 +737,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['en-GB', 'en-US'],
+    'facts'   => [],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-discount-codes-coupons-malaysia/',
@@ -727,6 +769,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['es-PE', 'es-MX', 'es-DO', 'es-SV'],
+    'facts'   => [],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-colombia/',
@@ -758,6 +801,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['pt-PT', 'es-AR', 'es-CO'],
+    'facts'   => [],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupons-e-codigos-desconto-temu-brasil/',
@@ -789,6 +833,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['es-CO', 'es-AR', 'es-MX'],
+    'facts'   => [],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-peru/',
@@ -820,6 +865,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['es-MX', 'es-DO', 'es-CO', 'en-US'],
+    'facts'   => [],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-el-salvador/',
@@ -851,6 +897,7 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['es-SV', 'es-MX', 'es-CO', 'en-US'],
+    'facts'   => [],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-republica-dominicana/',
@@ -885,6 +932,8 @@ $COUNTRIES = [
 
         'nearby'  => ['uk', 'de'],
 
+        'facts'   => [],
+
 
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/temu-chegirma-kodlari-kuponlar-ozbekiston/',
@@ -918,6 +967,8 @@ $COUNTRIES = [
         'related' => [],
 
         'nearby'  => ['es', 'it', 'de', 'en-GB'],
+
+        'facts'   => ['eu' => true],
 
 
         'paths' => [
@@ -954,6 +1005,8 @@ $COUNTRIES = [
 
         'nearby'  => ['en-GB', 'es-MX'],
 
+        'facts'   => [],
+
 
         'paths' => [
             'kuponi'   => 'https://ekuponi.com/temu-coupon-codes-us/',
@@ -989,6 +1042,8 @@ $COUNTRIES = [
         'related' => [],
 
         'nearby'  => ['hu', 'de', 'it', 'cs'],
+
+        'facts'   => ['eu' => true],
 
 
         'paths' => [
@@ -1091,6 +1146,17 @@ $EKP_TEXTS['en'] = [
     'links_title'    => 'Useful links',
     'link_guide'     => 'Complete guide to Temu coupons – {country}',
     'other_title'    => 'Temu coupons in other countries',
+    'facts_title'    => 'Temu {country}: key terms at a glance',
+    'f_percent'      => 'Percentage code',
+    'f_bundle'       => 'Coupon bundle',
+    'f_min_order'    => 'Minimum order',
+    'f_activation'   => 'Activation',
+    'activation_val' => 'Within 24 hours of first installing the app (new users only)',
+    'f_validity'     => 'Coupon validity',
+    'validity_val'   => 'Usually 1 day after you receive the coupon',
+    'f_customs'      => 'Customs and import fees',
+    'customs_eu'     => 'EU customs duty of €3 per product category on parcels under €150 (since 1 July 2026), shown at checkout as import fees',
+    'faq_customs_q'  => 'Do I pay customs or import fees on Temu orders?',
     'faq_title'      => 'Frequently asked questions about Temu coupons',
     'faq'            => [
         ['Do Temu coupon codes work for existing customers?', 'The codes {codes} are for new app users with no previous Temu orders only. Existing customers can use deals for all users, free gifts from app games, invite rewards, price adjustment and seasonal sales.'],
@@ -1163,6 +1229,17 @@ $EKP_TEXTS['es'] = [
     'links_title'    => 'Enlaces útiles',
     'link_guide'     => 'Guía completa de cupones de Temu – {country}',
     'other_title'    => 'Cupones de Temu en otros países',
+    'facts_title'    => 'Temu {country}: condiciones clave de un vistazo',
+    'f_percent'      => 'Código de porcentaje',
+    'f_bundle'       => 'Paquete de cupones',
+    'f_min_order'    => 'Pedido mínimo',
+    'f_activation'   => 'Activación',
+    'activation_val' => 'En las 24 horas siguientes a la primera instalación de la app (solo nuevos usuarios)',
+    'f_validity'     => 'Validez del cupón',
+    'validity_val'   => 'Normalmente 1 día desde que recibes el cupón',
+    'f_customs'      => 'Aduanas y tasas de importación',
+    'customs_eu'     => 'Arancel de la UE de 3 € por categoría de producto en paquetes de menos de 150 € (desde el 1 de julio de 2026), visible en el pago como tasas de importación',
+    'faq_customs_q'  => '¿Pago aduanas o tasas de importación en los pedidos de Temu?',
     'faq_title'      => 'Preguntas frecuentes sobre los cupones de Temu',
     'faq'            => [
         ['¿Los cupones de Temu sirven para clientes existentes?', 'Los códigos {codes} son solo para nuevos usuarios de la app sin pedidos anteriores en Temu. Los clientes existentes pueden aprovechar ofertas para todos los usuarios, regalos de los juegos de la app, recompensas por invitar amigos, ajuste de precio y rebajas de temporada.'],
@@ -1235,6 +1312,17 @@ $EKP_TEXTS['it'] = [
     'links_title'    => 'Link utili',
     'link_guide'     => 'Guida completa ai buoni sconto Temu – {country}',
     'other_title'    => 'Buoni sconto Temu in altri paesi',
+    'facts_title'    => 'Temu {country}: condizioni principali in breve',
+    'f_percent'      => 'Codice percentuale',
+    'f_bundle'       => 'Pacchetto di buoni',
+    'f_min_order'    => 'Ordine minimo',
+    'f_activation'   => 'Attivazione',
+    'activation_val' => 'Entro 24 ore dalla prima installazione dell’app (solo nuovi utenti)',
+    'f_validity'     => 'Validità del buono',
+    'validity_val'   => 'Di solito 1 giorno dalla ricezione del buono',
+    'f_customs'      => 'Dogana e costi di importazione',
+    'customs_eu'     => 'Dazio UE di 3 € per categoria di prodotto sui pacchi sotto i 150 € (dal 1° luglio 2026), indicato al pagamento come costi di importazione',
+    'faq_customs_q'  => 'Si pagano dogana o costi di importazione sugli ordini Temu?',
     'faq_title'      => 'Domande frequenti sui buoni sconto Temu',
     'faq'            => [
         ['I buoni sconto Temu valgono per i clienti esistenti?', 'I codici {codes} sono solo per i nuovi utenti dell’app senza ordini precedenti su Temu. I clienti esistenti possono usare offerte per tutti gli utenti, regali dai giochi nell’app, premi per gli inviti, adeguamento del prezzo e saldi stagionali.'],
@@ -1307,6 +1395,17 @@ $EKP_TEXTS['hu'] = [
     'links_title'    => 'Hasznos linkek',
     'link_guide'     => 'Teljes útmutató a Temu kuponokhoz – {country}',
     'other_title'    => 'Temu kuponok más országokban',
+    'facts_title'    => 'Temu – {country}: a legfontosabb feltételek',
+    'f_percent'      => 'Százalékos kód',
+    'f_bundle'       => 'Kuponcsomag',
+    'f_min_order'    => 'Minimális rendelés',
+    'f_activation'   => 'Aktiválás',
+    'activation_val' => 'Az alkalmazás első telepítésétől számított 24 órán belül (csak új felhasználóknak)',
+    'f_validity'     => 'Kupon érvényessége',
+    'validity_val'   => 'Általában 1 nap a kupon megszerzésétől',
+    'f_customs'      => 'Vám és importdíjak',
+    'customs_eu'     => '3 € uniós vám termékkategóriánként a 150 € alatti csomagokra (2026. július 1-jétől), fizetéskor importdíjként jelenik meg',
+    'faq_customs_q'  => 'Kell vámot vagy importdíjat fizetni a Temu rendelésekre?',
     'faq_title'      => 'Gyakori kérdések a Temu kuponokról',
     'faq'            => [
         ['Működnek a Temu kuponkódok meglévő vásárlóknak?', 'A {codes} kódok csak olyan új alkalmazás-felhasználóknak szólnak, akik még nem rendeltek a Temun. A meglévő vásárlók használhatják a mindenkinek szóló ajánlatokat, a játékok ajándékait, a meghívási jutalmakat, az árkiigazítást és a szezonális akciókat.'],
@@ -1379,6 +1478,17 @@ $EKP_TEXTS['tr'] = [
     'links_title'    => 'Faydalı bağlantılar',
     'link_guide'     => 'Temu kuponları için eksiksiz rehber – {country}',
     'other_title'    => 'Diğer ülkelerde Temu kuponları',
+    'facts_title'    => 'Temu {country}: temel koşullar',
+    'f_percent'      => 'Yüzde kodu',
+    'f_bundle'       => 'Kupon paketi',
+    'f_min_order'    => 'Minimum sipariş',
+    'f_activation'   => 'Etkinleştirme',
+    'activation_val' => 'Uygulamanın ilk yüklenmesinden itibaren 24 saat içinde (yalnızca yeni kullanıcılar)',
+    'f_validity'     => 'Kupon geçerliliği',
+    'validity_val'   => 'Genellikle kuponu aldıktan sonra 1 gün',
+    'f_customs'      => 'Gümrük ve ithalat ücretleri',
+    'customs_eu'     => '150 € altındaki paketlerde ürün kategorisi başına 3 € AB gümrük vergisi (1 Temmuz 2026’dan itibaren), ödemede ithalat ücreti olarak gösterilir',
+    'faq_customs_q'  => 'Temu siparişlerinde gümrük veya ithalat ücreti öder miyim?',
     'faq_title'      => 'Temu kuponları hakkında sık sorulan sorular',
     'faq'            => [
         ['Temu kupon kodları mevcut müşteriler için geçerli mi?', '{codes} kodları yalnızca daha önce Temu’da sipariş vermemiş yeni uygulama kullanıcıları içindir. Mevcut müşteriler tüm kullanıcılara açık fırsatlardan, uygulama oyunlarının hediyelerinden, davet ödüllerinden, fiyat ayarlamasından ve sezon indirimlerinden yararlanabilir.'],
@@ -1451,6 +1561,17 @@ $EKP_TEXTS['cs'] = [
     'links_title'    => 'Užitečné odkazy',
     'link_guide'     => 'Kompletní průvodce Temu kupóny – {country}',
     'other_title'    => 'Temu kupóny v dalších zemích',
+    'facts_title'    => 'Temu – {country}: hlavní podmínky v přehledu',
+    'f_percent'      => 'Procentní kód',
+    'f_bundle'       => 'Balíček kupónů',
+    'f_min_order'    => 'Minimální objednávka',
+    'f_activation'   => 'Aktivace',
+    'activation_val' => 'Do 24 hodin od první instalace aplikace (jen noví uživatelé)',
+    'f_validity'     => 'Platnost kupónu',
+    'validity_val'   => 'Obvykle 1 den od obdržení kupónu',
+    'f_customs'      => 'Clo a dovozní poplatky',
+    'customs_eu'     => 'Clo EU 3 € za každou kategorii zboží u zásilek do 150 € (od 1. července 2026), v pokladně uvedeno jako „Dovozní poplatky“',
+    'faq_customs_q'  => 'Platí se na Temu clo nebo dovozní poplatky?',
     'faq_title'      => 'Časté dotazy k Temu kupónům',
     'faq'            => [
         ['Platí Temu slevový kód i pro stávající zákazníky?', 'Kódy {codes} platí jen pro nové uživatele aplikace, kteří na Temu ještě neobjednávali. Stávající zákazníci mohou využít nabídky pro všechny uživatele, dárky z her v aplikaci, odměny za pozvání přátel, úpravu ceny a sezónní výprodeje.'],
@@ -1523,6 +1644,17 @@ $EKP_TEXTS['pl'] = [
     'links_title'    => 'Przydatne linki',
     'link_guide'     => 'Kompletny przewodnik po kuponach Temu – {country}',
     'other_title'    => 'Kupony Temu w innych krajach',
+    'facts_title'    => 'Temu – {country}: najważniejsze warunki',
+    'f_percent'      => 'Kod procentowy',
+    'f_bundle'       => 'Pakiet kuponów',
+    'f_min_order'    => 'Minimalne zamówienie',
+    'f_activation'   => 'Aktywacja',
+    'activation_val' => 'W ciągu 24 godzin od pierwszej instalacji aplikacji (tylko nowi użytkownicy)',
+    'f_validity'     => 'Ważność kuponu',
+    'validity_val'   => 'Zwykle 1 dzień od otrzymania kuponu',
+    'f_customs'      => 'Cło i opłaty importowe',
+    'customs_eu'     => 'Cło UE 3 € za każdą kategorię produktu w paczkach poniżej 150 € (od 1 lipca 2026), widoczne przy płatności jako opłaty importowe',
+    'faq_customs_q'  => 'Czy płaci się cło lub opłaty importowe za zamówienia z Temu?',
     'faq_title'      => 'Najczęstsze pytania o kupony Temu',
     'faq'            => [
         ['Czy kody rabatowe Temu działają dla obecnych klientów?', 'Kody {codes} są tylko dla nowych użytkowników aplikacji bez wcześniejszych zamówień na Temu. Obecni klienci mogą korzystać z ofert dla wszystkich użytkowników, prezentów z gier w aplikacji, nagród za zaproszenia, korekty ceny i wyprzedaży sezonowych.'],
@@ -1595,6 +1727,17 @@ $EKP_TEXTS['de'] = [
     'links_title'    => 'Nützliche Links',
     'link_guide'     => 'Kompletter Ratgeber zu Temu Gutscheinen – {country}',
     'other_title'    => 'Temu Gutscheine in anderen Ländern',
+    'facts_title'    => 'Temu {country}: die wichtigsten Bedingungen',
+    'f_percent'      => 'Prozent-Code',
+    'f_bundle'       => 'Gutscheinpaket',
+    'f_min_order'    => 'Mindestbestellwert',
+    'f_activation'   => 'Aktivierung',
+    'activation_val' => 'Innerhalb von 24 Stunden nach der ersten App-Installation (nur Neukunden)',
+    'f_validity'     => 'Gültigkeit',
+    'validity_val'   => 'Meist 1 Tag nach Erhalt des Gutscheins',
+    'f_customs'      => 'Zoll und Einfuhrabgaben',
+    'customs_eu'     => 'EU-Zoll von 3 € pro Warenkategorie bei Paketen unter 150 € (seit 1. Juli 2026), an der Kasse als Einfuhrabgaben ausgewiesen',
+    'faq_customs_q'  => 'Muss ich bei Temu-Bestellungen Zoll oder Einfuhrabgaben zahlen?',
     'faq_title'      => 'Häufige Fragen zu Temu Gutscheinen',
     'faq'            => [
         ['Gelten Temu Gutscheincodes auch für Bestandskunden?', 'Die Codes {codes} gelten nur für neue App-Nutzer ohne frühere Bestellung bei Temu. Bestandskunden können Angebote für alle Nutzer, Geschenke aus App-Spielen, Prämien für Einladungen, die Preisanpassung und saisonale Sales nutzen.'],
@@ -1667,6 +1810,17 @@ $EKP_TEXTS['ro'] = [
     'links_title'    => 'Linkuri utile',
     'link_guide'     => 'Ghid complet pentru cupoanele Temu – {country}',
     'other_title'    => 'Cupoane Temu în alte țări',
+    'facts_title'    => 'Temu {country}: condițiile principale pe scurt',
+    'f_percent'      => 'Cod procentual',
+    'f_bundle'       => 'Pachet de cupoane',
+    'f_min_order'    => 'Comandă minimă',
+    'f_activation'   => 'Activare',
+    'activation_val' => 'În 24 de ore de la prima instalare a aplicației (doar utilizatori noi)',
+    'f_validity'     => 'Valabilitatea cuponului',
+    'validity_val'   => 'De obicei 1 zi de la primire',
+    'f_customs'      => 'Vamă și taxe de import',
+    'customs_eu'     => 'Taxă vamală UE de 3 € pe categorie de produs pentru coletele sub 150 € (din 1 iulie 2026), afișată la plată ca taxe de import',
+    'faq_customs_q'  => 'Plătesc vamă sau taxe de import pentru comenzile Temu?',
     'faq_title'      => 'Întrebări frecvente despre cupoanele Temu',
     'faq'            => [
         ['Funcționează codurile Temu pentru clienții existenți?', 'Codurile {codes} sunt doar pentru utilizatorii noi ai aplicației, fără comenzi anterioare pe Temu. Clienții existenți pot folosi ofertele pentru toți utilizatorii, cadourile din jocurile aplicației, recompensele pentru invitații, ajustarea prețului și reducerile de sezon.'],
@@ -1739,6 +1893,17 @@ $EKP_TEXTS['uk'] = [
     'links_title'    => 'Корисні посилання',
     'link_guide'     => 'Повний посібник із купонів Temu – {country}',
     'other_title'    => 'Купони Temu в інших країнах',
+    'facts_title'    => 'Temu ({country}): основні умови',
+    'f_percent'      => 'Відсотковий код',
+    'f_bundle'       => 'Пакет купонів',
+    'f_min_order'    => 'Мінімальне замовлення',
+    'f_activation'   => 'Активація',
+    'activation_val' => 'Протягом 24 годин після першого встановлення застосунку (лише нові користувачі)',
+    'f_validity'     => 'Термін дії купона',
+    'validity_val'   => 'Зазвичай 1 день після отримання',
+    'f_customs'      => 'Мито та імпортні збори',
+    'customs_eu'     => 'Мито ЄС 3 € за категорію товару для посилок до 150 € (з 1 липня 2026 р.)',
+    'faq_customs_q'  => 'Чи потрібно платити мито за замовлення з Temu?',
     'faq_title'      => 'Поширені запитання про купони Temu',
     'faq'            => [
         ['Чи діють купони Temu для постійних клієнтів?', 'Коди {codes} – лише для нових користувачів застосунку без попередніх замовлень на Temu. Постійні клієнти можуть скористатися пропозиціями для всіх, подарунками з ігор, винагородами за запрошення, коригуванням ціни та сезонними розпродажами.'],
@@ -1811,6 +1976,17 @@ $EKP_TEXTS['az'] = [
     'links_title'    => 'Faydalı keçidlər',
     'link_guide'     => 'Temu kuponları üzrə tam bələdçi – {country}',
     'other_title'    => 'Digər ölkələrdə Temu kuponları',
+    'facts_title'    => 'Temu {country}: əsas şərtlər',
+    'f_percent'      => 'Faiz kodu',
+    'f_bundle'       => 'Kupon paketi',
+    'f_min_order'    => 'Minimum sifariş',
+    'f_activation'   => 'Aktivləşdirmə',
+    'activation_val' => 'Tətbiqin ilk quraşdırılmasından sonra 24 saat ərzində (yalnız yeni istifadəçilər)',
+    'f_validity'     => 'Kuponun etibarlılığı',
+    'validity_val'   => 'Adətən alındıqdan sonra 1 gün',
+    'f_customs'      => 'Gömrük və idxal rüsumları',
+    'customs_eu'     => '150 €-dan aşağı bağlamalarda məhsul kateqoriyası üzrə 3 € Aİ gömrük rüsumu (1 iyul 2026-cı ildən)',
+    'faq_customs_q'  => 'Temu sifarişləri üçün gömrük rüsumu ödəyirəmmi?',
     'faq_title'      => 'Temu kuponları haqqında tez-tez verilən suallar',
     'faq'            => [
         ['Temu kupon kodları mövcud müştərilər üçün işləyir?', '{codes} kodları yalnız Temu-da əvvəllər sifariş verməmiş yeni tətbiq istifadəçiləri üçündür. Mövcud müştərilər bütün istifadəçilər üçün təkliflərdən, oyun hədiyyələrindən, dəvət mükafatlarından, qiymət düzəlişindən və mövsümi endirimlərdən yararlana bilər.'],
@@ -1883,6 +2059,17 @@ $EKP_TEXTS['ka'] = [
     'links_title'    => 'სასარგებლო ბმულები',
     'link_guide'     => 'Temu-ს კუპონების სრული გზამკვლევი – {country}',
     'other_title'    => 'Temu-ს კუპონები სხვა ქვეყნებში',
+    'facts_title'    => 'Temu – {country}: ძირითადი პირობები',
+    'f_percent'      => 'პროცენტული კოდი',
+    'f_bundle'       => 'კუპონების პაკეტი',
+    'f_min_order'    => 'მინიმალური შეკვეთა',
+    'f_activation'   => 'აქტივაცია',
+    'activation_val' => 'აპლიკაციის პირველი ინსტალაციიდან 24 საათში (მხოლოდ ახალი მომხმარებლები)',
+    'f_validity'     => 'კუპონის მოქმედება',
+    'validity_val'   => 'ჩვეულებრივ მიღებიდან 1 დღე',
+    'f_customs'      => 'საბაჟო და იმპორტის მოსაკრებლები',
+    'customs_eu'     => 'ევროკავშირის საბაჟო გადასახადი 3 € თითო კატეგორიაზე 150 €-მდე ამანათებზე (2026 წლის 1 ივლისიდან)',
+    'faq_customs_q'  => 'ვიხდი თუ არა საბაჟოს Temu-ს შეკვეთებზე?',
     'faq_title'      => 'ხშირად დასმული კითხვები Temu-ს კუპონებზე',
     'faq'            => [
         ['მოქმედებს თუ არა Temu-ს კუპონები არსებულ მომხმარებლებზე?', 'კოდები {codes} მხოლოდ აპლიკაციის ახალი მომხმარებლებისთვისაა, რომლებსაც Temu-ზე შეკვეთა ჯერ არ გაუკეთებიათ. არსებულ მომხმარებლებს შეუძლიათ ისარგებლონ ყველასთვის ხელმისაწვდომი შეთავაზებებით, თამაშების საჩუქრებით, მოწვევის ჯილდოებით, ფასის კორექტირებითა და სეზონური ფასდაკლებებით.'],
@@ -1955,6 +2142,17 @@ $EKP_TEXTS['el'] = [
     'links_title'    => 'Χρήσιμοι σύνδεσμοι',
     'link_guide'     => 'Πλήρης οδηγός για κουπόνια Temu – {country}',
     'other_title'    => 'Κουπόνια Temu σε άλλες χώρες',
+    'facts_title'    => 'Temu ({country}): οι βασικοί όροι',
+    'f_percent'      => 'Κωδικός ποσοστού',
+    'f_bundle'       => 'Πακέτο κουπονιών',
+    'f_min_order'    => 'Ελάχιστη παραγγελία',
+    'f_activation'   => 'Ενεργοποίηση',
+    'activation_val' => 'Εντός 24 ωρών από την πρώτη εγκατάσταση της εφαρμογής (μόνο νέοι χρήστες)',
+    'f_validity'     => 'Ισχύς κουπονιού',
+    'validity_val'   => 'Συνήθως 1 ημέρα από τη λήψη',
+    'f_customs'      => 'Δασμοί και τέλη εισαγωγής',
+    'customs_eu'     => 'Δασμός ΕΕ 3 € ανά κατηγορία προϊόντος για δέματα κάτω των 150 € (από 1 Ιουλίου 2026), εμφανίζεται στο ταμείο ως τέλη εισαγωγής',
+    'faq_customs_q'  => 'Πληρώνω δασμούς ή τέλη εισαγωγής στις παραγγελίες Temu;',
     'faq_title'      => 'Συχνές ερωτήσεις για τα κουπόνια Temu',
     'faq'            => [
         ['Ισχύουν τα κουπόνια Temu για παλιούς χρήστες;', 'Οι κωδικοί {codes} ισχύουν μόνο για νέους χρήστες της εφαρμογής χωρίς προηγούμενες παραγγελίες στο Temu. Οι παλιοί χρήστες μπορούν να αξιοποιήσουν προσφορές για όλους, δώρα από τα παιχνίδια της εφαρμογής, ανταμοιβές πρόσκλησης, προσαρμογή τιμής και εποχικές εκπτώσεις.'],
@@ -2027,6 +2225,17 @@ $EKP_TEXTS['nl'] = [
     'links_title'    => 'Handige links',
     'link_guide'     => 'Complete gids voor Temu kortingscodes – {country}',
     'other_title'    => 'Temu kortingscodes in andere landen',
+    'facts_title'    => 'Temu {country}: de belangrijkste voorwaarden',
+    'f_percent'      => 'Percentagecode',
+    'f_bundle'       => 'Kortingsbonpakket',
+    'f_min_order'    => 'Minimale bestelling',
+    'f_activation'   => 'Activering',
+    'activation_val' => 'Binnen 24 uur na de eerste installatie van de app (alleen nieuwe gebruikers)',
+    'f_validity'     => 'Geldigheid kortingsbon',
+    'validity_val'   => 'Meestal 1 dag na ontvangst',
+    'f_customs'      => 'Douane en importkosten',
+    'customs_eu'     => 'EU-douanerecht van € 3 per productcategorie op pakketten onder € 150 (sinds 1 juli 2026), bij het afrekenen weergegeven als importkosten',
+    'faq_customs_q'  => 'Betaal ik douane of importkosten bij Temu-bestellingen?',
     'faq_title'      => 'Veelgestelde vragen over Temu kortingscodes',
     'faq'            => [
         ['Werken Temu kortingscodes ook voor bestaande klanten?', 'De codes {codes} gelden alleen voor nieuwe app-gebruikers die nog nooit bij Temu hebben besteld. Bestaande klanten kunnen gebruikmaken van aanbiedingen voor alle gebruikers, cadeaus uit app-spellen, beloningen voor uitnodigingen, prijsaanpassing en seizoensuitverkoop.'],
@@ -2099,6 +2308,17 @@ $EKP_TEXTS['pt'] = [
     'links_title'    => 'Ligações úteis',
     'link_guide'     => 'Guia completo de cupões Temu – {country}',
     'other_title'    => 'Cupões Temu noutros países',
+    'facts_title'    => 'Temu {country}: condições principais',
+    'f_percent'      => 'Código de percentagem',
+    'f_bundle'       => 'Pacote de cupões',
+    'f_min_order'    => 'Encomenda mínima',
+    'f_activation'   => 'Ativação',
+    'activation_val' => 'Nas 24 horas após a primeira instalação da app (só novos utilizadores)',
+    'f_validity'     => 'Validade do cupão',
+    'validity_val'   => 'Normalmente 1 dia após o receber',
+    'f_customs'      => 'Alfândega e taxas de importação',
+    'customs_eu'     => 'Direito aduaneiro da UE de 3 € por categoria de produto em encomendas abaixo de 150 € (desde 1 de julho de 2026), indicado no pagamento como taxas de importação',
+    'faq_customs_q'  => 'Pago alfândega ou taxas de importação nas encomendas Temu?',
     'faq_title'      => 'Perguntas frequentes sobre cupões Temu',
     'faq'            => [
         ['Os cupons Temu funcionam para utilizadores existentes?', 'Os códigos {codes} são só para novos utilizadores da app sem encomendas anteriores na Temu. Os utilizadores existentes podem aproveitar ofertas para todos, presentes dos jogos da app, recompensas por convites, ajuste de preço e saldos sazonais.'],
@@ -2171,6 +2391,17 @@ $EKP_TEXTS['pt-BR'] = [
     'links_title'    => 'Links úteis',
     'link_guide'     => 'Guia completo de cupons Temu – {country}',
     'other_title'    => 'Cupons Temu em outros países',
+    'facts_title'    => 'Temu {country}: principais condições',
+    'f_percent'      => 'Código de porcentagem',
+    'f_bundle'       => 'Pacote de cupons',
+    'f_min_order'    => 'Pedido mínimo',
+    'f_activation'   => 'Ativação',
+    'activation_val' => 'Em até 24 horas após a primeira instalação do app (só novos usuários)',
+    'f_validity'     => 'Validade do cupom',
+    'validity_val'   => 'Normalmente 1 dia após recebê-lo',
+    'f_customs'      => 'Impostos e taxas de importação',
+    'customs_eu'     => 'Taxa aduaneira da UE de 3 € por categoria de produto em pacotes abaixo de 150 € (desde 1º de julho de 2026)',
+    'faq_customs_q'  => 'Pago impostos de importação nos pedidos da Temu?',
     'faq_title'      => 'Perguntas frequentes sobre cupons Temu',
     'faq'            => [
         ['Os cupons Temu funcionam para clientes antigos?', 'Os códigos {codes} valem só para novos usuários do app sem pedidos anteriores na Temu. Clientes antigos podem aproveitar ofertas para todos, presentes dos jogos do app, recompensas por convites, ajuste de preço e promoções sazonais.'],
@@ -2243,6 +2474,17 @@ $EKP_TEXTS['sk'] = [
     'links_title'    => 'Užitočné odkazy',
     'link_guide'     => 'Kompletný sprievodca Temu kupónmi – {country}',
     'other_title'    => 'Temu kupóny v ďalších krajinách',
+    'facts_title'    => 'Temu – {country}: hlavné podmienky v prehľade',
+    'f_percent'      => 'Percentuálny kód',
+    'f_bundle'       => 'Balíček kupónov',
+    'f_min_order'    => 'Minimálna objednávka',
+    'f_activation'   => 'Aktivácia',
+    'activation_val' => 'Do 24 hodín od prvej inštalácie aplikácie (len noví používatelia)',
+    'f_validity'     => 'Platnosť kupónu',
+    'validity_val'   => 'Zvyčajne 1 deň od získania',
+    'f_customs'      => 'Clo a dovozné poplatky',
+    'customs_eu'     => 'Clo EÚ 3 € za každú kategóriu tovaru pri zásielkach do 150 € (od 1. júla 2026), v pokladni uvedené ako dovozné poplatky',
+    'faq_customs_q'  => 'Platí sa na Temu clo alebo dovozné poplatky?',
     'faq_title'      => 'Časté otázky o Temu kupónoch',
     'faq'            => [
         ['Platia Temu zľavové kódy aj pre existujúcich zákazníkov?', 'Kódy {codes} platia len pre nových používateľov aplikácie, ktorí na Temu ešte neobjednávali. Existujúci zákazníci môžu využiť ponuky pre všetkých používateľov, darčeky z hier v aplikácii, odmeny za pozvanie priateľov, úpravu ceny a sezónne výpredaje.'],
@@ -2315,6 +2557,17 @@ $EKP_TEXTS['sv'] = [
     'links_title'    => 'Användbara länkar',
     'link_guide'     => 'Komplett guide till Temu-rabattkoder – {country}',
     'other_title'    => 'Temu-rabattkoder i andra länder',
+    'facts_title'    => 'Temu {country}: de viktigaste villkoren',
+    'f_percent'      => 'Procentkod',
+    'f_bundle'       => 'Kupongpaket',
+    'f_min_order'    => 'Minsta beställning',
+    'f_activation'   => 'Aktivering',
+    'activation_val' => 'Inom 24 timmar efter första installationen av appen (endast nya användare)',
+    'f_validity'     => 'Kupongens giltighet',
+    'validity_val'   => 'Oftast 1 dag efter att du fått kupongen',
+    'f_customs'      => 'Tull och importavgifter',
+    'customs_eu'     => 'EU-tull på 3 € per produktkategori för paket under 150 € (sedan 1 juli 2026), visas i kassan som importavgifter',
+    'faq_customs_q'  => 'Betalar jag tull eller importavgifter på Temu-beställningar?',
     'faq_title'      => 'Vanliga frågor om Temu-rabattkoder',
     'faq'            => [
         ['Fungerar Temu-rabattkoder för befintliga kunder?', 'Koderna {codes} gäller bara nya appanvändare som aldrig har beställt på Temu. Befintliga kunder kan använda erbjudanden för alla, presenter från appspel, belöningar för inbjudningar, prisjustering och säsongsreor.'],
@@ -2387,6 +2640,17 @@ $EKP_TEXTS['uz'] = [
     'links_title'    => 'Foydali havolalar',
     'link_guide'     => 'Temu kuponlari bo‘yicha to‘liq qo‘llanma – {country}',
     'other_title'    => 'Boshqa mamlakatlarda Temu kuponlari',
+    'facts_title'    => 'Temu {country}: asosiy shartlar',
+    'f_percent'      => 'Foizli kod',
+    'f_bundle'       => 'Kuponlar to‘plami',
+    'f_min_order'    => 'Minimal buyurtma',
+    'f_activation'   => 'Faollashtirish',
+    'activation_val' => 'Ilovani birinchi o‘rnatgandan keyin 24 soat ichida (faqat yangi foydalanuvchilar)',
+    'f_validity'     => 'Kupon amal qilish muddati',
+    'validity_val'   => 'Odatda olingandan keyin 1 kun',
+    'f_customs'      => 'Bojxona va import to‘lovlari',
+    'customs_eu'     => '150 € dan arzon posilkalar uchun mahsulot toifasi bo‘yicha 3 € YeI bojxona to‘lovi (2026-yil 1-iyuldan)',
+    'faq_customs_q'  => 'Temu buyurtmalari uchun bojxona to‘lovi to‘laymanmi?',
     'faq_title'      => 'Temu kuponlari haqida ko‘p so‘raladigan savollar',
     'faq'            => [
         ['Temu kupon kodlari mavjud mijozlar uchun ishlaydimi?', '{codes} kodlari faqat Temu’da avval buyurtma bermagan yangi ilova foydalanuvchilari uchun. Mavjud mijozlar barcha uchun takliflar, o‘yin sovg‘alari, taklif mukofotlari, narxni moslashtirish va mavsumiy chegirmalardan foydalanishi mumkin.'],
@@ -2459,6 +2723,17 @@ $EKP_TEXTS['fr'] = [
     'links_title'    => 'Liens utiles',
     'link_guide'     => 'Guide complet des codes promo Temu – {country}',
     'other_title'    => 'Codes promo Temu dans d’autres pays',
+    'facts_title'    => 'Temu {country} : les conditions clés en un coup d’œil',
+    'f_percent'      => 'Code pourcentage',
+    'f_bundle'       => 'Pack de coupons',
+    'f_min_order'    => 'Commande minimum',
+    'f_activation'   => 'Activation',
+    'activation_val' => 'Dans les 24 heures suivant la première installation de l’app (nouveaux utilisateurs uniquement)',
+    'f_validity'     => 'Validité du coupon',
+    'validity_val'   => 'Généralement 1 jour après réception',
+    'f_customs'      => 'Douane et frais d’importation',
+    'customs_eu'     => 'Droit de douane UE de 3 € par catégorie de produit pour les colis de moins de 150 € (depuis le 1er juillet 2026), affiché au paiement comme frais d’importation',
+    'faq_customs_q'  => 'Dois-je payer des frais de douane sur les commandes Temu ?',
     'faq_title'      => 'Questions fréquentes sur les codes promo Temu',
     'faq'            => [
         ['Les codes promo Temu fonctionnent-ils pour les clients existants ?', 'Les codes {codes} sont réservés aux nouveaux utilisateurs de l’app sans commande précédente sur Temu. Les clients existants peuvent profiter des offres pour tous, des cadeaux des jeux de l’app, des récompenses de parrainage, de l’ajustement de prix et des soldes saisonnières.'],
@@ -2531,6 +2806,17 @@ $EKP_TEXTS['hr'] = [
     'links_title'    => 'Korisni linkovi',
     'link_guide'     => 'Kompletan vodič za Temu kupone – {country}',
     'other_title'    => 'Temu kuponi u drugim državama',
+    'facts_title'    => 'Temu – {country}: najvažniji uvjeti',
+    'f_percent'      => 'Postotni kod',
+    'f_bundle'       => 'Paket kupona',
+    'f_min_order'    => 'Minimalna narudžba',
+    'f_activation'   => 'Aktivacija',
+    'activation_val' => 'U roku od 24 sata od prve instalacije aplikacije (samo novi korisnici)',
+    'f_validity'     => 'Trajanje kupona',
+    'validity_val'   => 'Obično 1 dan od primitka',
+    'f_customs'      => 'Carina i uvozne naknade',
+    'customs_eu'     => 'Carina EU od 3 € po kategoriji proizvoda za pakete ispod 150 € (od 1. srpnja 2026.), na blagajni prikazana kao uvozne naknade',
+    'faq_customs_q'  => 'Plaća li se carina ili uvozna naknada na Temu narudžbe?',
     'faq_title'      => 'Česta pitanja o Temu kuponima',
     'faq'            => [
         ['Vrijede li Temu kuponi za stare korisnike?', 'Kodovi {codes} vrijede samo za nove korisnike aplikacije bez prethodnih narudžbi na Temuu. Stari korisnici mogu iskoristiti ponude za sve korisnike, poklone iz igara u aplikaciji, nagrade za pozivanje prijatelja, prilagodbu cijene i sezonska sniženja.'],
