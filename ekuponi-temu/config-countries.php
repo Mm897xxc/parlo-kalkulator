@@ -1060,8 +1060,13 @@ $COUNTRIES = [
  * (template ih koristi za tablicu kupona, oznake provjere, brojače i savjet urednika)
  */
 $EKP_SETTINGS = [
-    // Datum zadnje RUČNE provjere kodova (Y-m-d). Prikazuje se kao "Zadnja provjera".
-    // Template uzima noviji od ovog datuma i datuma zadnje izmjene stranice u adminu.
+    // Datum provjere koji se PRIKAZUJE na stranici:
+    //   'daily'  = uvijek današnji datum (osvježava se svaki dan, i kad je stranica u cacheu)
+    //   'manual' = datum iz 'last_verified' ili datum zadnje izmjene stranice (noviji od ta dva)
+    'verified_mode'    => 'daily',
+
+    // Datum zadnje RUČNE provjere kodova (Y-m-d). Koristi se za 'manual' način i za
+    // dateModified u strukturiranim podacima (Googleu se šalje stvarni datum, ne današnji).
     'last_verified'    => '2026-10-13',
 
     // Brojač korištenja ("Iskorišteno 1.234×") prikazuje se tek kad kod skupi barem ovoliko stvarnih klikova.

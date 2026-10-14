@@ -71,6 +71,17 @@ if (!function_exists('ekp_tr')) {
     }
 }
 
+if (!function_exists('ekp_dated')) {
+    /** Ispisuje tekst s {date}; datum je u <span> koji JS po potrebi osvježi na današnji. */
+    function ekp_dated($text, $date, $fmt, $daily) {
+        $parts = explode('{date}', (string) $text);
+        $span  = $daily
+            ? '<span class="ekp-today" data-fmt="' . esc_attr($fmt) . '">' . esc_html($date) . '</span>'
+            : esc_html($date);
+        return implode($span, array_map('esc_html', $parts));
+    }
+}
+
 if (!function_exists('ekp_process_content')) {
     /**
      * Čita kupone i FAQ iz HTML-a stranice i postavlja markere (HTML komentare)
@@ -220,7 +231,8 @@ if ($ekp_enabled) {
         }
     }
     $ekp_verified_ts = min(max($ekp_ver_list), time());
-    $ekp_verified    = wp_date($ekp_fmt, $ekp_verified_ts);
+    $ekp_daily       = ($ekp_settings['verified_mode'] ?? 'daily') === 'daily';
+    $ekp_verified    = wp_date($ekp_fmt, $ekp_daily ? time() : $ekp_verified_ts);
     $ekp_month_end   = wp_date($ekp_fmt, strtotime(wp_date('Y-m-t') . ' 12:00:00'));
     $ekp_overrides   = $ekp_settings['expiry_overrides'] ?? [];
     $ekp_min_uses    = (int) ($ekp_settings['min_uses_display'] ?? 25);
@@ -330,7 +342,7 @@ if ($ekp_enabled) {
     foreach ($ekp_coupons as $ekp_i => $ekp_c) {
         $ekp_m  = '<div class="ekp-meta">';
         $ekp_m .= '<span class="ekp-badge">✓ ' . esc_html($t['verified']) . '</span>';
-        $ekp_m .= '<span>' . esc_html(ekp_tr($t['last_verified'], $ekp_vars)) . '</span>';
+        $ekp_m .= '<span>' . ekp_dated($t['last_verified'], $ekp_verified, $ekp_fmt, $ekp_daily) . '</span>';
         $ekp_m .= '<span>' . esc_html(ekp_tr($t['valid_until'], ['date' => $ekp_c['valid']])) . '</span>';
         if ($ekp_c['uses'] >= $ekp_min_uses) {
             $ekp_m .= '<span class="ekp-uses">' . esc_html(ekp_tr($t['used'], ['n' => number_format_i18n($ekp_c['uses'])])) . '</span>';
@@ -343,7 +355,7 @@ if ($ekp_enabled) {
     ob_start(); ?>
 <div class="ekp-trust">
     <span class="ekp-badge">✓ <?php echo esc_html($t['verified']); ?></span>
-    <span><?php echo esc_html(ekp_tr($t['last_verified'], $ekp_vars)); ?></span>
+    <span><?php echo ekp_dated($t['last_verified'], $ekp_verified, $ekp_fmt, $ekp_daily); ?></span>
     <span><?php echo esc_html(ekp_tr($t['checked_by'], $ekp_vars)); ?></span>
 </div>
 <a class="ekp-jump" href="#ekp-existing"><?php echo esc_html($t['existing_jump']); ?></a>
@@ -467,7 +479,7 @@ if ($ekp_enabled) {
         <span class="ekp-avatar" aria-hidden="true"><?php echo esc_html(mb_strtoupper(mb_substr($ekp_editor_name, 0, 1))); ?></span>
         <span>
             <strong><?php echo esc_html($ekp_editor_name); ?></strong><?php if ($ekp_editor_role !== '') : ?>, <?php echo esc_html($ekp_editor_role); ?><?php endif; ?><br>
-            <span class="ekp-small"><?php echo esc_html(ekp_tr($t['last_verified'], $ekp_vars)); ?></span>
+            <span class="ekp-small"><?php echo ekp_dated($t['last_verified'], $ekp_verified, $ekp_fmt, $ekp_daily); ?></span>
         </span>
     </div>
 </div>
@@ -971,6 +983,17 @@ function copyCode(codeId, messageId) {
 </script>
 
 <script>
+/* Datum provjere: zamijeni datum iz cachea današnjim (format iz configa: d, m, Y) */
+(function () {
+    var now = new Date();
+    var parts = { d: ('0' + now.getDate()).slice(-2), m: ('0' + (now.getMonth() + 1)).slice(-2), Y: String(now.getFullYear()) };
+    var els = document.querySelectorAll('.ekp-today');
+    for (var i = 0; i < els.length; i++) {
+        var fmt = els[i].getAttribute('data-fmt') || 'd.m.Y';
+        els[i].textContent = fmt.replace(/[dmY]/g, function (c) { return parts[c]; });
+    }
+})();
+
 /* Kopiranje koda iz tablice + brojač korištenja (jedan klik po kodu po pregledniku u 12 h) */
 (function () {
     function ekpTrack(key) {
