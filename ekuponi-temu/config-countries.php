@@ -1067,10 +1067,6 @@ $EKP_SETTINGS = [
     // Brojač korištenja ("Iskorišteno 1.234×") prikazuje se tek kad kod skupi barem ovoliko stvarnih klikova.
     'min_uses_display' => 25,
 
-    // Datum isteka po kodu (Y-m-d). Kodovi koji nisu navedeni vrijede do kraja tekućeg mjeseca.
-    'expiry_overrides' => [
-        // 'EKUPONI180' => '2026-12-31',
-    ],
 
     // Zadani urednik za sve države (država može imati svoj 'editor' u $COUNTRIES).
     // Prazno ime = koristi se naziv redakcije iz jezičnog paketa.

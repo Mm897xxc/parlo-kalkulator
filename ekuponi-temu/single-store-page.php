@@ -7,7 +7,7 @@
 * Template oko tog sadržaja automatski dodaje SEO sekcije iz config-countries.php ($EKP_TEXTS):
 *  - oznaku provjere i ime urednika
 *  - tablicu svih kupona (čita se iz .coupon-box blokova na stranici) i tablicu najvažnijih uvjeta ('facts' u configu)
-*  - "Vrijedi do" i brojač korištenja na svakom kuponu
+*  - brojač korištenja na svakom kuponu
 *  - uputu korak po korak + savjete o vremenu aktivacije
 *  - sekciju za postojeće (stare) korisnike
 *  - kategorijske popuste, savjet urednika, korisne linkove ('related' u configu) i Temu stranice drugih država
@@ -234,13 +234,9 @@ if ($ekp_enabled) {
     }
     $ekp_verified_ts = min(max($ekp_ver_list), time());
     $ekp_verified    = wp_date($ekp_fmt, $ekp_verified_ts);
-    $ekp_month_end   = wp_date($ekp_fmt, strtotime(wp_date('Y-m-t') . ' 12:00:00'));
-    $ekp_overrides   = $ekp_settings['expiry_overrides'] ?? [];
     $ekp_min_uses    = (int) ($ekp_settings['min_uses_display'] ?? 25);
 
     foreach ($ekp_coupons as &$ekp_c) {
-        $ekp_exp        = ($ekp_c['code'] !== '' && !empty($ekp_overrides[$ekp_c['code']])) ? strtotime($ekp_overrides[$ekp_c['code']] . ' 12:00:00') : false;
-        $ekp_c['valid'] = $ekp_exp ? wp_date($ekp_fmt, $ekp_exp) : $ekp_month_end;
         $ekp_c['uses']  = (int) get_post_meta($ekp_post_id, '_ekp_uses_' . md5($ekp_c['key']), true);
     }
     unset($ekp_c);
@@ -343,7 +339,6 @@ if ($ekp_enabled) {
     foreach ($ekp_coupons as $ekp_i => $ekp_c) {
         $ekp_m  = '<div class="ekp-meta">';
         $ekp_m .= '<span class="ekp-badge">✓ ' . esc_html($t['verified']) . '</span>';
-        $ekp_m .= '<span>' . esc_html(ekp_tr($t['valid_until'], ['date' => $ekp_c['valid']])) . '</span>';
         if ($ekp_c['uses'] >= $ekp_min_uses) {
             $ekp_m .= '<span class="ekp-uses">' . esc_html(ekp_tr($t['used'], ['n' => number_format_i18n($ekp_c['uses'])])) . '</span>';
         }
@@ -367,7 +362,6 @@ if ($ekp_enabled) {
                 <th scope="col"><?php echo esc_html($t['th_offer']); ?></th>
                 <th scope="col"><?php echo esc_html($t['th_code']); ?></th>
                 <th scope="col"><?php echo esc_html($t['th_for']); ?></th>
-                <th scope="col"><?php echo esc_html($t['th_valid']); ?></th>
                 <th scope="col"><?php echo esc_html($t['th_status']); ?></th>
             </tr>
         </thead>
@@ -389,7 +383,6 @@ if ($ekp_enabled) {
                     <?php endif; ?>
                 </td>
                 <td data-label="<?php echo esc_attr($t['th_for']); ?>"><?php echo esc_html($ekp_c['all'] ? $t['for_all'] : $t['for_new']); ?></td>
-                <td data-label="<?php echo esc_attr($t['th_valid']); ?>"><?php echo esc_html($ekp_c['valid']); ?></td>
                 <td data-label="<?php echo esc_attr($t['th_status']); ?>">
                     <span class="ekp-cell"><span class="ekp-ok">✓ <?php echo esc_html($t['verified']); ?></span><?php if ($ekp_c['uses'] >= $ekp_min_uses) : ?><br><span class="ekp-small"><?php echo esc_html(ekp_tr($t['used'], ['n' => number_format_i18n($ekp_c['uses'])])); ?></span><?php endif; ?></span>
                 </td>
