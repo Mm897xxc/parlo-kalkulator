@@ -1060,13 +1060,8 @@ $COUNTRIES = [
  * (template ih koristi za tablicu kupona, oznake provjere, brojače i savjet urednika)
  */
 $EKP_SETTINGS = [
-    // Datum provjere koji se PRIKAZUJE na stranici:
-    //   'daily'  = uvijek današnji datum (osvježava se svaki dan, i kad je stranica u cacheu)
-    //   'manual' = datum iz 'last_verified' ili datum zadnje izmjene stranice (noviji od ta dva)
-    'verified_mode'    => 'daily',
-
-    // Datum zadnje RUČNE provjere kodova (Y-m-d). Koristi se za 'manual' način i za
-    // dateModified u strukturiranim podacima (Googleu se šalje stvarni datum, ne današnji).
+    // Datum zadnje RUČNE provjere kodova (Y-m-d). Ne prikazuje se na stranici; koristi se samo
+    // za dateModified u strukturiranim podacima (noviji od ovog i datuma izmjene stranice).
     'last_verified'    => '2026-10-13',
 
     // Brojač korištenja ("Iskorišteno 1.234×") prikazuje se tek kad kod skupi barem ovoliko stvarnih klikova.
@@ -1167,7 +1162,7 @@ $EKP_TEXTS['en'] = [
         ['Do Temu coupon codes work for existing customers?', 'The codes {codes} are for new app users with no previous Temu orders only. Existing customers can use deals for all users, free gifts from app games, invite rewards, price adjustment and seasonal sales.'],
         ['How long is the Temu welcome coupon valid?', 'The welcome offer has to be claimed within a limited time after you first install the app (usually 24 hours) and each coupon expires shortly after you receive it. Exact deadlines are in the terms under each coupon.'],
         ['Why is my Temu code not working?', 'Most often because the account has already placed an order, another new-user offer was already used, the cart is below the minimum order value or the claim period has passed.'],
-        ['Are the codes on this page verified?', 'Yes. Our editors check every code regularly in the Temu app. The date of the last check is shown at the top of the page and in the table.'],
+        ['Are the codes on this page verified?', 'Yes. Our editors check every code regularly in the Temu app.'],
     ],
 ];
 
@@ -1250,7 +1245,7 @@ $EKP_TEXTS['es'] = [
         ['¿Los cupones de Temu sirven para clientes existentes?', 'Los códigos {codes} son solo para nuevos usuarios de la app sin pedidos anteriores en Temu. Los clientes existentes pueden aprovechar ofertas para todos los usuarios, regalos de los juegos de la app, recompensas por invitar amigos, ajuste de precio y rebajas de temporada.'],
         ['¿Cuánto tiempo es válido el cupón de bienvenida de Temu?', 'La oferta de bienvenida debe reclamarse en un tiempo limitado tras instalar la app por primera vez (normalmente 24 horas) y cada cupón caduca poco después de recibirlo. Los plazos exactos están en las condiciones de cada cupón.'],
         ['¿Por qué no funciona mi código de Temu?', 'Normalmente porque la cuenta ya ha hecho un pedido, ya se usó otra oferta para nuevos usuarios, el carrito no llega al importe mínimo o ha pasado el plazo para reclamarlo.'],
-        ['¿Están verificados los códigos de esta página?', 'Sí. Nuestro equipo revisa cada código periódicamente en la app de Temu. La fecha de la última verificación aparece al principio de la página y en la tabla.'],
+        ['¿Están verificados los códigos de esta página?', 'Sí. Nuestro equipo revisa cada código periódicamente en la app de Temu.'],
     ],
 ];
 
@@ -1333,7 +1328,7 @@ $EKP_TEXTS['it'] = [
         ['I buoni sconto Temu valgono per i clienti esistenti?', 'I codici {codes} sono solo per i nuovi utenti dell’app senza ordini precedenti su Temu. I clienti esistenti possono usare offerte per tutti gli utenti, regali dai giochi nell’app, premi per gli inviti, adeguamento del prezzo e saldi stagionali.'],
         ['Per quanto tempo è valido il buono di benvenuto Temu?', 'L’offerta di benvenuto va riscattata entro un tempo limitato dalla prima installazione dell’app (di solito 24 ore) e ogni buono scade poco dopo averlo ricevuto. Le scadenze esatte sono nelle condizioni sotto ogni buono.'],
         ['Perché il mio codice Temu non funziona?', 'Di solito perché l’account ha già effettuato un ordine, è già stata usata un’altra offerta per nuovi utenti, il carrello non raggiunge l’importo minimo o il periodo per riscattarlo è scaduto.'],
-        ['I codici di questa pagina sono verificati?', 'Sì. La nostra redazione controlla regolarmente ogni codice nell’app Temu. La data dell’ultima verifica è indicata in cima alla pagina e nella tabella.'],
+        ['I codici di questa pagina sono verificati?', 'Sì. La nostra redazione controlla regolarmente ogni codice nell’app Temu.'],
     ],
 ];
 
@@ -1416,7 +1411,7 @@ $EKP_TEXTS['hu'] = [
         ['Működnek a Temu kuponkódok meglévő vásárlóknak?', 'A {codes} kódok csak olyan új alkalmazás-felhasználóknak szólnak, akik még nem rendeltek a Temun. A meglévő vásárlók használhatják a mindenkinek szóló ajánlatokat, a játékok ajándékait, a meghívási jutalmakat, az árkiigazítást és a szezonális akciókat.'],
         ['Meddig érvényes a Temu üdvözlő kupon?', 'Az üdvözlő ajánlatot az alkalmazás első telepítése után korlátozott ideig (általában 24 óráig) lehet igényelni, és minden kupon a megszerzés után hamar lejár. A pontos határidők az egyes kuponok alatti feltételekben találhatók.'],
         ['Miért nem működik a Temu kódom?', 'Leggyakrabban azért, mert a fiókkal már rendeltek, már felhasználtak egy másik újfelhasználós ajánlatot, a kosár nem éri el a minimális értéket, vagy lejárt az igénylési idő.'],
-        ['Ellenőrzöttek az oldalon található kódok?', 'Igen. Szerkesztőségünk rendszeresen ellenőriz minden kódot a Temu alkalmazásban. Az utolsó ellenőrzés dátuma az oldal tetején és a táblázatban látható.'],
+        ['Ellenőrzöttek az oldalon található kódok?', 'Igen. Szerkesztőségünk rendszeresen ellenőriz minden kódot a Temu alkalmazásban.'],
     ],
 ];
 
@@ -1499,7 +1494,7 @@ $EKP_TEXTS['tr'] = [
         ['Temu kupon kodları mevcut müşteriler için geçerli mi?', '{codes} kodları yalnızca daha önce Temu’da sipariş vermemiş yeni uygulama kullanıcıları içindir. Mevcut müşteriler tüm kullanıcılara açık fırsatlardan, uygulama oyunlarının hediyelerinden, davet ödüllerinden, fiyat ayarlamasından ve sezon indirimlerinden yararlanabilir.'],
         ['Temu hoş geldin kuponu ne kadar süre geçerli?', 'Hoş geldin teklifi, uygulamayı ilk yüklemenizden sonra sınırlı bir süre içinde (genellikle 24 saat) alınmalıdır ve her kupon aldıktan kısa süre sonra sona erer. Kesin süreler her kuponun altındaki koşullarda yer alır.'],
         ['Temu kodum neden çalışmıyor?', 'Genellikle hesapla daha önce sipariş verildiği, başka bir yeni kullanıcı teklifi kullanıldığı, sepet minimum tutarın altında kaldığı veya talep süresi dolduğu için.'],
-        ['Bu sayfadaki kodlar doğrulanmış mı?', 'Evet. Editörlerimiz her kodu Temu uygulamasında düzenli olarak kontrol eder. Son kontrol tarihi sayfanın üst kısmında ve tabloda gösterilir.'],
+        ['Bu sayfadaki kodlar doğrulanmış mı?', 'Evet. Editörlerimiz her kodu Temu uygulamasında düzenli olarak kontrol eder.'],
     ],
 ];
 
@@ -1582,7 +1577,7 @@ $EKP_TEXTS['cs'] = [
         ['Platí Temu slevový kód i pro stávající zákazníky?', 'Kódy {codes} platí jen pro nové uživatele aplikace, kteří na Temu ještě neobjednávali. Stávající zákazníci mohou využít nabídky pro všechny uživatele, dárky z her v aplikaci, odměny za pozvání přátel, úpravu ceny a sezónní výprodeje.'],
         ['Jak dlouho platí uvítací kupón Temu?', 'Uvítací nabídku je nutné vyzvednout v omezeném čase po první instalaci aplikace (obvykle 24 hodin) a každý kupón brzy po získání vyprší. Přesné lhůty najdete v podmínkách pod každým kupónem.'],
         ['Proč mi nefunguje kód na Temu?', 'Nejčastěji proto, že účet už má objednávku, už byla využita jiná nabídka pro nové uživatele, košík nedosahuje minimální hodnoty nebo uplynula lhůta pro vyzvednutí.'],
-        ['Jsou kódy na této stránce ověřené?', 'Ano. Naše redakce každý kód pravidelně kontroluje v aplikaci Temu. Datum poslední kontroly je uvedeno v horní části stránky a v tabulce.'],
+        ['Jsou kódy na této stránce ověřené?', 'Ano. Naše redakce každý kód pravidelně kontroluje v aplikaci Temu.'],
     ],
 ];
 
@@ -1665,7 +1660,7 @@ $EKP_TEXTS['pl'] = [
         ['Czy kody rabatowe Temu działają dla obecnych klientów?', 'Kody {codes} są tylko dla nowych użytkowników aplikacji bez wcześniejszych zamówień na Temu. Obecni klienci mogą korzystać z ofert dla wszystkich użytkowników, prezentów z gier w aplikacji, nagród za zaproszenia, korekty ceny i wyprzedaży sezonowych.'],
         ['Jak długo ważny jest kupon powitalny Temu?', 'Ofertę powitalną trzeba odebrać w ograniczonym czasie od pierwszej instalacji aplikacji (zwykle 24 godziny), a każdy kupon wygasa wkrótce po otrzymaniu. Dokładne terminy znajdziesz w warunkach pod każdym kuponem.'],
         ['Dlaczego mój kod Temu nie działa?', 'Najczęściej dlatego, że z konta złożono już zamówienie, wykorzystano już inną ofertę dla nowych użytkowników, koszyk nie osiąga minimalnej wartości lub minął czas na odbiór.'],
-        ['Czy kody na tej stronie są zweryfikowane?', 'Tak. Nasza redakcja regularnie sprawdza każdy kod w aplikacji Temu. Data ostatniej weryfikacji jest podana na górze strony i w tabeli.'],
+        ['Czy kody na tej stronie są zweryfikowane?', 'Tak. Nasza redakcja regularnie sprawdza każdy kod w aplikacji Temu.'],
     ],
 ];
 
@@ -1748,7 +1743,7 @@ $EKP_TEXTS['de'] = [
         ['Gelten Temu Gutscheincodes auch für Bestandskunden?', 'Die Codes {codes} gelten nur für neue App-Nutzer ohne frühere Bestellung bei Temu. Bestandskunden können Angebote für alle Nutzer, Geschenke aus App-Spielen, Prämien für Einladungen, die Preisanpassung und saisonale Sales nutzen.'],
         ['Wie lange ist der Temu Willkommensgutschein gültig?', 'Das Willkommensangebot muss innerhalb einer begrenzten Zeit nach der ersten App-Installation eingelöst werden (meist 24 Stunden), und jeder Gutschein läuft kurz nach Erhalt ab. Die genauen Fristen stehen in den Bedingungen unter jedem Gutschein.'],
         ['Warum funktioniert mein Temu Code nicht?', 'Meist, weil mit dem Konto schon bestellt wurde, bereits ein anderes Neukundenangebot genutzt wurde, der Warenkorb unter dem Mindestbestellwert liegt oder die Einlösefrist abgelaufen ist.'],
-        ['Sind die Codes auf dieser Seite geprüft?', 'Ja. Unsere Redaktion prüft jeden Code regelmäßig in der Temu-App. Das Datum der letzten Prüfung steht oben auf der Seite und in der Tabelle.'],
+        ['Sind die Codes auf dieser Seite geprüft?', 'Ja. Unsere Redaktion prüft jeden Code regelmäßig in der Temu-App.'],
     ],
 ];
 
@@ -1831,7 +1826,7 @@ $EKP_TEXTS['ro'] = [
         ['Funcționează codurile Temu pentru clienții existenți?', 'Codurile {codes} sunt doar pentru utilizatorii noi ai aplicației, fără comenzi anterioare pe Temu. Clienții existenți pot folosi ofertele pentru toți utilizatorii, cadourile din jocurile aplicației, recompensele pentru invitații, ajustarea prețului și reducerile de sezon.'],
         ['Cât timp este valabil cuponul de bun venit Temu?', 'Oferta de bun venit trebuie revendicată într-un timp limitat de la prima instalare a aplicației (de obicei 24 de ore), iar fiecare cupon expiră la scurt timp după ce îl primești. Termenele exacte sunt în condițiile de sub fiecare cupon.'],
         ['De ce nu funcționează codul meu Temu?', 'De cele mai multe ori pentru că din cont s-a plasat deja o comandă, a fost folosită deja altă ofertă pentru utilizatori noi, coșul nu atinge valoarea minimă sau a expirat termenul de revendicare.'],
-        ['Codurile de pe această pagină sunt verificate?', 'Da. Echipa noastră verifică periodic fiecare cod în aplicația Temu. Data ultimei verificări apare în partea de sus a paginii și în tabel.'],
+        ['Codurile de pe această pagină sunt verificate?', 'Da. Echipa noastră verifică periodic fiecare cod în aplicația Temu.'],
     ],
 ];
 
@@ -1914,7 +1909,7 @@ $EKP_TEXTS['uk'] = [
         ['Чи діють купони Temu для постійних клієнтів?', 'Коди {codes} – лише для нових користувачів застосунку без попередніх замовлень на Temu. Постійні клієнти можуть скористатися пропозиціями для всіх, подарунками з ігор, винагородами за запрошення, коригуванням ціни та сезонними розпродажами.'],
         ['Скільки діє вітальний купон Temu?', 'Вітальну пропозицію потрібно активувати протягом обмеженого часу після першого встановлення застосунку (зазвичай 24 години), а кожен купон спливає невдовзі після отримання. Точні терміни – в умовах під кожним купоном.'],
         ['Чому не працює мій код Temu?', 'Найчастіше тому, що з акаунта вже було замовлення, вже використано іншу пропозицію для нових користувачів, сума кошика менша за мінімальну або минув час для активації.'],
-        ['Чи перевірені коди на цій сторінці?', 'Так. Наша редакція регулярно перевіряє кожен код у застосунку Temu. Дата останньої перевірки вказана вгорі сторінки та в таблиці.'],
+        ['Чи перевірені коди на цій сторінці?', 'Так. Наша редакція регулярно перевіряє кожен код у застосунку Temu.'],
     ],
 ];
 
@@ -1997,7 +1992,7 @@ $EKP_TEXTS['az'] = [
         ['Temu kupon kodları mövcud müştərilər üçün işləyir?', '{codes} kodları yalnız Temu-da əvvəllər sifariş verməmiş yeni tətbiq istifadəçiləri üçündür. Mövcud müştərilər bütün istifadəçilər üçün təkliflərdən, oyun hədiyyələrindən, dəvət mükafatlarından, qiymət düzəlişindən və mövsümi endirimlərdən yararlana bilər.'],
         ['Temu xoş gəldin kuponu nə qədər etibarlıdır?', 'Xoş gəldin təklifi tətbiqi ilk dəfə quraşdırdıqdan sonra məhdud müddətdə (adətən 24 saat) əldə edilməlidir və hər kupon alındıqdan qısa müddət sonra bitir. Dəqiq müddətlər hər kuponun altındakı şərtlərdədir.'],
         ['Temu kodum niyə işləmir?', 'Adətən hesabla artıq sifariş verildiyi, başqa yeni istifadəçi təklifindən istifadə olunduğu, səbət minimum məbləğə çatmadığı və ya əldə etmə müddəti bitdiyi üçün.'],
-        ['Bu səhifədəki kodlar yoxlanılıb?', 'Bəli. Redaksiyamız hər kodu Temu tətbiqində mütəmadi yoxlayır. Son yoxlama tarixi səhifənin yuxarısında və cədvəldə göstərilir.'],
+        ['Bu səhifədəki kodlar yoxlanılıb?', 'Bəli. Redaksiyamız hər kodu Temu tətbiqində mütəmadi yoxlayır.'],
     ],
 ];
 
@@ -2080,7 +2075,7 @@ $EKP_TEXTS['ka'] = [
         ['მოქმედებს თუ არა Temu-ს კუპონები არსებულ მომხმარებლებზე?', 'კოდები {codes} მხოლოდ აპლიკაციის ახალი მომხმარებლებისთვისაა, რომლებსაც Temu-ზე შეკვეთა ჯერ არ გაუკეთებიათ. არსებულ მომხმარებლებს შეუძლიათ ისარგებლონ ყველასთვის ხელმისაწვდომი შეთავაზებებით, თამაშების საჩუქრებით, მოწვევის ჯილდოებით, ფასის კორექტირებითა და სეზონური ფასდაკლებებით.'],
         ['რამდენ ხანს მოქმედებს Temu-ს მისასალმებელი კუპონი?', 'მისასალმებელი შეთავაზება აპლიკაციის პირველი ინსტალაციიდან შეზღუდულ დროში (ჩვეულებრივ 24 საათში) უნდა მიიღოთ, ხოლო ყოველი კუპონი მიღებიდან მალევე იწურება. ზუსტი ვადები მითითებულია თითოეული კუპონის პირობებში.'],
         ['რატომ არ მუშაობს ჩემი Temu-ს კოდი?', 'ყველაზე ხშირად იმიტომ, რომ ანგარიშით უკვე გაკეთდა შეკვეთა, უკვე გამოყენებულია ახალი მომხმარებლის სხვა შეთავაზება, კალათა მინიმალურ თანხას ვერ აღწევს ან მიღების ვადა ამოიწურა.'],
-        ['გადამოწმებულია თუ არა ამ გვერდის კოდები?', 'დიახ. ჩვენი რედაქცია რეგულარულად ამოწმებს ყველა კოდს Temu-ს აპლიკაციაში. ბოლო შემოწმების თარიღი მითითებულია გვერდის ზედა ნაწილში და ცხრილში.'],
+        ['გადამოწმებულია თუ არა ამ გვერდის კოდები?', 'დიახ. ჩვენი რედაქცია რეგულარულად ამოწმებს ყველა კოდს Temu-ს აპლიკაციაში.'],
     ],
 ];
 
@@ -2163,7 +2158,7 @@ $EKP_TEXTS['el'] = [
         ['Ισχύουν τα κουπόνια Temu για παλιούς χρήστες;', 'Οι κωδικοί {codes} ισχύουν μόνο για νέους χρήστες της εφαρμογής χωρίς προηγούμενες παραγγελίες στο Temu. Οι παλιοί χρήστες μπορούν να αξιοποιήσουν προσφορές για όλους, δώρα από τα παιχνίδια της εφαρμογής, ανταμοιβές πρόσκλησης, προσαρμογή τιμής και εποχικές εκπτώσεις.'],
         ['Πόσο ισχύει το κουπόνι καλωσορίσματος του Temu;', 'Η προσφορά καλωσορίσματος πρέπει να διεκδικηθεί σε περιορισμένο χρόνο από την πρώτη εγκατάσταση της εφαρμογής (συνήθως 24 ώρες) και κάθε κουπόνι λήγει λίγο αφού το λάβετε. Οι ακριβείς προθεσμίες αναφέρονται στους όρους κάθε κουπονιού.'],
         ['Γιατί δεν λειτουργεί ο κωδικός μου στο Temu;', 'Συνήθως επειδή ο λογαριασμός έχει ήδη κάνει παραγγελία, έχει ήδη χρησιμοποιηθεί άλλη προσφορά νέου χρήστη, το καλάθι δεν φτάνει την ελάχιστη αξία ή έχει λήξει η προθεσμία διεκδίκησης.'],
-        ['Είναι επαληθευμένοι οι κωδικοί αυτής της σελίδας;', 'Ναι. Η ομάδα μας ελέγχει τακτικά κάθε κωδικό στην εφαρμογή Temu. Η ημερομηνία του τελευταίου ελέγχου εμφανίζεται στην κορυφή της σελίδας και στον πίνακα.'],
+        ['Είναι επαληθευμένοι οι κωδικοί αυτής της σελίδας;', 'Ναι. Η ομάδα μας ελέγχει τακτικά κάθε κωδικό στην εφαρμογή Temu.'],
     ],
 ];
 
@@ -2246,7 +2241,7 @@ $EKP_TEXTS['nl'] = [
         ['Werken Temu kortingscodes ook voor bestaande klanten?', 'De codes {codes} gelden alleen voor nieuwe app-gebruikers die nog nooit bij Temu hebben besteld. Bestaande klanten kunnen gebruikmaken van aanbiedingen voor alle gebruikers, cadeaus uit app-spellen, beloningen voor uitnodigingen, prijsaanpassing en seizoensuitverkoop.'],
         ['Hoe lang is de Temu welkomstkorting geldig?', 'Het welkomstaanbod moet binnen een beperkte tijd na de eerste installatie van de app worden geclaimd (meestal 24 uur) en elke kortingsbon verloopt kort nadat je hem ontvangt. De exacte termijnen staan in de voorwaarden onder elke kortingsbon.'],
         ['Waarom werkt mijn Temu code niet?', 'Meestal omdat er met het account al is besteld, er al een ander aanbod voor nieuwe gebruikers is gebruikt, de winkelwagen onder de minimale bestelwaarde blijft of de claimtermijn is verlopen.'],
-        ['Zijn de codes op deze pagina gecontroleerd?', 'Ja. Onze redactie controleert elke code regelmatig in de Temu-app. De datum van de laatste controle staat bovenaan de pagina en in de tabel.'],
+        ['Zijn de codes op deze pagina gecontroleerd?', 'Ja. Onze redactie controleert elke code regelmatig in de Temu-app.'],
     ],
 ];
 
@@ -2329,7 +2324,7 @@ $EKP_TEXTS['pt'] = [
         ['Os cupons Temu funcionam para utilizadores existentes?', 'Os códigos {codes} são só para novos utilizadores da app sem encomendas anteriores na Temu. Os utilizadores existentes podem aproveitar ofertas para todos, presentes dos jogos da app, recompensas por convites, ajuste de preço e saldos sazonais.'],
         ['Quanto tempo é válido o cupão de boas-vindas da Temu?', 'A oferta de boas-vindas tem de ser reclamada num tempo limitado após a primeira instalação da app (normalmente 24 horas) e cada cupão expira pouco depois de o receber. Os prazos exatos estão nas condições de cada cupão.'],
         ['Porque é que o meu código Temu não funciona?', 'Normalmente porque a conta já fez uma encomenda, já foi usada outra oferta para novos utilizadores, o carrinho não atinge o valor mínimo ou o prazo para reclamar terminou.'],
-        ['Os códigos desta página são verificados?', 'Sim. A nossa equipa verifica regularmente cada código na app Temu. A data da última verificação aparece no topo da página e na tabela.'],
+        ['Os códigos desta página são verificados?', 'Sim. A nossa equipa verifica regularmente cada código na app Temu.'],
     ],
 ];
 
@@ -2412,7 +2407,7 @@ $EKP_TEXTS['pt-BR'] = [
         ['Os cupons Temu funcionam para clientes antigos?', 'Os códigos {codes} valem só para novos usuários do app sem pedidos anteriores na Temu. Clientes antigos podem aproveitar ofertas para todos, presentes dos jogos do app, recompensas por convites, ajuste de preço e promoções sazonais.'],
         ['Por quanto tempo vale o cupom de boas-vindas da Temu?', 'A oferta de boas-vindas precisa ser resgatada em um tempo limitado após a primeira instalação do app (normalmente 24 horas) e cada cupom expira pouco depois de ser recebido. Os prazos exatos estão nas condições de cada cupom.'],
         ['Por que meu código Temu não funciona?', 'Geralmente porque a conta já fez um pedido, outra oferta para novos usuários já foi usada, o carrinho não atinge o valor mínimo ou o prazo de resgate acabou.'],
-        ['Os códigos desta página são verificados?', 'Sim. Nossa equipe verifica regularmente cada código no app da Temu. A data da última verificação aparece no topo da página e na tabela.'],
+        ['Os códigos desta página são verificados?', 'Sim. Nossa equipe verifica regularmente cada código no app da Temu.'],
     ],
 ];
 
@@ -2495,7 +2490,7 @@ $EKP_TEXTS['sk'] = [
         ['Platia Temu zľavové kódy aj pre existujúcich zákazníkov?', 'Kódy {codes} platia len pre nových používateľov aplikácie, ktorí na Temu ešte neobjednávali. Existujúci zákazníci môžu využiť ponuky pre všetkých používateľov, darčeky z hier v aplikácii, odmeny za pozvanie priateľov, úpravu ceny a sezónne výpredaje.'],
         ['Ako dlho platí uvítací kupón Temu?', 'Uvítaciu ponuku treba vyzdvihnúť v obmedzenom čase po prvej inštalácii aplikácie (zvyčajne 24 hodín) a každý kupón krátko po získaní vyprší. Presné lehoty nájdete v podmienkach pod každým kupónom.'],
         ['Prečo mi nefunguje kód na Temu?', 'Najčastejšie preto, že účet už má objednávku, už bola využitá iná ponuka pre nových používateľov, košík nedosahuje minimálnu hodnotu alebo uplynula lehota na vyzdvihnutie.'],
-        ['Sú kódy na tejto stránke overené?', 'Áno. Naša redakcia každý kód pravidelne kontroluje v aplikácii Temu. Dátum poslednej kontroly je uvedený v hornej časti stránky a v tabuľke.'],
+        ['Sú kódy na tejto stránke overené?', 'Áno. Naša redakcia každý kód pravidelne kontroluje v aplikácii Temu.'],
     ],
 ];
 
@@ -2578,7 +2573,7 @@ $EKP_TEXTS['sv'] = [
         ['Fungerar Temu-rabattkoder för befintliga kunder?', 'Koderna {codes} gäller bara nya appanvändare som aldrig har beställt på Temu. Befintliga kunder kan använda erbjudanden för alla, presenter från appspel, belöningar för inbjudningar, prisjustering och säsongsreor.'],
         ['Hur länge gäller Temus välkomstkupong?', 'Välkomsterbjudandet måste hämtas inom en begränsad tid efter första installationen av appen (oftast 24 timmar) och varje kupong går ut kort efter att du fått den. Exakta tidsgränser står i villkoren under varje kupong.'],
         ['Varför fungerar inte min Temu-kod?', 'Oftast för att kontot redan har gjort en beställning, ett annat erbjudande för nya användare redan har använts, varukorgen inte når minsta ordervärde eller tiden för att hämta erbjudandet har gått ut.'],
-        ['Är koderna på den här sidan kontrollerade?', 'Ja. Vår redaktion kontrollerar regelbundet varje kod i Temu-appen. Datumet för senaste kontrollen visas högst upp på sidan och i tabellen.'],
+        ['Är koderna på den här sidan kontrollerade?', 'Ja. Vår redaktion kontrollerar regelbundet varje kod i Temu-appen.'],
     ],
 ];
 
@@ -2661,7 +2656,7 @@ $EKP_TEXTS['uz'] = [
         ['Temu kupon kodlari mavjud mijozlar uchun ishlaydimi?', '{codes} kodlari faqat Temu’da avval buyurtma bermagan yangi ilova foydalanuvchilari uchun. Mavjud mijozlar barcha uchun takliflar, o‘yin sovg‘alari, taklif mukofotlari, narxni moslashtirish va mavsumiy chegirmalardan foydalanishi mumkin.'],
         ['Temu xush kelibsiz kuponi qancha vaqt amal qiladi?', 'Xush kelibsiz taklifini ilovani birinchi marta o‘rnatgandan keyin cheklangan vaqt ichida (odatda 24 soat) olish kerak va har bir kuponning muddati olingandan keyin tez orada tugaydi. Aniq muddatlar har bir kupon ostidagi shartlarda.'],
         ['Nega Temu kodim ishlamayapti?', 'Ko‘pincha hisob orqali allaqachon buyurtma berilgani, boshqa yangi foydalanuvchi taklifi ishlatilgani, savat minimal summaga yetmagani yoki olish muddati tugagani sababli.'],
-        ['Ushbu sahifadagi kodlar tekshirilganmi?', 'Ha. Tahririyatimiz har bir kodni Temu ilovasida muntazam tekshiradi. Oxirgi tekshiruv sanasi sahifa yuqorisida va jadvalda ko‘rsatilgan.'],
+        ['Ushbu sahifadagi kodlar tekshirilganmi?', 'Ha. Tahririyatimiz har bir kodni Temu ilovasida muntazam tekshiradi.'],
     ],
 ];
 
@@ -2744,7 +2739,7 @@ $EKP_TEXTS['fr'] = [
         ['Les codes promo Temu fonctionnent-ils pour les clients existants ?', 'Les codes {codes} sont réservés aux nouveaux utilisateurs de l’app sans commande précédente sur Temu. Les clients existants peuvent profiter des offres pour tous, des cadeaux des jeux de l’app, des récompenses de parrainage, de l’ajustement de prix et des soldes saisonnières.'],
         ['Combien de temps le coupon de bienvenue Temu est-il valable ?', 'L’offre de bienvenue doit être récupérée dans un délai limité après la première installation de l’app (généralement 24 heures) et chaque coupon expire peu après sa réception. Les délais exacts figurent dans les conditions de chaque coupon.'],
         ['Pourquoi mon code Temu ne fonctionne-t-il pas ?', 'Le plus souvent parce que le compte a déjà passé une commande, qu’une autre offre nouvel utilisateur a déjà été utilisée, que le panier n’atteint pas le montant minimum ou que le délai pour la récupérer est dépassé.'],
-        ['Les codes de cette page sont-ils vérifiés ?', 'Oui. Notre rédaction vérifie régulièrement chaque code dans l’app Temu. La date de la dernière vérification est indiquée en haut de la page et dans le tableau.'],
+        ['Les codes de cette page sont-ils vérifiés ?', 'Oui. Notre rédaction vérifie régulièrement chaque code dans l’app Temu.'],
     ],
 ];
 
@@ -2827,6 +2822,6 @@ $EKP_TEXTS['hr'] = [
         ['Vrijede li Temu kuponi za stare korisnike?', 'Kodovi {codes} vrijede samo za nove korisnike aplikacije bez prethodnih narudžbi na Temuu. Stari korisnici mogu iskoristiti ponude za sve korisnike, poklone iz igara u aplikaciji, nagrade za pozivanje prijatelja, prilagodbu cijene i sezonska sniženja.'],
         ['Koliko dugo vrijedi Temu kupon dobrodošlice?', 'Ponudu dobrodošlice treba preuzeti u ograničenom roku nakon prve instalacije aplikacije (obično 24 sata), a svaki kupon istječe ubrzo nakon primitka. Točni rokovi navedeni su u uvjetima ispod svakog kupona.'],
         ['Zašto mi Temu kod ne radi?', 'Najčešće zato što je s računa već napravljena narudžba, već je iskorištena druga ponuda za nove korisnike, košarica ne doseže minimalni iznos ili je istekao rok za preuzimanje.'],
-        ['Jesu li kodovi na ovoj stranici provjereni?', 'Da. Naša redakcija redovito provjerava svaki kod u Temu aplikaciji. Datum zadnje provjere naveden je na vrhu stranice i u tablici.'],
+        ['Jesu li kodovi na ovoj stranici provjereni?', 'Da. Naša redakcija redovito provjerava svaki kod u Temu aplikaciji.'],
     ],
 ];
