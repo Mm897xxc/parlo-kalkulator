@@ -71,6 +71,19 @@ if (!function_exists('ekp_tr')) {
     }
 }
 
+if (!function_exists('ekp_lower')) {
+    /* Rade i bez PHP ekstenzije mbstring */
+    function ekp_lower($s) {
+        return function_exists('mb_strtolower') ? mb_strtolower($s, 'UTF-8') : strtolower($s);
+    }
+    function ekp_initial($s) {
+        if (function_exists('mb_substr')) {
+            return mb_strtoupper(mb_substr($s, 0, 1, 'UTF-8'), 'UTF-8');
+        }
+        return preg_match('/./u', $s, $m) ? $m[0] : '';
+    }
+}
+
 if (!function_exists('ekp_dated')) {
     /** Ispisuje tekst s {date}; datum je u <span> koji JS po potrebi osvježi na današnji. */
     function ekp_dated($text, $date, $fmt, $daily) {
@@ -291,16 +304,16 @@ if ($ekp_enabled) {
     $ekp_faq_extra = [];
     $ekp_faq_seen  = [];
     foreach ($ekp['faq'] as $ekp_qa) {
-        $ekp_faq_seen[mb_strtolower($ekp_qa[0])] = true;
+        $ekp_faq_seen[ekp_lower($ekp_qa[0])] = true;
     }
     foreach ($t['faq'] as $ekp_qa) {
         $ekp_q = ekp_tr($ekp_qa[0], $ekp_vars);
-        if (isset($ekp_faq_seen[mb_strtolower($ekp_q)])) {
+        if (isset($ekp_faq_seen[ekp_lower($ekp_q)])) {
             continue;
         }
         $ekp_faq_extra[] = [$ekp_q, ekp_tr($ekp_qa[1], $ekp_vars)];
     }
-    if ($ekp_customs !== '' && !empty($t['faq_customs_q']) && !isset($ekp_faq_seen[mb_strtolower($t['faq_customs_q'])])) {
+    if ($ekp_customs !== '' && !empty($t['faq_customs_q']) && !isset($ekp_faq_seen[ekp_lower($t['faq_customs_q'])])) {
         $ekp_faq_extra[] = [$t['faq_customs_q'], rtrim($ekp_customs, '.') . '.'];
     }
     $ekp_faq_all = array_merge($ekp['faq'], $ekp_faq_extra);
@@ -476,7 +489,7 @@ if ($ekp_enabled) {
     <h2><?php echo esc_html($t['editor_title']); ?></h2>
     <blockquote><?php echo esc_html($t['editor_text']); ?></blockquote>
     <div class="ekp-author">
-        <span class="ekp-avatar" aria-hidden="true"><?php echo esc_html(mb_strtoupper(mb_substr($ekp_editor_name, 0, 1))); ?></span>
+        <span class="ekp-avatar" aria-hidden="true"><?php echo esc_html(ekp_initial($ekp_editor_name)); ?></span>
         <span>
             <strong><?php echo esc_html($ekp_editor_name); ?></strong><?php if ($ekp_editor_role !== '') : ?>, <?php echo esc_html($ekp_editor_role); ?><?php endif; ?><br>
             <span class="ekp-small"><?php echo ekp_dated($t['last_verified'], $ekp_verified, $ekp_fmt, $ekp_daily); ?></span>
