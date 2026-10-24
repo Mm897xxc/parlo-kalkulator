@@ -14,6 +14,9 @@
  *  - 'facts'       => ključni uvjeti za tablicu "najvažniji uvjeti" + FAQ o carini:
  *                     'eu' => true (EU carina 3 €), 'percent', 'bundle', 'min_order', 'validity', 'customs' (tekst, nadjačava EU tekst).
  *                     Prazno polje = red se ne prikazuje. Uvjete prepiši iz sitnog teksta kupona na stranici.
+ *  - 'meta_title'  => meta title stranice (ima prednost pred ACF poljem custom_meta_title)
+ *  - 'meta_desc'   => (opcionalno) meta description; ako ga nema, koristi se 'meta_desc' iz jezičnog paketa
+ *                     Placeholderi u title/desc: {month} (npr. listopad), {Month} (Listopad), {year} (2026), {country}
  *  - 'last_verified' => (opcionalno) 'Y-m-d' datum zadnje ručne provjere kodova samo za tu državu
  */
 
@@ -22,6 +25,7 @@ $COUNTRIES = [
         'full_name'     => 'Mexico',
         'seo_code'      => 'es-MX',
         'lang_pack'     => 'es',
+        'meta_title' => 'Código descuento Temu México: cupones hasta 70% | {Month} {year}',
         'domain'        => 'https://ekuponi.com/', 
         'sidebar_id'    => '54883',          
         'flag_url'      => 'https://flagcdn.com/w40/mx.png',
@@ -58,6 +62,7 @@ $COUNTRIES = [
         'full_name'     => 'Argentina',
         'seo_code'      => 'es-AR',
         'lang_pack'     => 'es',
+        'meta_title' => 'Código descuento Temu Argentina: promo y cupones | {Month} {year}',
         'domain'        => 'https://ekuponi.com/', 
         'sidebar_id'    => '54972',      
         'flag_url'      => 'https://flagcdn.com/w40/ar.png',
@@ -94,6 +99,7 @@ $COUNTRIES = [
     'full_name'     => 'Italia',
     'seo_code'      => 'it-IT',
     'lang_pack'     => 'it',
+    'meta_title' => 'Codice sconto Temu: buoni sconto e offerte | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
     'flag_url'      => 'https://flagcdn.com/w40/it.png',
@@ -126,6 +132,7 @@ $COUNTRIES = [
     'full_name'     => 'España',
     'seo_code'      => 'es-ES',
     'lang_pack'     => 'es',
+    'meta_title' => 'Código descuento Temu España: cupones hasta 70% | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
     'flag_url'      => 'https://flagcdn.com/w40/es.png',
@@ -158,6 +165,7 @@ $COUNTRIES = [
     'full_name'     => 'Magyarország',
     'seo_code'      => 'hu-HU',
     'lang_pack'     => 'hu',
+    'meta_title' => 'Temu kuponkód és kedvezmény, promóció | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
     'flag_url'      => 'https://flagcdn.com/w40/hu.png',
@@ -190,6 +198,7 @@ $COUNTRIES = [
     'full_name'     => 'Türkiye',
     'seo_code'      => 'tr-TR',
     'lang_pack'     => 'tr',
+    'meta_title' => 'Temu indirim kodu ve kupon kodu | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55189',      
     'flag_url'      => 'https://flagcdn.com/w40/tr.png',
@@ -222,6 +231,8 @@ $COUNTRIES = [
     'full_name'     => 'Česká republika',
     'seo_code'      => 'cs-CZ',
     'lang_pack'     => 'cs',
+    'meta_title' => 'Temu slevový kód: sleva 30 % nebo 2 500 Kč | {Month} {year}',
+    'meta_desc'  => 'Slevový kód EKUPONI180: sleva 30 % (max. 600 Kč) nebo balíček kupónů 2 500 Kč pro nové uživatele – {month} {year}. Máte účet? Podívejte se na slevy pro stálé zákazníky.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
     'flag_url'      => 'https://flagcdn.com/w40/cz.png',
@@ -260,6 +271,8 @@ $COUNTRIES = [
     'full_name'     => 'Polska',
     'seo_code'      => 'pl-PL',
     'lang_pack'     => 'pl',
+    'meta_title' => 'Kod rabatowy Temu -30% + kupony 400 zł | {month} {year}',
+    'meta_desc'  => 'Kod EKUPONI180: 30% zniżki w aplikacji Temu i pakiet kuponów 400 zł dla nowych użytkowników – {month} {year}. Masz już konto? Zobacz oferty dla stałych klientów.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
     'flag_url'      => 'https://flagcdn.com/w40/pl.png',
@@ -297,6 +310,7 @@ $COUNTRIES = [
     'full_name'     => 'Deutschland',
     'seo_code'      => 'de-DE',
     'lang_pack'     => 'de',
+    'meta_title' => 'Temu Gutscheincode: Rabatt & Gutscheine | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
     'flag_url'      => 'https://flagcdn.com/w40/de.png',
@@ -329,6 +343,7 @@ $COUNTRIES = [
     'full_name'     => 'România',
     'seo_code'      => 'ro-RO',
     'lang_pack'     => 'ro',
+    'meta_title' => 'Cupon Temu România: cod de reducere | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55019',      
     'flag_url'      => 'https://flagcdn.com/w40/ro.png',
@@ -361,6 +376,7 @@ $COUNTRIES = [
     'full_name'     => 'Україна',
     'seo_code'      => 'uk-UA',
     'lang_pack'     => 'uk',
+    'meta_title' => 'Купони Temu Україна: промокод і знижки | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55022',      
     'flag_url'      => 'https://flagcdn.com/w40/ua.png',
@@ -393,6 +409,7 @@ $COUNTRIES = [
     'full_name'     => 'Azərbaycan',
     'seo_code'      => 'az-AZ',
     'lang_pack'     => 'az',
+    'meta_title' => 'Temu endirim kodu və kuponları | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55025',      
     'flag_url'      => 'https://flagcdn.com/w40/az.png',
@@ -425,6 +442,8 @@ $COUNTRIES = [
     'full_name'     => 'United Kingdom',
     'seo_code'      => 'en-GB',
     'lang_pack'     => 'en',
+    'meta_title' => 'Temu Coupon Code UK: £100 Bundle + Free Gifts ({Month} {year})',
+    'meta_desc'  => 'Code EKUPONI180 unlocks a £100 Temu bundle (£10–£40 off your first 4 orders) + free gifts. {Month} {year}, plus deals for existing customers.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55028',      
     'flag_url'      => 'https://flagcdn.com/w40/gb.png',
@@ -461,6 +480,7 @@ $COUNTRIES = [
     'full_name'     => 'საქართველო',
     'seo_code'      => 'ka-GE',
     'lang_pack'     => 'ka',
+    'meta_title' => 'Temu-ს ფასდაკლების კოდები და კუპონები | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55031',      
     'flag_url'      => 'https://flagcdn.com/w40/ge.png',
@@ -493,6 +513,7 @@ $COUNTRIES = [
     'full_name'     => 'Ελλάδα',
     'seo_code'      => 'el-GR',
     'lang_pack'     => 'el',
+    'meta_title' => 'Κουπόνια Temu: κωδικός έκπτωσης & προσφορές | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55034',      
     'flag_url'      => 'https://flagcdn.com/w40/gr.png',
@@ -525,6 +546,7 @@ $COUNTRIES = [
     'full_name'     => 'Nederland',
     'seo_code'      => 'nl-NL',
     'lang_pack'     => 'nl',
+    'meta_title' => 'Temu kortingscode: kortingsbonnen & acties | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55038',      
     'flag_url'      => 'https://flagcdn.com/w40/nl.png',
@@ -557,6 +579,7 @@ $COUNTRIES = [
     'full_name'     => 'Portugal',
     'seo_code'      => 'pt-PT',
     'lang_pack'     => 'pt',
+    'meta_title' => 'Cupão Temu: código de desconto e cupões | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55041',      
     'flag_url'      => 'https://flagcdn.com/w40/pt.png',
@@ -589,6 +612,7 @@ $COUNTRIES = [
     'full_name'     => 'België',
     'seo_code'      => 'nl-BE',
     'lang_pack'     => 'nl',
+    'meta_title' => 'Temu kortingscode België: kortingsbonnen | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55044',  
     'flag_url'      => 'https://flagcdn.com/w40/be.png',
@@ -621,6 +645,7 @@ $COUNTRIES = [
     'full_name'     => 'Slovensko',
     'seo_code'      => 'sk-SK',
     'lang_pack'     => 'sk',
+    'meta_title' => 'Temu zľavový kód a kupóny | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55047',  
     'flag_url'      => 'https://flagcdn.com/w40/sk.png',
@@ -653,6 +678,7 @@ $COUNTRIES = [
     'full_name'     => 'Sverige',
     'seo_code'      => 'sv-SE',
     'lang_pack'     => 'sv',
+    'meta_title' => 'Temu rabattkod: kuponger och erbjudanden | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55049',  
     'flag_url'      => 'https://flagcdn.com/w40/se.png',
@@ -685,6 +711,7 @@ $COUNTRIES = [
     'full_name'     => 'Philippines',
     'seo_code'      => 'en-PH',
     'lang_pack'     => 'en',
+    'meta_title' => 'Temu Discount Code Philippines: Coupons | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55052',  
     'flag_url'      => 'https://flagcdn.com/w40/ph.png',
@@ -717,6 +744,7 @@ $COUNTRIES = [
     'full_name'     => 'Malaysia',
     'seo_code'      => 'en-MY',
     'lang_pack'     => 'en',
+    'meta_title' => 'Temu Discount Code Malaysia: Coupons | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55055',  
     'flag_url'      => 'https://flagcdn.com/w40/my.png',
@@ -749,6 +777,7 @@ $COUNTRIES = [
     'full_name'     => 'Colombia',
     'seo_code'      => 'es-CO',
     'lang_pack'     => 'es',
+    'meta_title' => 'Cupones Temu Colombia: código de descuento | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55057',  
     'flag_url'      => 'https://flagcdn.com/w40/co.png',
@@ -781,6 +810,7 @@ $COUNTRIES = [
     'full_name'     => 'Brasil',
     'seo_code'      => 'pt-BR',
     'lang_pack'     => 'pt-BR',
+    'meta_title' => 'Cupom Temu: código de desconto no Brasil | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55060',  
     'flag_url'      => 'https://flagcdn.com/w40/br.png',
@@ -813,6 +843,7 @@ $COUNTRIES = [
     'full_name'     => 'Perú',
     'seo_code'      => 'es-PE',
     'lang_pack'     => 'es',
+    'meta_title' => 'Cupones Temu Perú: código de descuento | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55063',  
     'flag_url'      => 'https://flagcdn.com/w40/pe.png',
@@ -845,6 +876,7 @@ $COUNTRIES = [
     'full_name'     => 'El Salvador',
     'seo_code'      => 'es-SV',
     'lang_pack'     => 'es',
+    'meta_title' => 'Cupones Temu El Salvador: código de descuento | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55066',  
     'flag_url'      => 'https://flagcdn.com/w40/sv.png',
@@ -877,6 +909,7 @@ $COUNTRIES = [
     'full_name'     => 'República Dominicana',
     'seo_code'      => 'es-DO',
     'lang_pack'     => 'es',
+    'meta_title' => 'Cupones Temu República Dominicana | {Month} {year}',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55069',  
     'flag_url'      => 'https://flagcdn.com/w40/do.png',
@@ -909,6 +942,7 @@ $COUNTRIES = [
         'full_name'     => 'Oʻzbekiston',
         'seo_code'      => 'uz-UZ',
         'lang_pack'     => 'uz',
+        'meta_title' => 'Temu promokod va kuponlar | {Month} {year}',
         'domain'        => 'https://ekuponi.com/', 
         'sidebar_id'    => '54986',    
         'flag_url'      => 'https://flagcdn.com/w40/uz.png',
@@ -945,6 +979,7 @@ $COUNTRIES = [
         'full_name'     => 'France',
         'seo_code'      => 'fr-FR',
         'lang_pack'     => 'fr',
+        'meta_title' => 'Code promo Temu : bons de réduction | {Month} {year}',
         'domain'        => 'https://ekuponi.com/', 
         'sidebar_id'    => '54997',  
         'flag_url'      => 'https://flagcdn.com/w40/fr.png',
@@ -981,6 +1016,7 @@ $COUNTRIES = [
         'full_name'     => 'United States',
         'seo_code'      => 'en-US',
         'lang_pack'     => 'en',
+        'meta_title' => 'Temu Coupon Code: Discounts & Free Gifts | {Month} {year}',
         'date_fmt'      => 'm/d/Y',
         'domain'        => 'https://ekuponi.com/',
         'sidebar_id'    => '54958',
@@ -1019,6 +1055,7 @@ $COUNTRIES = [
         'full_name'     => 'Hrvatska',
         'seo_code'      => 'hr-HR',
         'lang_pack'     => 'hr',
+        'meta_title' => 'Temu kuponi za popust do 70% + gratis poklon [{month} {year}]',
         'date_fmt'      => 'd.m.Y.',
         'domain'        => 'https://ekuponi.com/',
         'sidebar_id'    => '',
@@ -1080,6 +1117,8 @@ $EKP_SETTINGS = [
 $EKP_TEXTS = [];
 
 $EKP_TEXTS['en'] = [
+    'months'         => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    'meta_desc'      => 'Temu coupon codes for {country} – {Month} {year}: discounts on your first order, free gifts and deals for existing customers. All codes checked by our editors.',
     'date_fmt'       => 'd/m/Y',
     'verified'       => 'Verified',
     'last_verified'  => 'Last verified: {date}',
@@ -1163,6 +1202,8 @@ $EKP_TEXTS['en'] = [
 ];
 
 $EKP_TEXTS['es'] = [
+    'months'         => ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
+    'meta_desc'      => 'Cupones y códigos de descuento Temu para {country} – {month} de {year}: descuentos en tu primera compra, regalos gratis y ofertas para clientes existentes.',
     'date_fmt'       => 'd/m/Y',
     'verified'       => 'Verificado',
     'last_verified'  => 'Última verificación: {date}',
@@ -1246,6 +1287,8 @@ $EKP_TEXTS['es'] = [
 ];
 
 $EKP_TEXTS['it'] = [
+    'months'         => ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'],
+    'meta_desc'      => 'Codice sconto Temu di {month} {year}: buoni sconto per il primo ordine, regali gratis e offerte Temu anche per chi è già cliente.',
     'date_fmt'       => 'd/m/Y',
     'verified'       => 'Verificato',
     'last_verified'  => 'Ultima verifica: {date}',
@@ -1329,6 +1372,8 @@ $EKP_TEXTS['it'] = [
 ];
 
 $EKP_TEXTS['hu'] = [
+    'months'         => ['január', 'február', 'március', 'április', 'május', 'június', 'július', 'augusztus', 'szeptember', 'október', 'november', 'december'],
+    'meta_desc'      => 'Temu kuponkód – {year}. {month}: kedvezmény az első rendelésre, ingyenes ajándékok és promóciók meglévő vásárlóknak is.',
     'date_fmt'       => 'Y.m.d.',
     'verified'       => 'Ellenőrizve',
     'last_verified'  => 'Utoljára ellenőrizve: {date}',
@@ -1412,6 +1457,8 @@ $EKP_TEXTS['hu'] = [
 ];
 
 $EKP_TEXTS['tr'] = [
+    'months'         => ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
+    'meta_desc'      => 'Temu indirim kodu – {Month} {year}: ilk siparişe özel kuponlar, ücretsiz hediyeler ve mevcut müşteriler için fırsatlar.',
     'date_fmt'       => 'd.m.Y',
     'verified'       => 'Doğrulandı',
     'last_verified'  => 'Son doğrulama: {date}',
@@ -1495,6 +1542,8 @@ $EKP_TEXTS['tr'] = [
 ];
 
 $EKP_TEXTS['cs'] = [
+    'months'         => ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září', 'říjen', 'listopad', 'prosinec'],
+    'meta_desc'      => 'Temu slevový kód – {month} {year}: sleva na první objednávku, dárky zdarma a nabídky i pro stálé zákazníky. Kódy ověřené redakcí.',
     'date_fmt'       => 'd.m.Y',
     'verified'       => 'Ověřeno',
     'last_verified'  => 'Naposledy ověřeno: {date}',
@@ -1578,6 +1627,8 @@ $EKP_TEXTS['cs'] = [
 ];
 
 $EKP_TEXTS['pl'] = [
+    'months'         => ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'],
+    'meta_desc'      => 'Kod rabatowy Temu – {month} {year}: zniżka na pierwsze zamówienie, darmowe prezenty i oferty dla stałych klientów. Kody sprawdzone przez redakcję.',
     'date_fmt'       => 'd.m.Y',
     'verified'       => 'Zweryfikowano',
     'last_verified'  => 'Ostatnia weryfikacja: {date}',
@@ -1661,6 +1712,8 @@ $EKP_TEXTS['pl'] = [
 ];
 
 $EKP_TEXTS['de'] = [
+    'months'         => ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+    'meta_desc'      => 'Temu Gutscheincode für {Month} {year}: Rabatt auf die erste Bestellung, Gratisgeschenke und Angebote auch für Bestandskunden.',
     'date_fmt'       => 'd.m.Y',
     'verified'       => 'Geprüft',
     'last_verified'  => 'Zuletzt geprüft: {date}',
@@ -1744,6 +1797,8 @@ $EKP_TEXTS['de'] = [
 ];
 
 $EKP_TEXTS['ro'] = [
+    'months'         => ['ianuarie', 'februarie', 'martie', 'aprilie', 'mai', 'iunie', 'iulie', 'august', 'septembrie', 'octombrie', 'noiembrie', 'decembrie'],
+    'meta_desc'      => 'Cod de reducere Temu – {month} {year}: reducere la prima comandă, cadouri gratuite și oferte pentru clienții existenți.',
     'date_fmt'       => 'd.m.Y',
     'verified'       => 'Verificat',
     'last_verified'  => 'Ultima verificare: {date}',
@@ -1827,6 +1882,8 @@ $EKP_TEXTS['ro'] = [
 ];
 
 $EKP_TEXTS['uk'] = [
+    'months'         => ['січень', 'лютий', 'березень', 'квітень', 'травень', 'червень', 'липень', 'серпень', 'вересень', 'жовтень', 'листопад', 'грудень'],
+    'meta_desc'      => 'Промокод Temu – {month} {year}: знижка на перше замовлення, безкоштовні подарунки та пропозиції для постійних клієнтів.',
     'date_fmt'       => 'd.m.Y',
     'verified'       => 'Перевірено',
     'last_verified'  => 'Остання перевірка: {date}',
@@ -1910,6 +1967,8 @@ $EKP_TEXTS['uk'] = [
 ];
 
 $EKP_TEXTS['az'] = [
+    'months'         => ['yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avqust', 'sentyabr', 'oktyabr', 'noyabr', 'dekabr'],
+    'meta_desc'      => 'Temu endirim kodu – {month} {year}: ilk sifarişə endirim, pulsuz hədiyyələr və mövcud müştərilər üçün təkliflər.',
     'date_fmt'       => 'd.m.Y',
     'verified'       => 'Yoxlanılıb',
     'last_verified'  => 'Son yoxlama: {date}',
@@ -1993,6 +2052,8 @@ $EKP_TEXTS['az'] = [
 ];
 
 $EKP_TEXTS['ka'] = [
+    'months'         => ['იანვარი', 'თებერვალი', 'მარტი', 'აპრილი', 'მაისი', 'ივნისი', 'ივლისი', 'აგვისტო', 'სექტემბერი', 'ოქტომბერი', 'ნოემბერი', 'დეკემბერი'],
+    'meta_desc'      => 'Temu-ს ფასდაკლების კოდი – {month} {year}: ფასდაკლება პირველ შეკვეთაზე, უფასო საჩუქრები და შეთავაზებები არსებული მომხმარებლებისთვის.',
     'date_fmt'       => 'd.m.Y',
     'verified'       => 'გადამოწმებულია',
     'last_verified'  => 'ბოლო შემოწმება: {date}',
@@ -2076,6 +2137,8 @@ $EKP_TEXTS['ka'] = [
 ];
 
 $EKP_TEXTS['el'] = [
+    'months'         => ['Ιανουάριος', 'Φεβρουάριος', 'Μάρτιος', 'Απρίλιος', 'Μάιος', 'Ιούνιος', 'Ιούλιος', 'Αύγουστος', 'Σεπτέμβριος', 'Οκτώβριος', 'Νοέμβριος', 'Δεκέμβριος'],
+    'meta_desc'      => 'Κωδικός έκπτωσης Temu – {Month} {year}: έκπτωση στην πρώτη παραγγελία, δωρεάν δώρα και προσφορές για παλιούς χρήστες.',
     'date_fmt'       => 'd/m/Y',
     'verified'       => 'Επαληθευμένο',
     'last_verified'  => 'Τελευταία επαλήθευση: {date}',
@@ -2159,6 +2222,8 @@ $EKP_TEXTS['el'] = [
 ];
 
 $EKP_TEXTS['nl'] = [
+    'months'         => ['januari', 'februari', 'maart', 'april', 'mei', 'juni', 'juli', 'augustus', 'september', 'oktober', 'november', 'december'],
+    'meta_desc'      => 'Temu kortingscode – {month} {year}: korting op je eerste bestelling, gratis cadeaus en aanbiedingen voor bestaande klanten.',
     'date_fmt'       => 'd-m-Y',
     'verified'       => 'Geverifieerd',
     'last_verified'  => 'Laatst gecontroleerd: {date}',
@@ -2242,6 +2307,8 @@ $EKP_TEXTS['nl'] = [
 ];
 
 $EKP_TEXTS['pt'] = [
+    'months'         => ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
+    'meta_desc'      => 'Cupão Temu – {month} de {year}: desconto na primeira encomenda, presentes grátis e ofertas para utilizadores existentes.',
     'date_fmt'       => 'd/m/Y',
     'verified'       => 'Verificado',
     'last_verified'  => 'Última verificação: {date}',
@@ -2325,6 +2392,8 @@ $EKP_TEXTS['pt'] = [
 ];
 
 $EKP_TEXTS['pt-BR'] = [
+    'months'         => ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'],
+    'meta_desc'      => 'Cupom Temu – {month} de {year}: desconto na primeira compra, presentes grátis e ofertas para clientes antigos.',
     'date_fmt'       => 'd/m/Y',
     'verified'       => 'Verificado',
     'last_verified'  => 'Última verificação: {date}',
@@ -2408,6 +2477,8 @@ $EKP_TEXTS['pt-BR'] = [
 ];
 
 $EKP_TEXTS['sk'] = [
+    'months'         => ['január', 'február', 'marec', 'apríl', 'máj', 'jún', 'júl', 'august', 'september', 'október', 'november', 'december'],
+    'meta_desc'      => 'Temu zľavový kód – {month} {year}: zľava na prvú objednávku, darčeky zadarmo a ponuky aj pre stálych zákazníkov.',
     'date_fmt'       => 'd.m.Y',
     'verified'       => 'Overené',
     'last_verified'  => 'Naposledy overené: {date}',
@@ -2491,6 +2562,8 @@ $EKP_TEXTS['sk'] = [
 ];
 
 $EKP_TEXTS['sv'] = [
+    'months'         => ['januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december'],
+    'meta_desc'      => 'Temu rabattkod – {month} {year}: rabatt på första beställningen, gratis presenter och erbjudanden för befintliga kunder.',
     'date_fmt'       => 'Y-m-d',
     'verified'       => 'Verifierad',
     'last_verified'  => 'Senast kontrollerad: {date}',
@@ -2574,6 +2647,8 @@ $EKP_TEXTS['sv'] = [
 ];
 
 $EKP_TEXTS['uz'] = [
+    'months'         => ['yanvar', 'fevral', 'mart', 'aprel', 'may', 'iyun', 'iyul', 'avgust', 'sentabr', 'oktabr', 'noyabr', 'dekabr'],
+    'meta_desc'      => 'Temu promokod – {month} {year}: birinchi buyurtmaga chegirma, bepul sovg‘alar va mavjud mijozlar uchun takliflar.',
     'date_fmt'       => 'd.m.Y',
     'verified'       => 'Tasdiqlangan',
     'last_verified'  => 'Oxirgi tekshiruv: {date}',
@@ -2657,6 +2732,8 @@ $EKP_TEXTS['uz'] = [
 ];
 
 $EKP_TEXTS['fr'] = [
+    'months'         => ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+    'meta_desc'      => 'Code promo Temu – {month} {year} : réduction sur la première commande, cadeaux gratuits et offres pour les clients existants.',
     'date_fmt'       => 'd/m/Y',
     'verified'       => 'Vérifié',
     'last_verified'  => 'Dernière vérification : {date}',
@@ -2740,6 +2817,8 @@ $EKP_TEXTS['fr'] = [
 ];
 
 $EKP_TEXTS['hr'] = [
+    'months'         => ['siječanj', 'veljača', 'ožujak', 'travanj', 'svibanj', 'lipanj', 'srpanj', 'kolovoz', 'rujan', 'listopad', 'studeni', 'prosinac'],
+    'meta_desc'      => 'Temu kuponi za popust – {month} {year}: popust na prvu narudžbu, besplatni pokloni i ponude za stare korisnike. Kodove provjerava naša redakcija.',
     'date_fmt'       => 'd.m.Y.',
     'verified'       => 'Provjereno',
     'last_verified'  => 'Zadnja provjera: {date}',
@@ -2821,3 +2900,92 @@ $EKP_TEXTS['hr'] = [
         ['Jesu li kodovi na ovoj stranici provjereni?', 'Da. Naša redakcija redovito provjerava svaki kod u Temu aplikaciji.'],
     ],
 ];
+
+
+/**
+ * MJESEC I GODINA – automatski, bez ručnog mijenjanja svaki mjesec.
+ *
+ * Shortcodeovi (rade u sadržaju bilo koje stranice):
+ *   [ekp_month]                  → listopad      (naziv mjeseca na jeziku stranice)
+ *   [ekp_month case="ucfirst"]   → Listopad
+ *   [ekp_month case="upper"]     → LISTOPAD
+ *   [ekp_year]                   → 2026
+ *   [ekp_month_year]             → Listopad 2026 (zadano s velikim početnim slovom)
+ *   [ekp_month lang="pl"]        → październik   (ručni izbor jezičnog paketa)
+ *
+ * Jezik: na Temu stranicama template ga postavlja iz page_language_code; drugdje se
+ * pogađa iz jezika WordPressa (hr, en, de, ...), a ako ga nema, koristi se hr.
+ */
+if (!function_exists('ekp_ucfirst')) {
+    function ekp_ucfirst($s) {
+        if (function_exists('mb_strtoupper') && function_exists('mb_substr')) {
+            return mb_strtoupper(mb_substr($s, 0, 1, 'UTF-8'), 'UTF-8') . mb_substr($s, 1, null, 'UTF-8');
+        }
+        return ucfirst($s);
+    }
+}
+
+if (!function_exists('ekp_current_pack')) {
+    function ekp_current_pack($lang = '') {
+        global $EKP_TEXTS;
+        if ($lang && isset($EKP_TEXTS[$lang])) {
+            return $lang;
+        }
+        if (!empty($GLOBALS['ekp_lang_pack']) && isset($EKP_TEXTS[$GLOBALS['ekp_lang_pack']])) {
+            return $GLOBALS['ekp_lang_pack'];
+        }
+        $locale = function_exists('get_locale') ? get_locale() : 'hr';
+        if ($locale === 'pt_BR' && isset($EKP_TEXTS['pt-BR'])) {
+            return 'pt-BR';
+        }
+        $short = strtolower(substr($locale, 0, 2));
+        $alias = ['ua' => 'uk'];
+        $short = $alias[$short] ?? $short;
+        return isset($EKP_TEXTS[$short]) ? $short : 'hr';
+    }
+}
+
+if (!function_exists('ekp_month_name')) {
+    function ekp_month_name($pack = '', $case = '') {
+        global $EKP_TEXTS;
+        $pack  = ekp_current_pack($pack);
+        $n     = (int) (function_exists('wp_date') ? wp_date('n') : date('n'));
+        $name  = $EKP_TEXTS[$pack]['months'][$n - 1] ?? (function_exists('wp_date') ? wp_date('F') : date('F'));
+        if ($case === 'ucfirst') {
+            $name = ekp_ucfirst($name);
+        } elseif ($case === 'upper') {
+            $name = function_exists('mb_strtoupper') ? mb_strtoupper($name, 'UTF-8') : strtoupper($name);
+        } elseif ($case === 'lower') {
+            $name = function_exists('mb_strtolower') ? mb_strtolower($name, 'UTF-8') : strtolower($name);
+        }
+        return $name;
+    }
+}
+
+if (!function_exists('ekp_fill_date')) {
+    /** Zamjenjuje {month}, {Month}, {year} (i opcionalno {country}) u tekstu. */
+    function ekp_fill_date($text, $pack = '', $country = '') {
+        $year = function_exists('wp_date') ? wp_date('Y') : date('Y');
+        return strtr((string) $text, [
+            '{month}'   => ekp_month_name($pack),
+            '{Month}'   => ekp_month_name($pack, 'ucfirst'),
+            '{year}'    => $year,
+            '{country}' => $country,
+        ]);
+    }
+}
+
+if (function_exists('add_shortcode') && !shortcode_exists('ekp_month')) {
+    add_shortcode('ekp_month', function ($atts) {
+        $a = shortcode_atts(['case' => '', 'lang' => ''], $atts);
+        return esc_html(ekp_month_name($a['lang'], $a['case']));
+    });
+    add_shortcode('ekp_year', function () {
+        return esc_html(function_exists('wp_date') ? wp_date('Y') : date('Y'));
+    });
+    add_shortcode('ekp_month_year', function ($atts) {
+        $a = shortcode_atts(['case' => 'ucfirst', 'lang' => ''], $atts);
+        return esc_html(ekp_month_name($a['lang'], $a['case']) . ' ' . (function_exists('wp_date') ? wp_date('Y') : date('Y')));
+    });
+}
+

@@ -22,8 +22,6 @@ if (have_posts()) {
 $ekp_post_id = get_the_ID() ?: get_queried_object_id();
 
 $c_lang  = get_post_meta($ekp_post_id, 'page_language_code', true) ?: 'en';
-$c_title = get_post_meta($ekp_post_id, 'custom_meta_title', true) ?: get_the_title($ekp_post_id);
-$c_desc  = get_post_meta($ekp_post_id, 'custom_meta_description', true);
 
 $current = $COUNTRIES[$c_lang] ?? $COUNTRIES['es-MX'];
 
@@ -32,8 +30,23 @@ $paths  = $current['paths'];
 
 $ekp_settings  = (isset($EKP_SETTINGS) && is_array($EKP_SETTINGS)) ? $EKP_SETTINGS : [];
 $ekp_all_texts = (isset($EKP_TEXTS) && is_array($EKP_TEXTS)) ? $EKP_TEXTS : [];
-$t = $ekp_all_texts[$current['lang_pack'] ?? 'en'] ?? ($ekp_all_texts['en'] ?? null);
+$ekp_pack      = $current['lang_pack'] ?? 'en';
+$t = $ekp_all_texts[$ekp_pack] ?? ($ekp_all_texts['en'] ?? null);
 $ekp_enabled = is_array($t);
+
+/* Jezik za shortcodeove [ekp_month], [ekp_year], [ekp_month_year] u sadržaju ove stranice */
+$GLOBALS['ekp_lang_pack'] = $ekp_pack;
+
+/* Meta title i description: config (države pa jezični paket) ima prednost, ACF polja su rezerva.
+   {month}, {Month}, {year} i {country} se svaki mjesec mijenjaju automatski. */
+$c_title = trim($current['meta_title'] ?? '')
+    ?: (get_post_meta($ekp_post_id, 'custom_meta_title', true) ?: get_the_title($ekp_post_id));
+$c_desc  = trim($current['meta_desc'] ?? '')
+    ?: (trim($t['meta_desc'] ?? '') ?: get_post_meta($ekp_post_id, 'custom_meta_description', true));
+if (function_exists('ekp_fill_date')) {
+    $c_title = ekp_fill_date($c_title, $ekp_pack, $current['full_name'] ?? '');
+    $c_desc  = ekp_fill_date($c_desc, $ekp_pack, $current['full_name'] ?? '');
+}
 
 /* hreflang (stranice koje postoje i međusobno se referenciraju) */
 $ekp_hreflang = [
