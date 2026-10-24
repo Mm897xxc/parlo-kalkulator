@@ -26,8 +26,8 @@ $COUNTRIES = [
         'full_name'     => 'Mexico',
         'seo_code'      => 'es-MX',
         'lang_pack'     => 'es',
-        'meta_title' => 'Cupones Temu México: código descuento hasta 70% | {Month} {year}',
-        'meta_desc'  => 'Cupones Temu México – {month} {year}: código de descuento hasta 70%, cupones para tu primera compra y regalos gratis. También ofertas para clientes existentes.',
+        'meta_title' => 'Cupones Temu México: código y cupones $1,000 | {Month} {year}',
+        'meta_desc'  => 'Código EKUPONI180: paquete de cupones de $1,000 MXN para tus primeros pedidos + regalos gratis – {month} {year}. Ofertas también para clientes existentes.',
         'domain'        => 'https://ekuponi.com/', 
         'sidebar_id'    => '54883',          
         'flag_url'      => 'https://flagcdn.com/w40/mx.png',
@@ -51,7 +51,13 @@ $COUNTRIES = [
 
         'nearby'  => ['en-US', 'es-CO', 'es-PE', 'es-SV', 'es-DO', 'es'],
 
-        'facts'   => [],
+        'facts'   => [
+
+            'bundle'     => '$1,000 MXN en 4 cupones para tus primeros pedidos',
+
+            'validity'   => '1 día desde la recepción, de un solo uso',
+
+        ],
 
 
         'paths' => [
@@ -64,8 +70,8 @@ $COUNTRIES = [
         'full_name'     => 'Argentina',
         'seo_code'      => 'es-AR',
         'lang_pack'     => 'es',
-        'meta_title' => 'Código de Temu Argentina: promo y descuento | {Month} {year}',
-        'meta_desc'  => 'Código de Temu para Argentina – {month} {year}: promo y descuento para tu primera compra, cupones y regalos gratis. También ofertas para clientes existentes.',
+        'meta_title' => 'Código de Temu Argentina: 30% o ARS 60.000 | {Month} {year}',
+        'meta_desc'  => 'Código EKUPONI180: 30% de descuento o pack de cupones de ARS 60.000 para tu primera compra + cosas gratis – {month} {year}. Ofertas también para clientes existentes.',
         'domain'        => 'https://ekuponi.com/', 
         'sidebar_id'    => '54972',      
         'flag_url'      => 'https://flagcdn.com/w40/ar.png',
@@ -89,7 +95,15 @@ $COUNTRIES = [
 
         'nearby'  => ['es-CO', 'es-PE', 'es-MX', 'es'],
 
-        'facts'   => [],
+        'facts'   => [
+
+            'percent'    => '30% de descuento',
+
+            'bundle'     => 'ARS 60.000: 2× ARS 5.000 (mín. 15.000), 2× ARS 10.000 (mín. 20.000), 2× ARS 15.000 (mín. 40.000)',
+
+            'validity'   => '1 día desde la recepción',
+
+        ],
 
 
         'paths' => [
@@ -102,8 +116,8 @@ $COUNTRIES = [
     'full_name'     => 'Italia',
     'seo_code'      => 'it-IT',
     'lang_pack'     => 'it',
-    'meta_title' => 'Codice sconto Temu e coupon: offerte | {Month} {year}',
-    'meta_desc'  => 'Codice sconto Temu e coupon di {month} {year}: sconti sul primo ordine, offerte e regali gratis. Offerte Temu anche per chi è già cliente.',
+    'meta_title' => 'Codice sconto Temu e coupon: -30% o 100€ | {Month} {year}',
+    'meta_desc'  => 'Codice sconto Temu EKUPONI180: 30% sul primo ordine (min. 20€, max 24€) o pacchetto coupon da 100€, più regali gratis – {month} {year}. Offerte anche per chi è già cliente.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
     'flag_url'      => 'https://flagcdn.com/w40/it.png',
@@ -124,7 +138,13 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['fr-FR', 'de', 'es', 'el-GR'],
-    'facts'   => ['eu' => true],
+    'facts'   => [
+        'eu'         => true,
+        'percent'    => '30% su ordini da 20€ (sconto max. 24€)',
+        'bundle'     => '100€: 10€ (min. 30€), 20€ (min. 50€), 30€ (min. 70€), 40€ (min. 100€)',
+        'min_order'  => '10€ dopo il coupon (ordini successivi 15€)',
+        'validity'   => '1 giorno dal ricevimento, monouso',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/buoni-sconto-e-codici-sconto-temu/',
@@ -136,8 +156,8 @@ $COUNTRIES = [
     'full_name'     => 'España',
     'seo_code'      => 'es-ES',
     'lang_pack'     => 'es',
-    'meta_title' => 'Cupones Temu España: código descuento | {Month} {year}',
-    'meta_desc'  => 'Cupones Temu y código descuento para España – {month} {year}: descuento en tu primera compra, regalos gratis y ofertas para clientes existentes.',
+    'meta_title' => 'Cupones Temu y código descuento: 30% o 100€ | {Month} {year}',
+    'meta_desc'  => 'Código EKUPONI180: 30% en tu primer pedido (mín. 20€, máx. 24€) o paquete de cupones de 100€ y regalos gratis – {month} {year}. Ofertas también para clientes existentes.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
     'flag_url'      => 'https://flagcdn.com/w40/es.png',
@@ -158,7 +178,13 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['pt-PT', 'fr-FR', 'it', 'es-MX'],
-    'facts'   => ['eu' => true],
+    'facts'   => [
+        'eu'         => true,
+        'percent'    => '30% en pedidos desde 20€ (descuento máx. 24€)',
+        'bundle'     => '100€: 10€ (mín. 30€), 20€ (mín. 50€), 30€ (mín. 70€), 40€ (mín. 100€)',
+        'min_order'  => '10€ tras el cupón',
+        'validity'   => '1 día desde la recepción, de un solo uso',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu/',
@@ -170,8 +196,8 @@ $COUNTRIES = [
     'full_name'     => 'Magyarország',
     'seo_code'      => 'hu-HU',
     'lang_pack'     => 'hu',
-    'meta_title' => 'Temu kuponkód és kupon: kedvezmény, promóció | {Month} {year}',
-    'meta_desc'  => 'Temu kuponkód és kupon – {year}. {month}: kedvezmény az első rendelésre, promóciók, ingyenes ajándékok és ajánlatok meglévő vásárlóknak is.',
+    'meta_title' => 'Temu kuponkód, kedvezmény: -30% vagy 35 000 Ft | {Month} {year}',
+    'meta_desc'  => 'Kuponkód EKUPONI180: 30% kedvezmény 8 000 Ft felett (max. 10 000 Ft) vagy 35 000 Ft-os kuponcsomag + ingyen ajándékok – {year}. {month}. Promóciók meglévő vásárlóknak is.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
     'flag_url'      => 'https://flagcdn.com/w40/hu.png',
@@ -192,7 +218,13 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['ro-RO', 'cs', 'de', 'pl'],
-    'facts'   => ['eu' => true],
+    'facts'   => [
+        'eu'         => true,
+        'percent'    => '30% 8 000 Ft feletti rendelésnél (max. 10 000 Ft)',
+        'bundle'     => '35 000 Ft: 1× 10 000 Ft (min. 36 000 Ft), 1× 10 000 Ft (min. 20 000 Ft), 3× 5 000 Ft (min. 28 000 Ft)',
+        'min_order'  => '3 500 Ft a kupon után (későbbi rendelések 5 250 Ft)',
+        'validity'   => '1 nap a kézhezvételtől, egyszer használatos',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kuponok-es-akciok/',
@@ -238,7 +270,7 @@ $COUNTRIES = [
     'full_name'     => 'Česká republika',
     'seo_code'      => 'cs-CZ',
     'lang_pack'     => 'cs',
-    'meta_title' => 'Temu slevový kód a kupón: sleva 30 % | {Month} {year}',
+    'meta_title' => 'Temu slevový kód a kupón: 30 % nebo 2 500 Kč | {Month} {year}',
     'meta_desc'  => 'Slevový kód EKUPONI180: sleva 30 % (max. 600 Kč) nebo balíček kupónů 2 500 Kč pro nové uživatele – {month} {year}. Máte účet? Podívejte se na slevy pro stálé zákazníky.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
@@ -278,8 +310,8 @@ $COUNTRIES = [
     'full_name'     => 'Polska',
     'seo_code'      => 'pl-PL',
     'lang_pack'     => 'pl',
-    'meta_title' => 'Kod rabatowy Temu i kupony: -30% + 400 zł | {month} {year}',
-    'meta_desc'  => 'Kod EKUPONI180: 30% zniżki w aplikacji Temu i pakiet kuponów 400 zł dla nowych użytkowników – {month} {year}. Masz już konto? Zobacz oferty dla stałych klientów.',
+    'meta_title' => 'Kod rabatowy Temu i kupony: -30% lub 400 zł | {month} {year}',
+    'meta_desc'  => 'Kod EKUPONI180: 30% zniżki od 80 zł (maks. 80 zł) lub pakiet kuponów 400 zł dla nowych użytkowników – {month} {year}. Masz już konto? Zobacz oferty dla stałych klientów.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
     'flag_url'      => 'https://flagcdn.com/w40/pl.png',
@@ -302,9 +334,10 @@ $COUNTRIES = [
     'nearby'  => ['cs', 'de', 'uk', 'hu'],
     'facts'   => [
         'eu'         => true,
-        'bundle'     => '400 zł',
-        // 'percent'  => '30% – od XXX zł, maks. rabat XXX zł',   // upiši iz uvjeta kupona na PL stranici
-        // 'min_order'=> 'XX zł',
+        'percent'    => '30% od 80 zł (maks. rabat 80 zł)',
+        'bundle'     => '400 zł: 40 zł (od 130 zł), 80 zł (od 215 zł), 120 zł (od 300 zł), 160 zł (od 430 zł)',
+        'min_order'  => '40 zł po rabacie (kolejne zamówienia 80 zł)',
+        'validity'   => '1 dzień od odbioru, jednorazowy',
     ],
 
     'paths' => [
@@ -317,8 +350,8 @@ $COUNTRIES = [
     'full_name'     => 'Deutschland',
     'seo_code'      => 'de-DE',
     'lang_pack'     => 'de',
-    'meta_title' => 'Temu Gutscheincode & Rabatt | {Month} {year}',
-    'meta_desc'  => 'Temu Gutscheincode und Rabatt für {Month} {year}: Gutschein für die erste Bestellung, Gratisgeschenke und Angebote auch für Bestandskunden.',
+    'meta_title' => 'Temu Gutscheincode & Rabatt: 30% oder 100€ | {Month} {year}',
+    'meta_desc'  => 'Gutscheincode EKUPONI180: 30% Rabatt ab 20€ (max. 24€) oder 100€ Gutscheinpaket für Neukunden + Gratisgeschenke – {Month} {year}. Angebote auch für Bestandskunden.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '54972',      
     'flag_url'      => 'https://flagcdn.com/w40/de.png',
@@ -339,7 +372,13 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['nl-NL', 'cs', 'pl', 'fr-FR'],
-    'facts'   => ['eu' => true],
+    'facts'   => [
+        'eu'         => true,
+        'percent'    => '30% ab 20€ Bestellwert (max. 24€ Rabatt)',
+        'bundle'     => '100€: 10€ (ab 30€), 20€ (ab 50€), 30€ (ab 70€), 40€ (ab 100€)',
+        'min_order'  => '10€ nach Gutschein (Folgebestellungen 20€)',
+        'validity'   => '1 Tag nach Erhalt, einmalig einlösbar',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-gutscheincode/',
@@ -351,8 +390,8 @@ $COUNTRIES = [
     'full_name'     => 'România',
     'seo_code'      => 'ro-RO',
     'lang_pack'     => 'ro',
-    'meta_title' => 'Cupon Temu România: cod de reducere | {Month} {year}',
-    'meta_desc'  => 'Cupon Temu România – {month} {year}: cod de reducere pentru prima comandă, cupoane, cadouri gratuite și oferte pentru clienții existenți.',
+    'meta_title' => 'Cupon Temu România: -30% sau 500 Lei reducere | {Month} {year}',
+    'meta_desc'  => 'Cod EKUPONI180: 30% reducere de la 100 Lei (max. 120 Lei) sau pachet de cupoane de 500 Lei + cadouri gratuite – {month} {year}. Oferte și pentru clienții existenți.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55019',      
     'flag_url'      => 'https://flagcdn.com/w40/ro.png',
@@ -373,7 +412,13 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['hu', 'uk', 'el-GR', 'de'],
-    'facts'   => ['eu' => true],
+    'facts'   => [
+        'eu'         => true,
+        'percent'    => '30% la comenzi de peste 100 Lei (max. 120 Lei)',
+        'bundle'     => '500 Lei: 25 Lei (min. 100 Lei), 75 Lei (min. 150 Lei), 100 Lei (min. 250 Lei), 4× 75 Lei (min. 400 Lei)',
+        'min_order'  => '50 Lei după cupon (următoarele 90 Lei)',
+        'validity'   => '1 zi de la primire, de unică folosință',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-reducere-si-cupoane/',
@@ -385,8 +430,8 @@ $COUNTRIES = [
     'full_name'     => 'Україна',
     'seo_code'      => 'uk-UA',
     'lang_pack'     => 'uk',
-    'meta_title' => 'Купони Temu Україна: промокод і знижки | {Month} {year}',
-    'meta_desc'  => 'Промокод Temu – {month} {year}: знижка на перше замовлення, безкоштовні подарунки та пропозиції для постійних клієнтів.',
+    'meta_title' => 'Купони Temu Україна: промокод і 4 000 грн | {Month} {year}',
+    'meta_desc'  => 'Промокод EKUPONI180: пакет купонів на 4 000 грн (знижки 400–1 600 грн на перші замовлення) + безкоштовні подарунки – {month} {year}. Пропозиції й для постійних клієнтів.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55022',      
     'flag_url'      => 'https://flagcdn.com/w40/ua.png',
@@ -407,7 +452,10 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['pl', 'ro-RO', 'hu', 'cs'],
-    'facts'   => [],
+    'facts'   => [
+        'bundle'     => '4 000 грн: 400 грн (від 1 200 грн), 800 грн (від 2 000 грн), 1 200 грн (від 3 000 грн), 1 600 грн (від 4 000 грн)',
+        'validity'   => '1 день після отримання, одноразовий',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-%d0%ba%d1%83%d0%bf%d0%be%d0%bd%d0%b8-%d1%82%d0%b0-%d0%bf%d1%80%d0%be%d0%bc%d0%be%d0%ba%d0%be%d0%b4%d0%b8-%d0%b4%d0%be-70/',
@@ -525,8 +573,8 @@ $COUNTRIES = [
     'full_name'     => 'Ελλάδα',
     'seo_code'      => 'el-GR',
     'lang_pack'     => 'el',
-    'meta_title' => 'Κουπόνια Temu: κωδικός έκπτωσης & προσφορές | {Month} {year}',
-    'meta_desc'  => 'Κουπόνια Temu και κωδικός έκπτωσης – {Month} {year}: έκπτωση στην πρώτη παραγγελία, προσφορές, δωρεάν δώρα και κουπόνια για παλιούς χρήστες.',
+    'meta_title' => 'Κουπόνια Temu & κωδικός έκπτωσης: -30% ή 100€ | {Month} {year}',
+    'meta_desc'  => 'Κωδικός EKUPONI180: 30% έκπτωση από 20€ (έως 24€) ή πακέτο κουπονιών 100€ και δωρεάν δώρα – {Month} {year}. Προσφορές και για παλιούς χρήστες.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55034',      
     'flag_url'      => 'https://flagcdn.com/w40/gr.png',
@@ -547,7 +595,13 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['ro-RO', 'it', 'de'],
-    'facts'   => ['eu' => true],
+    'facts'   => [
+        'eu'         => true,
+        'percent'    => '30% σε παραγγελίες άνω των 20€ (έως 24€)',
+        'bundle'     => '100€: 10€ (ελάχ. 30€), 20€ (ελάχ. 50€), 30€ (ελάχ. 70€), 40€ (ελάχ. 100€)',
+        'min_order'  => '10€ μετά το κουπόνι',
+        'validity'   => '1 ημέρα από τη λήψη, μίας χρήσης',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/%ce%ba%cf%89%ce%b4%ce%b9%ce%ba%ce%bf%ce%af-%ce%ad%ce%ba%cf%80%cf%84%cf%89%cf%83%ce%b7%cf%82-%ce%ba%ce%bf%cf%85%cf%80%cf%8c%ce%bd%ce%b9%ce%b1-temu/',
@@ -559,8 +613,8 @@ $COUNTRIES = [
     'full_name'     => 'Nederland',
     'seo_code'      => 'nl-NL',
     'lang_pack'     => 'nl',
-    'meta_title' => 'Temu kortingscode: kortingsbonnen & acties | {Month} {year}',
-    'meta_desc'  => 'Temu kortingscode – {month} {year}: korting op je eerste bestelling, gratis cadeaus en aanbiedingen voor bestaande klanten.',
+    'meta_title' => 'Temu kortingscode: 30% of €100 korting | {Month} {year}',
+    'meta_desc'  => 'Kortingscode EKUPONI180: 30% korting vanaf €20 (max. €24) of €100 couponpakket voor nieuwe klanten + gratis cadeaus – {month} {year}. Ook aanbiedingen voor bestaande klanten.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55038',      
     'flag_url'      => 'https://flagcdn.com/w40/nl.png',
@@ -581,7 +635,13 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['de', 'fr-FR', 'en-GB'],
-    'facts'   => ['eu' => true],
+    'facts'   => [
+        'eu'         => true,
+        'percent'    => '30% vanaf €20 (max. €24 korting)',
+        'bundle'     => '€100: €10 (vanaf €30), €20 (vanaf €50), €30 (vanaf €70), €40 (vanaf €100)',
+        'min_order'  => '€10 na coupon',
+        'validity'   => '1 dag na ontvangst, eenmalig',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-kortingscodes-coupons/',
@@ -593,8 +653,8 @@ $COUNTRIES = [
     'full_name'     => 'Portugal',
     'seo_code'      => 'pt-PT',
     'lang_pack'     => 'pt',
-    'meta_title' => 'Cupão Temu: cupões para novos e existentes | {Month} {year}',
-    'meta_desc'  => 'Cupões Temu – {month} de {year}: cupão de desconto para a primeira encomenda e cupons para utilizadores existentes. Presentes grátis e promoções.',
+    'meta_title' => 'Cupão Temu: 30% ou 100€ + ofertas p/ existentes | {Month} {year}',
+    'meta_desc'  => 'Cupão EKUPONI180: 30% de desconto a partir de 20€ (máx. 24€) ou pacote de cupões de 100€ + presentes grátis – {month} de {year}. Também ofertas para utilizadores existentes.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55041',      
     'flag_url'      => 'https://flagcdn.com/w40/pt.png',
@@ -615,7 +675,13 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['es', 'fr-FR', 'en-GB'],
-    'facts'   => ['eu' => true],
+    'facts'   => [
+        'eu'         => true,
+        'percent'    => '30% em encomendas acima de 20€ (desconto máx. 24€)',
+        'bundle'     => '100€: 10€ (mín. 30€), 20€ (mín. 50€), 30€ (mín. 70€), 40€ (mín. 100€)',
+        'min_order'  => '10€ após o cupão',
+        'validity'   => '1 dia após a receção, utilização única',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/codigos-de-desconto-cupoes-temu/',
@@ -695,8 +761,8 @@ $COUNTRIES = [
     'full_name'     => 'Sverige',
     'seo_code'      => 'sv-SE',
     'lang_pack'     => 'sv',
-    'meta_title' => 'Temu rabattkod & kupongkod | {Month} {year}',
-    'meta_desc'  => 'Temu rabattkod och kupongkod – {month} {year}: rabatt på första beställningen, gratis presenter och erbjudanden för befintliga kunder.',
+    'meta_title' => 'Temu rabattkod: 30% eller 1 000 kr i kuponger | {Month} {year}',
+    'meta_desc'  => 'Rabattkod EKUPONI180: 30% rabatt över 200 kr (max 250 kr) eller kupongpaket på 1 000 kr + gratis presenter – {month} {year}. Erbjudanden även för befintliga kunder.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55049',  
     'flag_url'      => 'https://flagcdn.com/w40/se.png',
@@ -717,7 +783,13 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['de', 'nl-NL', 'pl', 'en-GB'],
-    'facts'   => ['eu' => true],
+    'facts'   => [
+        'eu'         => true,
+        'percent'    => '30% på köp över 200 kr (max 250 kr)',
+        'bundle'     => '1 000 kr: 200 kr (över 400 kr), 2× 250 kr (över 700 kr), 300 kr (över 1 000 kr)',
+        'min_order'  => '100 kr efter kupong (följande köp 200 kr)',
+        'validity'   => '1 dag från mottagandet, engångsbruk',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/temu-rabattkoder-kuponger/',
@@ -797,8 +869,8 @@ $COUNTRIES = [
     'full_name'     => 'Colombia',
     'seo_code'      => 'es-CO',
     'lang_pack'     => 'es',
-    'meta_title' => 'Cupones Temu Colombia: códigos y regalos gratis | {Month} {year}',
-    'meta_desc'  => 'Cupones de Temu Colombia – {month} {year}: códigos de descuento, códigos para cosas gratis y regalos para nuevos usuarios. También ofertas para clientes existentes.',
+    'meta_title' => 'Cupones Temu Colombia: $400.000 y regalos gratis | {Month} {year}',
+    'meta_desc'  => 'Código EKUPONI180: paquete de cupones de $400.000 COP + códigos para cosas gratis – {month} {year}. Ofertas también para clientes existentes.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55057',  
     'flag_url'      => 'https://flagcdn.com/w40/co.png',
@@ -819,7 +891,10 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['es-PE', 'es-MX', 'es-DO', 'es-SV'],
-    'facts'   => [],
+    'facts'   => [
+        'bundle'     => '$400.000 COP en 4 cupones para tus primeros pedidos',
+        'validity'   => '1 día desde la recepción, de un solo uso',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-colombia/',
@@ -865,8 +940,8 @@ $COUNTRIES = [
     'full_name'     => 'Perú',
     'seo_code'      => 'es-PE',
     'lang_pack'     => 'es',
-    'meta_title' => 'Cupones Temu Perú: códigos y regalos gratis | {Month} {year}',
-    'meta_desc'  => 'Cupones de Temu Perú – {month} {year}: códigos de descuento, códigos para cosas gratis y regalos para nuevos usuarios. También ofertas para clientes existentes.',
+    'meta_title' => 'Cupones Temu Perú: S/ 400 y regalos gratis | {Month} {year}',
+    'meta_desc'  => 'Código EKUPONI180: paquete de cupones de S/ 400 + códigos para cosas gratis – {month} {year}. Ofertas también para clientes existentes.',
     'domain'        => 'https://ekuponi.com/', 
     'sidebar_id'    => '55063',  
     'flag_url'      => 'https://flagcdn.com/w40/pe.png',
@@ -887,7 +962,10 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['es-CO', 'es-AR', 'es-MX'],
-    'facts'   => [],
+    'facts'   => [
+        'bundle'     => 'S/ 400 en 4 cupones para tus primeros pedidos',
+        'validity'   => '1 día desde la recepción, de un solo uso',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-peru/',
@@ -923,7 +1001,10 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['es-MX', 'es-DO', 'es-CO', 'en-US'],
-    'facts'   => [],
+    'facts'   => [
+        'bundle'     => '$60 en 4 cupones para tus primeros pedidos',
+        'validity'   => '1 día desde la recepción, de un solo uso',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-el-salvador/',
@@ -959,7 +1040,10 @@ $COUNTRIES = [
     ], 
     'related' => [],
     'nearby'  => ['es-SV', 'es-MX', 'es-CO', 'en-US'],
-    'facts'   => [],
+    'facts'   => [
+        'bundle'     => 'RD$ 5,800 en 4 cupones para tus primeros pedidos',
+        'validity'   => '1 día desde la recepción, de un solo uso',
+    ],
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-republica-dominicana/',
@@ -1009,8 +1093,8 @@ $COUNTRIES = [
         'full_name'     => 'France',
         'seo_code'      => 'fr-FR',
         'lang_pack'     => 'fr',
-        'meta_title' => 'Code promo Temu : bons de réduction | {Month} {year}',
-        'meta_desc'  => 'Code promo Temu – {month} {year} : réduction sur la première commande, cadeaux gratuits et offres pour les clients existants.',
+        'meta_title' => 'Code promo Temu : -30% ou 100€ de réduction | {Month} {year}',
+        'meta_desc'  => 'Code EKUPONI180 : 30% dès 20€ (max. 24€) ou pack de coupons de 100€ pour les nouveaux clients + cadeaux gratuits – {month} {year}. Offres aussi pour les clients existants.',
         'domain'        => 'https://ekuponi.com/', 
         'sidebar_id'    => '54997',  
         'flag_url'      => 'https://flagcdn.com/w40/fr.png',
@@ -1034,7 +1118,19 @@ $COUNTRIES = [
 
         'nearby'  => ['es', 'it', 'de', 'en-GB'],
 
-        'facts'   => ['eu' => true],
+        'facts'   => [
+
+            'eu'         => true,
+
+            'percent'    => '30% dès 20€ d’achat (remise max. 24€)',
+
+            'bundle'     => '100€ : 10€ dès 30€, 20€ dès 50€, 30€ dès 70€, 40€ dès 100€',
+
+            'min_order'  => '10€ après coupon (commandes suivantes 20€)',
+
+            'validity'   => '1 jour après réception, à usage unique',
+
+        ],
 
 
         'paths' => [
@@ -1047,8 +1143,8 @@ $COUNTRIES = [
         'full_name'     => 'United States',
         'seo_code'      => 'en-US',
         'lang_pack'     => 'en',
-        'meta_title' => 'Temu Coupon Code: Discounts & Free Gifts | {Month} {year}',
-        'meta_desc'  => 'Temu coupon codes for United States – {Month} {year}: discounts on your first order, free gifts and deals for existing customers. All codes checked by our editors.',
+        'meta_title' => 'Temu Coupon Code: $100 Bundle + Free Gifts | {Month} {year}',
+        'meta_desc'  => 'Code EKUPONI180 unlocks a $100 Temu bundle ($10–$40 off your first 4 orders) + free gifts. {Month} {year}, plus deals for existing customers.',
         'date_fmt'      => 'm/d/Y',
         'domain'        => 'https://ekuponi.com/',
         'sidebar_id'    => '54958',
@@ -1073,7 +1169,13 @@ $COUNTRIES = [
 
         'nearby'  => ['en-GB', 'es-MX'],
 
-        'facts'   => [],
+        'facts'   => [
+
+            'bundle'     => '$100: $10 off $30+, $20 off $50+, $30 off $70+, $40 off $100+ (one per order)',
+
+            'validity'   => '1 day after you receive the coupon, single use',
+
+        ],
 
 
         'paths' => [
