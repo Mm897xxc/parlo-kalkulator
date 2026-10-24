@@ -54,8 +54,14 @@ if (function_exists('ekp_fill_date')) {
     $c_desc  = ekp_fill_date($c_desc, $ekp_pack, $current['full_name'] ?? '');
 }
 
-/* hreflang (stranice koje postoje i međusobno se referenciraju) */
-$ekp_hreflang = [
+/* hreflang (stranice koje postoje i međusobno se referenciraju).
+   Glavni popis je u snippetu ekp-hreflang (ekp_temu_hreflang); ovo je rezervni popis ako snippet nije aktivan. */
+$ekp_hreflang = function_exists('ekp_temu_hreflang') ? ekp_temu_hreflang() : [
+    'hr'    => 'https://ekuponi.com/store/temu/',
+    'sl-SI' => 'https://sl.ekuponi.com/sl/store/temu/',
+    'bg-BG' => 'https://bg.ekuponi.com/bg/store/temu/',
+    'sr-RS' => 'https://ekuponi.com/rs/store/temu/',
+    'bs-BA' => 'https://ekuponi.com/ba/store/temu/',
     'es-AR' => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-argentina/',
     'es-CO' => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-colombia/',
     'cs-CZ' => 'https://ekuponi.com/temu-kupony-a-slevove-kody/',
