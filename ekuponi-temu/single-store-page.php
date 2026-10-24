@@ -38,11 +38,17 @@ $ekp_enabled = is_array($t);
 $GLOBALS['ekp_lang_pack'] = $ekp_pack;
 
 /* Meta title i description: config (države pa jezični paket) ima prednost, ACF polja su rezerva.
-   {month}, {Month}, {year} i {country} se svaki mjesec mijenjaju automatski. */
-$c_title = trim($current['meta_title'] ?? '')
-    ?: (get_post_meta($ekp_post_id, 'custom_meta_title', true) ?: get_the_title($ekp_post_id));
-$c_desc  = trim($current['meta_desc'] ?? '')
-    ?: (trim($t['meta_desc'] ?? '') ?: get_post_meta($ekp_post_id, 'custom_meta_description', true));
+   'use_acf_meta' => true u configu zadržava ACF naslove (za stranice koje već dobro rangiraju).
+   {month}, {Month}, {year} i {country} se svaki mjesec mijenjaju automatski (i u ACF poljima). */
+$ekp_acf_title = get_post_meta($ekp_post_id, 'custom_meta_title', true);
+$ekp_acf_desc  = get_post_meta($ekp_post_id, 'custom_meta_description', true);
+if (!empty($current['use_acf_meta']) && $ekp_acf_title) {
+    $c_title = $ekp_acf_title;
+    $c_desc  = $ekp_acf_desc ?: ($current['meta_desc'] ?? ($t['meta_desc'] ?? ''));
+} else {
+    $c_title = trim($current['meta_title'] ?? '') ?: ($ekp_acf_title ?: get_the_title($ekp_post_id));
+    $c_desc  = trim($current['meta_desc'] ?? '') ?: (trim($t['meta_desc'] ?? '') ?: $ekp_acf_desc);
+}
 if (function_exists('ekp_fill_date')) {
     $c_title = ekp_fill_date($c_title, $ekp_pack, $current['full_name'] ?? '');
     $c_desc  = ekp_fill_date($c_desc, $ekp_pack, $current['full_name'] ?? '');
