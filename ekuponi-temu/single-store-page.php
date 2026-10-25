@@ -64,6 +64,7 @@ $ekp_hreflang = function_exists('ekp_temu_hreflang') ? ekp_temu_hreflang() : [
     'bs-BA' => 'https://ekuponi.com/ba/store/temu/',
     'es-AR' => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-argentina/',
     'es-CO' => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-colombia/',
+    'es-CL' => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-chile/',
     'cs-CZ' => 'https://ekuponi.com/temu-kupony-a-slevove-kody/',
     'es-DO' => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-republica-dominicana/',
     'es-SV' => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-el-salvador/',

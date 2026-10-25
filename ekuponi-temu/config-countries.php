@@ -93,7 +93,7 @@ $COUNTRIES = [
 
         'related' => [],
 
-        'nearby'  => ['es-CO', 'es-PE', 'es-MX', 'es'],
+        'nearby'  => ['es-CL', 'es-CO', 'es-PE', 'es-MX', 'es'],
 
         'facts'   => [
 
@@ -890,7 +890,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
     'related' => [],
-    'nearby'  => ['es-PE', 'es-MX', 'es-DO', 'es-SV'],
+    'nearby'  => ['es-CL', 'es-PE', 'es-MX', 'es-DO', 'es-SV'],
     'facts'   => [
         'bundle'     => '$400.000 COP en 4 cupones para tus primeros pedidos',
         'validity'   => '1 día desde la recepción, de un solo uso',
@@ -961,7 +961,7 @@ $COUNTRIES = [
         'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
     ], 
     'related' => [],
-    'nearby'  => ['es-CO', 'es-AR', 'es-MX'],
+    'nearby'  => ['es-CL', 'es-CO', 'es-AR', 'es-MX'],
     'facts'   => [
         'bundle'     => 'S/ 400 en 4 cupones para tus primeros pedidos',
         'validity'   => '1 día desde la recepción, de un solo uso',
@@ -969,6 +969,44 @@ $COUNTRIES = [
 
     'paths' => [
         'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-peru/',
+        'vodic'    => '',
+    ]
+],
+
+'es-CL' => [
+    'full_name'     => 'Chile',
+    'seo_code'      => 'es-CL',
+    'lang_pack'     => 'es',
+    'meta_title' => 'Código Temu Chile -30% + $100.000 🔥 hasta -90% | {Month} {year}',
+    'meta_desc'  => 'Código EKUPONI180: 30% de descuento o pack de cupones de CLP $100.000 para tu primera compra + cosas gratis – {month} {year}. Ofertas también para clientes existentes.',
+    'domain'        => 'https://ekuponi.com/', 
+    'sidebar_id'    => '',  
+    'flag_url'      => 'https://flagcdn.com/w40/cl.png',
+    
+    'labels' => [
+        'cupones'         => 'Cupones',
+        'guia'            => 'Guía de Descuentos',
+        'verificado'      => 'Cupones verificados 2026',
+        'rating'          => 'Calificación de usuarios ⭐ 4.7',
+        'ahorro'          => '🔥 Ahorro garantizado',
+        'domain_display'  => 'eKuponi.com',
+        'privacy'         => 'Política de Privacidad',
+        'terms'           => 'Términos de Uso',
+        'contacto'        => 'Contacto',
+        'affiliate_title' => 'Divulgación de Afiliados',
+        'affiliate_text'  => 'Este es un sitio web de afiliados independiente. No estamos oficialmente afiliados, aprobados ni conectados con TEMU ni ninguna otra tienda mencionada en nuestro sitio. Podemos recibir una comisión cuando realizas una compra a través de nuestros enlaces.',
+        'copyright'       => '© 2026 eKuponi.com - Todos los derechos reservados.',
+    ], 
+    'related' => [],
+    'nearby'  => ['es-AR', 'es-PE', 'es-CO', 'es-MX'],
+    'facts'   => [
+        'percent'    => '30% de descuento',
+        'bundle'     => 'Hasta CLP $100.000 en 6 cupones para tus primeros pedidos',
+        'validity'   => '24 horas desde la recepción, de un solo uso',
+    ],
+
+    'paths' => [
+        'kuponi'   => 'https://ekuponi.com/cupones-y-codigos-descuento-temu-chile/',
         'vodic'    => '',
     ]
 ],
