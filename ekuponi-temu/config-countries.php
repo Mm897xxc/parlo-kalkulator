@@ -23,7 +23,7 @@
 
 $COUNTRIES = [
     'es-MX' => [
-        'full_name'     => 'Mexico',
+        'full_name'     => 'México',
         'seo_code'      => 'es-MX',
         'lang_pack'     => 'es',
         'meta_title' => 'Cupones Temu México $1,000 + código 🔥 hasta -90% | {Month} {year}',
