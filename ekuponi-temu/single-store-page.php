@@ -53,6 +53,11 @@ if (function_exists('ekp_fill_date')) {
     $c_title = ekp_fill_date($c_title, $ekp_pack, $current['full_name'] ?? '');
     $c_desc  = ekp_fill_date($c_desc, $ekp_pack, $current['full_name'] ?? '');
 }
+/* shortcodeovi upisani u ACF title/description (npr. [ekp_month]) */
+if (function_exists('do_shortcode')) {
+    $c_title = trim(wp_strip_all_tags(do_shortcode($c_title)));
+    $c_desc  = trim(wp_strip_all_tags(do_shortcode($c_desc)));
+}
 
 /* hreflang (stranice koje postoje i međusobno se referenciraju).
    Glavni popis je u snippetu ekp-hreflang (ekp_temu_hreflang); ovo je rezervni popis ako snippet nije aktivan. */
