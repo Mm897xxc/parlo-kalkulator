@@ -1,0 +1,82 @@
+<?php
+// Datoteka za kopiranje: u functions.php zalijepi sve OSIM prvog retka "<?php".
+// ===== Hero Wars popup (Kolegio kodovi) – zalijepi na KRAJ functions.php child teme =====
+add_action('wp_footer', function () { ?>
+<style>
+  .hwp-overlay{position:fixed; inset:0; background:rgba(10,16,30,.62); display:none; align-items:center; justify-content:center; z-index:99999; padding:16px; box-sizing:border-box;}
+  .hwp-overlay.hwp-open{display:flex; animation:hwpFade .25s ease-out;}
+  @keyframes hwpFade{from{opacity:0}to{opacity:1}}
+  .hwp-box{position:relative; width:100%; max-width:440px; max-height:calc(100vh - 32px); overflow-y:auto; background:#fff; border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,.35); font-family:Arial, Helvetica, sans-serif; color:#1d2b36; text-align:center; box-sizing:border-box;}
+  .hwp-close{position:absolute; top:10px; right:10px; width:34px; height:34px; border:0; border-radius:50%; background:rgba(0,0,0,.55); color:#fff; font-size:20px; line-height:34px; cursor:pointer; z-index:2;}
+  .hwp-close:hover{background:rgba(0,0,0,.75);}
+  .hwp-banner{display:block; position:relative;}
+  .hwp-banner img.hwp-hero{display:block; width:100%; height:auto; border-radius:16px 16px 0 0;}
+  .hwp-logo{position:absolute; left:50%; bottom:-34px; transform:translateX(-50%); width:96px; height:auto; background:#fff; padding:4px; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.3);}
+  .hwp-body{padding:42px 22px 22px;}
+  .hwp-tag{margin:0 0 6px; font-size:12px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:#5599ff;}
+  .hwp-title{margin:0 0 6px; font-size:24px; line-height:1.2; font-weight:bold;}
+  .hwp-sub{margin:0 0 16px; font-size:14px; line-height:1.5; color:#5a6772;}
+  .hwp-codes{display:flex; flex-direction:column; gap:8px; margin:0 0 16px;}
+  .hwp-code{display:flex; align-items:center; justify-content:space-between; gap:10px; border:2px dashed #5599ff; border-radius:10px; padding:8px 10px 8px 14px; text-align:left;}
+  .hwp-code b{display:block; font-family:'Courier New', Courier, monospace; font-size:17px; letter-spacing:1px;}
+  .hwp-code span{display:block; font-size:12px; color:#6b7883; margin-top:2px;}
+  .hwp-copy{flex:0 0 auto; border:0; border-radius:8px; background:#eef4ff; color:#2f6fe0; font-weight:bold; font-size:13px; padding:8px 12px; cursor:pointer;}
+  .hwp-copy.hwp-done{background:#2fb36b; color:#fff;}
+  .hwp-cta{display:block; background:#5599ff; color:#fff !important; text-decoration:none; font-weight:bold; font-size:17px; padding:14px 16px; border-radius:10px;}
+  .hwp-cta:hover{background:#3f86f5;}
+  .hwp-note{margin:10px 0 0; font-size:12px; color:#8a95a0;}
+</style>
+
+<div class="hwp-overlay" id="hwpOverlay" role="dialog" aria-modal="true" aria-labelledby="hwpTitle">
+  <div class="hwp-box">
+    <button class="hwp-close" type="button" aria-label="Zatvori">&times;</button>
+    <a class="hwp-banner" href="https://www.jdoqocy.com/click-8525247-17367022" target="_blank" rel="sponsored noopener">
+      <img class="hwp-hero" src="https://email.navlake.hr/uploads/1793715142.jpg" alt="Hero Wars: Dominion Era">
+      <img class="hwp-logo" src="https://email.navlake.hr/uploads/1793715344.jpg" alt="Hero Wars logo">
+    </a>
+    <div class="hwp-body">
+      <p class="hwp-tag">Ekskluzivno za Kolegio</p>
+      <h2 class="hwp-title" id="hwpTitle">3 besplatna koda za Hero Wars</h2>
+      <p class="hwp-sub">Heroine, zlato, smaragdi i napici iskustva.</p>
+      <div class="hwp-codes">
+        <div class="hwp-code"><div><b>KOLEGIOMARTHA</b><span>Martha · 150.000 zlata · 800 smaragda</span></div><button class="hwp-copy" type="button" data-code="KOLEGIOMARTHA">Kopiraj</button></div>
+        <div class="hwp-code"><div><b>KOLEGIOPOLARIS</b><span>Polaris · 255.000 zlata · 1.000 smaragda</span></div><button class="hwp-copy" type="button" data-code="KOLEGIOPOLARIS">Kopiraj</button></div>
+        <div class="hwp-code"><div><b>KOLEGIOIRIS</b><span>Iris · 50.000 zlata · 1.000 smaragda</span></div><button class="hwp-copy" type="button" data-code="KOLEGIOIRIS">Kopiraj</button></div>
+      </div>
+      <a class="hwp-cta" href="https://www.jdoqocy.com/click-8525247-17367022" target="_blank" rel="sponsored noopener">Igraj i iskoristi kodove →</a>
+      <p class="hwp-note">Kodovi vrijede do 28. 2. 2027.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var KEY = 'hwp_seen_until';          // pamti zatvaranje
+  var DAYS = 3;                        // ne prikazuj ponovno 3 dana
+  var DELAY = 4000;                    // prikaži nakon 4 s
+  var END = new Date('2027-02-28T23:59:59');
+  if (new Date() > END) return;        // nakon isteka kodova se ne prikazuje
+  var ov = document.getElementById('hwpOverlay');
+  if (!ov) return;
+  try { if (Date.now() < +localStorage.getItem(KEY)) return; } catch (e) {}
+  function close() {
+    ov.classList.remove('hwp-open');
+    try { localStorage.setItem(KEY, String(Date.now() + DAYS * 864e5)); } catch (e) {}
+  }
+  setTimeout(function () { ov.classList.add('hwp-open'); }, DELAY);
+  ov.querySelector('.hwp-close').addEventListener('click', close);
+  ov.addEventListener('click', function (e) { if (e.target === ov) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  ov.querySelectorAll('.hwp-cta, .hwp-banner').forEach(function (a) { a.addEventListener('click', close); });
+  ov.querySelectorAll('.hwp-copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var code = b.getAttribute('data-code');
+      var done = function () { b.textContent = 'Kopirano!'; b.classList.add('hwp-done'); setTimeout(function () { b.textContent = 'Kopiraj'; b.classList.remove('hwp-done'); }, 1800); };
+      if (navigator.clipboard) { navigator.clipboard.writeText(code).then(done, done); }
+      else { var t = document.createElement('textarea'); t.value = code; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (e) {} document.body.removeChild(t); done(); }
+    });
+  });
+})();
+</script>
+<?php }, 99);
+// ===== KRAJ Hero Wars popupa =====
