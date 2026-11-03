@@ -1,7 +1,6 @@
-<?php
-// Datoteka za kopiranje: u functions.php zalijepi sve OSIM prvog retka "<?php".
-// ===== Hero Wars popup (Kolegio kodovi) – zalijepi na KRAJ functions.php child teme =====
-add_action('wp_footer', function () { ?>
+// ===== Hero Wars popup (Kolegio kodovi) =====
+add_action('wp_footer', function () {
+echo <<<'HWPHTML'
 <style>
   .hwp-overlay{position:fixed; inset:0; background:rgba(10,16,30,.62); display:none; align-items:center; justify-content:center; z-index:99999; padding:16px; box-sizing:border-box;}
   .hwp-overlay.hwp-open{display:flex; animation:hwpFade .25s ease-out;}
@@ -78,5 +77,6 @@ add_action('wp_footer', function () { ?>
   });
 })();
 </script>
-<?php }, 99);
+HWPHTML;
+}, 99);
 // ===== KRAJ Hero Wars popupa =====
