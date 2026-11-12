@@ -7,19 +7,20 @@
  */
 
 /* ============================================================
- * eShopper blok: povezuje stranicu trgovine na eKuponima sa
- * stranicom iste trgovine na eshopper.hr (usporedba cijena).
+ * eShopper blok: na stranici trgovine na eKuponima prikazuje
+ * tražilicu proizvoda koja vodi na pretragu eshopper.hr.
  * - prikazuje se samo na glavnoj (hrvatskoj) stranici
- * - popis trgovina čita iz eshopper.hr/sitemaps/shops.xml,
- *   sprema u cache na 12 sati
- * - ručno: ACF polje "eshopper_url" na trgovini (taksonomija store)
- *   * upiši punu adresu za ručno spajanje
- *   * upiši "ne" da se blok ne prikazuje za tu trgovinu
+ * - ako trgovina postoji na eShopperu, dodaje i link na njezinu
+ *   stranicu s informacijama (popis iz eshopper.hr/sitemaps/shops.xml,
+ *   cache 12 sati)
+ * - ACF polje "eshopper_url" na trgovini (taksonomija store), neobavezno:
+ *   * puna adresa eShopper stranice trgovine = ručno spajanje
+ *   * "ne" = blok se za tu trgovinu ne prikazuje
  * ============================================================ */
 
 if ( ! function_exists( 'ekp_eshopper_shops' ) ) {
     function ekp_eshopper_shops() {
-        $cached = get_transient( 'ekp_eshopper_shops' );
+        $cached = get_transient( 'ekp_eshopper_shop_slugs' );
         if ( is_array( $cached ) ) {
             return $cached;
         }
@@ -28,22 +29,13 @@ if ( ! function_exists( 'ekp_eshopper_shops' ) ) {
         $resp  = wp_remote_get( 'https://eshopper.hr/sitemaps/shops.xml', array( 'timeout' => 8 ) );
 
         if ( ! is_wp_error( $resp ) && 200 === (int) wp_remote_retrieve_response_code( $resp ) ) {
-            $body = wp_remote_retrieve_body( $resp );
-            if ( preg_match_all( '#<loc>https://eshopper\.hr/trgovina/([a-z0-9-]+)(?:/([a-z0-9-]+))?(?:/[a-z0-9-]+)?</loc>#', $body, $m, PREG_SET_ORDER ) ) {
-                foreach ( $m as $row ) {
-                    $slug = $row[1];
-                    if ( ! isset( $shops[ $slug ] ) ) {
-                        $shops[ $slug ] = array();
-                    }
-                    if ( ! empty( $row[2] ) && ! in_array( $row[2], $shops[ $slug ], true ) ) {
-                        $shops[ $slug ][] = $row[2];
-                    }
-                }
+            if ( preg_match_all( '#<loc>https://eshopper\.hr/trgovina/([a-z0-9-]+)/?</loc>#', wp_remote_retrieve_body( $resp ), $m ) ) {
+                $shops = array_values( array_unique( $m[1] ) );
             }
         }
 
         // Ako dohvat ne uspije, probaj ponovno za sat vremena.
-        set_transient( 'ekp_eshopper_shops', $shops, empty( $shops ) ? HOUR_IN_SECONDS : 12 * HOUR_IN_SECONDS );
+        set_transient( 'ekp_eshopper_shop_slugs', $shops, empty( $shops ) ? HOUR_IN_SECONDS : 12 * HOUR_IN_SECONDS );
         return $shops;
     }
 }
@@ -70,84 +62,60 @@ if ( ! function_exists( 'ekp_eshopper_block' ) ) {
             return ''; // eShopper je samo za Hrvatsku
         }
 
-        $url  = '';
-        $cats = array();
-
         $manual = function_exists( 'get_field' ) ? trim( (string) get_field( 'eshopper_url', $term->taxonomy . '_' . $term->term_id ) ) : '';
         if ( 'ne' === strtolower( $manual ) ) {
             return '';
         }
 
-        $shops = ekp_eshopper_shops();
-
+        // Link na stranicu trgovine na eShopperu, ako postoji.
+        $shop_url = '';
         if ( $manual && 0 === strpos( $manual, 'https://eshopper.hr/' ) ) {
-            $url = $manual;
-            if ( preg_match( '#/trgovina/([a-z0-9-]+)#', $manual, $mm ) && isset( $shops[ $mm[1] ] ) ) {
-                $cats = $shops[ $mm[1] ];
-            }
+            $shop_url = $manual;
         } else {
             $want = array_filter( array_unique( array(
                 ekp_eshopper_key( $term->slug ),
                 ekp_eshopper_key( $term->name ),
             ) ) );
-            foreach ( $shops as $slug => $shop_cats ) {
+            foreach ( ekp_eshopper_shops() as $slug ) {
                 if ( in_array( ekp_eshopper_key( $slug ), $want, true ) ) {
-                    $url  = 'https://eshopper.hr/trgovina/' . $slug;
-                    $cats = $shop_cats;
+                    $shop_url = 'https://eshopper.hr/trgovina/' . $slug;
                     break;
                 }
             }
         }
 
-        if ( ! $url ) {
-            return '';
-        }
-
-        $labels = array(
-            'odjeca-i-obuca'      => 'Odjeća i obuća',
-            'dom-i-vrt'           => 'Dom i vrt',
-            'ljepota-i-zdravlje'  => 'Ljepota i zdravlje',
-            'elektronika'         => 'Elektronika',
-            'auto-moto'           => 'Auto-moto',
-            'djeca-i-igracke'     => 'Djeca i igračke',
-            'sport-i-rekreacija'  => 'Sport i rekreacija',
-            'kucni-ljubimci'      => 'Kućni ljubimci',
-            'hrana-i-pice'        => 'Hrana i piće',
-            'hobi-ured-i-skola'   => 'Hobi, ured i škola',
-        );
-
         $store = esc_html( $term->name );
-        $base  = untrailingslashit( preg_replace( '#(/trgovina/[a-z0-9-]+).*$#', '$1', $url ) );
-
-        $chips = '';
-        $n     = 0;
-        foreach ( $cats as $c ) {
-            if ( ! isset( $labels[ $c ] ) || $n >= 4 ) {
-                continue;
-            }
-            $chips .= '<a class="ekp-esh-chip" href="' . esc_url( $base . '/' . $c ) . '" target="_blank" rel="noopener">' . esc_html( $labels[ $c ] ) . '</a>';
-            $n++;
-        }
 
         ob_start(); ?>
         <style>
             .ekp-esh{margin:20px 0 10px;padding:18px 20px;border:1px solid #d6efe9;border-left:4px solid #31bda4;border-radius:8px;background:#f5fbfa}
             .ekp-esh h4{margin:0 0 6px;font-size:17px;font-weight:700;color:#1d2b36}
             .ekp-esh p{margin:0 0 12px;font-size:14px;line-height:1.5;color:#4a5560}
-            .ekp-esh-btn{display:inline-block;padding:9px 16px;border-radius:6px;background:#31bda4;color:#fff !important;font-weight:700;text-decoration:none}
-            .ekp-esh-btn:hover{background:#28a28c}
-            .ekp-esh-chips{margin-top:12px}
-            .ekp-esh-chip{display:inline-block;margin:0 6px 6px 0;padding:4px 10px;border:1px solid #bfe5dd;border-radius:14px;font-size:13px;color:#1f7f6d !important;text-decoration:none;background:#fff}
-            .ekp-esh-note{margin-top:8px !important;font-size:12px !important;color:#8a95a0 !important}
+            .ekp-esh-form{display:flex;gap:8px;flex-wrap:wrap}
+            .ekp-esh-form input[type=search]{flex:1 1 220px;min-width:0;height:44px;padding:0 14px;border:1px solid #bfe5dd;border-radius:6px;font-size:15px;background:#fff}
+            .ekp-esh-form input[type=search]:focus{outline:none;border-color:#31bda4;box-shadow:0 0 0 3px rgba(49,189,164,.2)}
+            .ekp-esh-form button{flex:0 0 auto;height:44px;padding:0 18px;border:0;border-radius:6px;background:#31bda4;color:#fff;font-weight:700;font-size:15px;cursor:pointer}
+            .ekp-esh-form button:hover{background:#28a28c}
+            .ekp-esh-note{margin:10px 0 0 !important;font-size:12px !important;color:#8a95a0 !important}
+            .ekp-esh-note a{color:#1f7f6d;text-decoration:underline}
         </style>
         <div class="ekp-esh">
-            <h4>Prije nego iskoristiš kod: provjeri cijenu</h4>
-            <p>Isti proizvod često je jeftiniji u drugoj trgovini. Usporedi cijene i dostavu proizvoda iz trgovine <?php echo $store; ?> s drugim web trgovinama koje dostavljaju u Hrvatsku.</p>
-            <a class="ekp-esh-btn" href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener">Usporedi cijene <?php echo $store; ?> proizvoda na eShopperu →</a>
-            <?php if ( $chips ) : ?>
-                <div class="ekp-esh-chips"><?php echo $chips; ?></div>
-            <?php endif; ?>
-            <p class="ekp-esh-note">eShopper je naš besplatni servis za usporedbu cijena.</p>
+            <h4>Usporedi cijenu prije kupnje</h4>
+            <p>Upiši proizvod koji želiš kupiti u trgovini <?php echo $store; ?> i provjeri je li negdje jeftiniji – usporedba cijena i dostave u trgovinama koje dostavljaju u Hrvatsku.</p>
+            <form class="ekp-esh-form" action="https://eshopper.hr/pretraga" method="get" target="_blank" role="search">
+                <input type="search" name="q" required placeholder="Npr. naziv proizvoda, marka ili model" aria-label="Naziv proizvoda">
+                <input type="hidden" name="utm_source" value="ekuponi">
+                <input type="hidden" name="utm_medium" value="referral">
+                <input type="hidden" name="utm_campaign" value="store-search">
+                <input type="hidden" name="utm_content" value="<?php echo esc_attr( $term->slug ); ?>">
+                <button type="submit">Usporedi cijene</button>
+            </form>
+            <p class="ekp-esh-note">
+                Pretraga se otvara na <strong>eShopperu</strong>, našem besplatnom servisu za usporedbu cijena.
+                <?php if ( $shop_url ) : ?>
+                    <a href="<?php echo esc_url( $shop_url ); ?>" target="_blank" rel="noopener"><?php echo $store; ?> na eShopperu</a>
+                <?php endif; ?>
+            </p>
         </div>
         <?php
         return ob_get_clean();
