@@ -1,0 +1,46 @@
+<!doctype html><html lang="hr"><head><meta charset="utf-8"><title>eShopper – proizvodi bez slike</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f6f7f8;font-family:Inter,Arial,sans-serif;color:#1d2b36}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px}
+h2{font-size:20px;margin:0 0 14px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:34px}
+.card{background:#fff;border:1px solid #e4e8ea;border-radius:14px;padding:12px;display:flex;flex-direction:column}
+.img{height:150px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;overflow:hidden;background:#fff}
+.img img{max-height:140px;max-width:100%}
+.ph{background:linear-gradient(135deg,#eef6f2,#f4f7f9);flex-direction:column;gap:6px}
+.ph svg{width:46px;height:46px;stroke:#8fb9a5;fill:none;stroke-width:1.6}
+.ph span{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#7aa592}
+.brand{font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#8a95a0}
+.title{font-size:14px;line-height:1.3;margin:3px 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.6em}
+.price{font-size:17px;font-weight:700;margin-top:auto}.cnt{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:#0f7a55;background:#e6f5ee;border-radius:10px;padding:2px 8px;align-self:flex-start}
+.page{background:#fff;border:1px solid #e4e8ea;border-radius:16px;padding:22px;display:grid;grid-template-columns:210px 1fr;gap:22px}
+.bigph{height:210px;border-radius:14px}.bigph svg{width:70px;height:70px}
+.meta{font-size:13px;color:#6b7883;margin:4px 0 14px}.meta b{color:#1d2b36}
+.hint{font-size:12px;color:#8a95a0;margin-top:8px;text-align:center}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:11px 8px;border-top:1px solid #eef1f3;text-align:left}th{font-size:12px;color:#8a95a0;font-weight:600;border-top:0}
+.best td{background:#f3fbf7}.tag{font-size:11px;font-weight:700;color:#0f7a55;background:#e6f5ee;border-radius:8px;padding:2px 7px;margin-left:6px}
+.btn{background:#13985f;color:#fff;border-radius:9px;padding:8px 14px;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap}
+.tot{font-weight:700}.lbl{font-size:12px;font-weight:700;color:#13985f;margin:0 0 8px}
+</style></head><body><div class="wrap">
+<p class="lbl">Popis proizvoda – kartice sa slikom i bez slike jedna do druge</p>
+<div class="grid">
+ <div class="card"><div class="img"><img src="https://www.brasty.hr/images/w320/143202-1.jpg" alt=""></div><div class="brand">Kenzo</div><div class="title">Kenzo Homme Intense toaletna voda za muškarce 110 ml</div><div class="price">od 50,44 €</div><span class="cnt">u 4 trgovine</span></div>
+ <div class="card"><div class="img ph"><svg viewBox="0 0 24 24"><path d="M9 3h6v3H9zM7 6h10l1 4v9a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-9z"/><path d="M6 12h12"/></svg><span>Parfemi</span></div><div class="brand">Dior</div><div class="title">Dior Sauvage parfemska voda 100 ml</div><div class="price">od 109,90 €</div><span class="cnt">u 3 trgovine</span></div>
+ <div class="card"><div class="img ph"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h6l2 8M10 9l-1-3H7M14 9l2-3h2"/></svg><span>Bicikli</span></div><div class="brand">KTM</div><div class="title">KTM Macina Power Sport 10 625 Wh, crni</div><div class="price">od 2.499,00 €</div><span class="cnt">u 2 trgovine</span></div>
+ <div class="card"><div class="img ph"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg><span>Elektronika</span></div><div class="brand">Samsung</div><div class="title">Samsung 55" Crystal UHD TV UE55DU7172</div><div class="price">od 429,00 €</div><span class="cnt">u 5 trgovina</span></div>
+ <div class="card"><div class="img ph"><svg viewBox="0 0 24 24"><path d="M14 4l6 6-9 9H5v-6z"/><path d="M12 6l6 6"/></svg><span>Alati</span></div><div class="brand">Makita</div><div class="title">Makita aku bušilica DDF485Z 18V (bez baterije)</div><div class="price">od 119,00 €</div><span class="cnt">u 6 trgovina</span></div>
+</div>
+<p class="lbl">Stranica proizvoda bez slike – fokus na tablici cijena</p>
+<div class="page">
+ <div><div class="img ph bigph"><svg viewBox="0 0 24 24"><path d="M14 4l6 6-9 9H5v-6z"/><path d="M12 6l6 6"/></svg><span>Alati</span></div><div class="hint">Slika trenutno nije dostupna</div></div>
+ <div>
+  <div class="brand">Makita</div><h2 style="margin:4px 0">Makita aku bušilica DDF485Z 18V (bez baterije)</h2>
+  <div class="meta">Šifra proizvođača <b>DDF485Z</b> · EAN <b>0088381840156</b> · Cijene u <b>6 trgovina</b>: 119,00 € – 164,90 €</div>
+  <table><tr><th>Trgovina</th><th>Cijena</th><th>Dostava</th><th>Ukupno</th><th></th></tr>
+   <tr class="best"><td>Bačelić Profi Shop<span class="tag">Najpovoljnije</span></td><td>119,00 €</td><td>4,90 €</td><td class="tot">123,90 €</td><td><a class="btn" href="#">U trgovinu</a></td></tr>
+   <tr><td>Pevex</td><td>124,99 €</td><td>besplatno</td><td class="tot">124,99 €</td><td><a class="btn" href="#">U trgovinu</a></td></tr>
+   <tr><td>Toolbrothers (DE)</td><td>112,00 €</td><td>14,99 €</td><td class="tot">126,99 €</td><td><a class="btn" href="#">U trgovinu</a></td></tr>
+   <tr><td>Pinel Krk</td><td>139,00 €</td><td>5,00 €</td><td class="tot">144,00 €</td><td><a class="btn" href="#">U trgovinu</a></td></tr>
+  </table>
+ </div>
+</div></div></body></html>
